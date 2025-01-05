@@ -35,7 +35,7 @@ if not isKeybindValid(Keybind) then
     showNotification("Invalid keybind! Defaulting to RightShift.")
     Keybind = "RightShift"
 else
-    showNotification('Press RightShift to show/hide esp')
+    showNotification("Press "..tostring(Keybind).." to show/hide esp")
 end
 
 local function espadd(v, icon)
