@@ -3,7 +3,16 @@ repeat task.wait() until game:IsLoaded()
 local Keybind = shared.Keybind or "RightShift"
 local collectionService = game:GetService("CollectionService")
 local debris = game:GetService("Debris")
-local iron = "rbxassetid://6850537969"
+local Icons = {
+    ["iron"] = "rbxassetid://6850537969",
+    ["bee"] = "rbxassetid://7343272839",
+    ["natures_essence_1"] = "rbxassetid://11003449842",
+    ["thorns"] = "rbxassetid://9134549615",
+    ["mushrooms"] = "rbxassetid://9134534696",
+    ["wild_flower"] = "rbxassetid://9134545166",
+    ["crit_star"] = "rbxassetid://9866757805",
+    ["vitality_star"] = "rbxassetid://9866757969"
+}
 local espobjs = {}
 local espfold = Instance.new("Folder")
 local gui = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer.PlayerGui)
@@ -49,7 +58,7 @@ local function espadd(v, icon)
     local image = Instance.new("ImageLabel")
     image.BackgroundTransparency = 0.5
     image.BorderSizePixel = 0
-    image.Image = iron
+    image.Image = Icons[icon] or ""
     image.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     image.Size = UDim2.new(0, 32, 0, 32)
     image.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -68,11 +77,6 @@ local function reset()
     end
     espfold:ClearAllChildren()
     table.clear(espobjs)
-end
-
-local function recreateESP()
-    reset()
-    addKit("hidden-metal", "iron")
 end
 
 local function addKit(tag, icon, custom)
@@ -112,6 +116,19 @@ local function addKit(tag, icon, custom)
     end
 end
 
+local function recreateESP()
+    reset()
+    addKit("hidden-metal", "iron")
+    addKit("bee", "bee")
+    addKit("treeOrb", "natures_essence_1")
+    
+    addKit("Thorns", "thorns", true)
+    addKit("Mushrooms", "mushrooms", true)
+    addKit("Flower", "wild_flower", true)
+    addKit("CritStar", "crit_star", true)
+	addKit("VitalityStar", "vitality_star", true)
+end
+
 local UserInputService = game:GetService("UserInputService")
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if gameProcessed then return end
@@ -120,4 +137,4 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
     end
 end)
 
-addKit("hidden-metal", "iron")
+recreateESP()
