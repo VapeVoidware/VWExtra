@@ -1,3 +1,5 @@
+repeat task.wait() until game:IsLoaded()
+local collectionService = game:GetService("CollectionService")
 local iron = 'rbxassetid://6850537969'
 local espobjs = {}
 local espfold = Instance.new("Folder")
