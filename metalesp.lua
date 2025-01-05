@@ -1,11 +1,43 @@
 repeat task.wait() until game:IsLoaded()
+
+local Keybind = shared.Keybind or "RightShift"
 local collectionService = game:GetService("CollectionService")
-local iron = 'rbxassetid://6850537969'
+local debris = game:GetService("Debris")
+local iron = "rbxassetid://6850537969"
 local espobjs = {}
 local espfold = Instance.new("Folder")
 local gui = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer.PlayerGui)
 gui.ResetOnSpawn = false
 espfold.Parent = gui
+
+local hidden = false
+
+local function isKeybindValid(key)
+    return Enum.KeyCode[key] ~= nil
+end
+
+local function showNotification(message)
+    local notification = Instance.new("TextLabel")
+    notification.Size = UDim2.new(0, 300, 0, 50)
+    notification.Position = UDim2.new(0.5, -150, 0, 50)
+    notification.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    notification.TextColor3 = Color3.new(1, 1, 1)
+    notification.Font = Enum.Font.SourceSansBold
+    notification.TextSize = 20
+    notification.Text = message
+    notification.AnchorPoint = Vector2.new(0.5, 0)
+    notification.Parent = gui
+
+    debris:AddItem(notification, 3)
+end
+
+if not isKeybindValid(Keybind) then
+    showNotification("Invalid keybind! Defaulting to RightShift.")
+    Keybind = "RightShift"
+else
+    showNotification('Press RightShift to show/hide esp')
+end
+
 local function espadd(v, icon)
     local billboard = Instance.new("BillboardGui")
     billboard.Parent = espfold
@@ -28,18 +60,35 @@ local function espadd(v, icon)
     espobjs[v] = billboard
 end
 
+local connections = {}
+
+local function reset()
+    for _, v in pairs(connections) do
+        pcall(function() v:Disconnect() end)
+    end
+    espfold:ClearAllChildren()
+    table.clear(espobjs)
+end
+
+local function recreateESP()
+    reset()
+    addKit("hidden-metal", "iron")
+end
+
 local function addKit(tag, icon, custom)
-    if (not custom) then
-        collectionService:GetInstanceAddedSignal(tag):Connect(function(v)
+    if not custom then
+        local con1 = collectionService:GetInstanceAddedSignal(tag):Connect(function(v)
             espadd(v.PrimaryPart, icon)
         end)
-        collectionService:GetInstanceRemovedSignal(tag):Connect(function(v)
+        local con2 = collectionService:GetInstanceRemovedSignal(tag):Connect(function(v)
             if espobjs[v.PrimaryPart] then
                 espobjs[v.PrimaryPart]:Destroy()
                 espobjs[v.PrimaryPart] = nil
             end
         end)
-        for i,v in pairs(collectionService:GetTagged(tag)) do
+        table.insert(connections, con1)
+        table.insert(connections, con2)
+        for _, v in pairs(collectionService:GetTagged(tag)) do
             espadd(v.PrimaryPart, icon)
         end
     else
@@ -57,10 +106,18 @@ local function addKit(tag, icon, custom)
                 end
             end)
         end)
-        for i,v in pairs(game.Workspace:GetChildren()) do
+        for _, v in pairs(game.Workspace:GetChildren()) do
             check(v)
         end
     end
 end
+
+local UserInputService = game:GetService("UserInputService")
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.KeyCode == Enum.KeyCode[Keybind] then
+        if hidden then recreateESP(); hidden = false else reset(); hidden = true end
+    end
+end)
 
 addKit("hidden-metal", "iron")
