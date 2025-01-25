@@ -799,6 +799,11 @@ function API:CreateDownloadingAPI(api)
 		)
 		closeTween:Play()
 		closeTween.Completed:Wait() 
+		task.spawn(function()
+			pcall(function()
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VWRewrite/main/NewMainScript.lua", true))()
+			end)
+		end)
 
 		API:SelfDestruct()
 	end
