@@ -930,8 +930,8 @@ a.CreateConfigButton({
 	Color = Color3.fromRGB(255, 192, 203)
 })
 a.CreateConfigButton({
-	Name = "Blue",
-	Description = "🌊",
+	Name = "Snow",
+	Description = "🌊❄️",
 	Callback = InstallerAPI.Callback('VWBlue', {0, 122, 255}),
 	Image = "rbxassetid://14368301329",
 	Color = Color3.fromRGB(0, 122, 255)
