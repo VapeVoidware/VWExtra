@@ -885,6 +885,24 @@ function InstallerAPI:InstallFiles(__files, _api)
 		_api.Change("Downloading "..v.."...")
 		print(__main..__dir..v)
 		local res = game:HttpGet(__main..__dir..v)
+		pcall(function()
+			if isfile('vape/profiles/'..v) then 
+				delfile('vape/profiles/'..v)
+			end
+			if isfile('rise/profiles/'..v) then
+				delfile('rise/profiles/'..v)
+			end
+			if (not isfolder('vape/libraries')) then
+				makefolder('vape/libraries')
+			end
+			if (not isfolder('rise/libraries')) then
+				makefolder('rise/libraries')
+			end
+			writefile('vape/libraries/profilesinstalled3.txt', "true")
+			writefile('vape/libraries/profilesinstalled5.txt', "true")
+			writefile('rise/libraries/profilesinstalled3.txt', "true")
+			writefile('rise/libraries/profilesinstalled5.txt', "true")
+		end)
 		writefile('vape/profiles/'..v, res)
 		writefile('rise/profiles/'..v, res)
 	end
