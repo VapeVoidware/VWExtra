@@ -646,32 +646,32 @@ function API:CreateUI()
 	
 	UI_API.Configs = _configs
 	UI_API.Downloading = _downloading
-	
+
 	UI_API.CloseDownloadingTab = function(ignore)
-		_downloading.GroupTransparency = 1
-		if (not ignore) then
-			_configs.GroupTransparency = 0
+		if not ignore then
+			API:CreateTween(_configs, {GroupTransparency = 0}):Play()
 		end
+		API:CreateTween(_downloading, {GroupTransparency = 1}):Play()
 	end
 
 	UI_API.OpenDownloadingTab = function(ignore)
-		_downloading.GroupTransparency = 0
-		if (not ignore) then
-			_configs.GroupTransparency = 1
+		API:CreateTween(_downloading, {GroupTransparency = 0}):Play()
+		if not ignore then
+			API:CreateTween(_configs, {GroupTransparency = 1}):Play()
 		end
 	end
-	
+
 	UI_API.CloseConfigsTab = function(ignore)
-		_configs.GroupTransparency = 1
-		if (not ignore) then
-			_downloading.GroupTransparency = 0
+		if not ignore then
+			API:CreateTween(_downloading, {GroupTransparency = 0}):Play()
 		end
+		API:CreateTween(_configs, {GroupTransparency = 1}):Play()
 	end
-	
+
 	UI_API.OpenConfigsTab = function(ignore)
-		_configs.GroupTransparency = 0
-		if (not ignore) then
-			_downloading.GroupTransparency = 1
+		API:CreateTween(_configs, {GroupTransparency = 0}):Play()
+		if not ignore then
+			API:CreateTween(_downloading, {GroupTransparency = 1}):Play()
 		end
 	end
 	
@@ -717,7 +717,7 @@ function API:UpdateColors(_old)
 end
 
 function API:GetSimilarColor(color, variance)
-	variance = variance or 15 
+	variance = variance or 80
 
 	local function clamp(value)
 		return math.clamp(value, 0, 255)
