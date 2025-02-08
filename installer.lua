@@ -939,6 +939,13 @@ InstallerAPI.Callback = function(dir, color)
 	end
 end
 a.CreateConfigButton({
+	Name = "ClosetCheat",
+	Description = "⚪",
+	Callback = InstallerAPI.Callback('VWCloset', {255, 255, 255}),
+	Image = "rbxassetid://14368301329",
+	Color = Color3.fromRGB(255, 255, 255)
+})
+a.CreateConfigButton({
 	Name = "Blood",
 	Description = "🩸",
 	Callback = InstallerAPI.Callback('VWBlood', {220, 20, 60}),
