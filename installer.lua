@@ -1,3 +1,15 @@
+pcall(function()
+	if shared.vape then
+		pcall(function()
+			shared.vape:Uninject()
+		end)
+	end
+	if shared.GuiLibrary then
+		pcall(function()
+			shared.GuiLibrary:SelfDestruct()
+		end)
+	end
+end)
 local API = {
 	__color = Color3.fromRGB(221, 222, 207)
 }
