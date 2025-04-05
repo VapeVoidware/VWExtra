@@ -1,5 +1,6 @@
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
+local TweenService = game:GetService("TweenService")
 
 local function loadJson(path)
 	local suc, res = pcall(function()
@@ -61,7 +62,6 @@ local function addBlur(parent)
 	blur.ScaleType = Enum.ScaleType.Slice
 	blur.SliceCenter = Rect.new(52, 31, 261, 502)
 	blur.Parent = parent
-
 	return blur
 end
 
@@ -76,10 +76,11 @@ local function createChangelogUI()
 
 	local mainFrame = Instance.new("Frame")
 	mainFrame.Size = UDim2.new(0.85, 0, 0.9, 0)
-	mainFrame.Position = UDim2.new(0.5, 0, 0.05, 0)
+	mainFrame.Position = UDim2.new(0.5, 0, 1.05, 0)
 	mainFrame.AnchorPoint = Vector2.new(0.5, 0)
 	mainFrame.BackgroundColor3 = Color3.fromRGB(60, 60, 80)
 	mainFrame.BorderSizePixel = 0
+	mainFrame.BackgroundTransparency = 1 
 	mainFrame.Parent = screenGui
 
 	local corner = Instance.new("UICorner")
@@ -106,7 +107,7 @@ local function createChangelogUI()
 	closeButton.TextSize = 20
 	closeButton.Parent = titleBar
 	
-	addBlur(closeButton)
+	--addBlur(closeButton)
 
 	local closeCorner = Instance.new("UICorner")
 	closeCorner.CornerRadius = UDim.new(0, 8)
@@ -145,12 +146,31 @@ local function createChangelogUI()
 	listLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	listLayout.Parent = scrollingFrame
 
+	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local mainTween = TweenService:Create(mainFrame, tweenInfo, {
+		Position = UDim2.new(0.5, 0, 0.05, 0),
+		BackgroundTransparency = 0
+	})
+	mainTween:Play()
+
+	closeButton.MouseEnter:Connect(function()
+		TweenService:Create(closeButton, TweenInfo.new(0.2), {
+			BackgroundColor3 = Color3.fromRGB(255, 80, 80)
+		}):Play()
+	end)
+	closeButton.MouseLeave:Connect(function()
+		TweenService:Create(closeButton, TweenInfo.new(0.2), {
+			BackgroundColor3 = Color3.fromRGB(129, 145, 186)
+		}):Play()
+	end)
+
 	local function createUpdateEntry(updateData)
 		if not updateData.visible then return end
 
 		local entryFrame = Instance.new("Frame")
 		entryFrame.BackgroundColor3 = Color3.fromRGB(70, 70, 100)
 		entryFrame.BorderSizePixel = 0
+		entryFrame.BackgroundTransparency = 1 
 
 		local entryCorner = Instance.new("UICorner")
 		entryCorner.CornerRadius = UDim.new(0, 15)
@@ -196,6 +216,43 @@ local function createChangelogUI()
 			local badgeCorner = Instance.new("UICorner")
 			badgeCorner.CornerRadius = UDim.new(0, 8)
 			badgeCorner.Parent = newBadge
+
+			newBadge.MouseEnter:Connect(function()
+				local hoverTween = TweenService:Create(newBadge, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
+					Size = UDim2.new(0, 90, 0, 34), 
+					BackgroundColor3 = Color3.fromRGB(120, 255, 120) 
+				})
+				local strokeTween = TweenService:Create(badgeStroke, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
+					Thickness = 2 
+				})
+				hoverTween:Play()
+				strokeTween:Play()
+				
+				task.spawn(function()
+					while newBadge:IsDescendantOf(game) and newBadge:IsMouseOver() do
+						TweenService:Create(newBadge, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
+							BackgroundColor3 = Color3.fromRGB(80, 255, 80)
+						}):Play()
+						task.wait(0.5)
+						TweenService:Create(newBadge, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
+							BackgroundColor3 = Color3.fromRGB(120, 255, 120)
+						}):Play()
+						task.wait(0.5)
+					end
+				end)
+			end)
+
+			newBadge.MouseLeave:Connect(function()
+				local leaveTween = TweenService:Create(newBadge, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
+					Size = UDim2.new(0, 80, 0, 30), 
+					BackgroundColor3 = Color3.fromRGB(80, 255, 80) 
+				})
+				local strokeTween = TweenService:Create(badgeStroke, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
+					Thickness = 1 
+				})
+				leaveTween:Play()
+				strokeTween:Play()
+			end)
 		end
 
 		if updateData.image and updateData.image.assetId then
@@ -237,8 +294,14 @@ local function createChangelogUI()
 		bodyLabel.Size = UDim2.new(1, -30, 0, textHeight)
 		entryFrame.Size = UDim2.new(1, 0, 0, textHeight + padding)
 
+		entryFrame.Parent = scrollingFrame
+		local entryTween = TweenService:Create(entryFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+			BackgroundTransparency = 0
+		})
+		entryTween:Play()
+
 		task.spawn(function()
-			task.wait(0.1) 
+			task.wait(0.1)
 			local finalHeight = bodyLabel.TextBounds.Y
 			if finalHeight ~= textHeight then
 				bodyLabel.Size = UDim2.new(1, -30, 0, finalHeight)
@@ -246,20 +309,26 @@ local function createChangelogUI()
 				scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, listLayout.AbsoluteContentSize.Y + 30)
 			end
 		end)
-
-		entryFrame.Parent = scrollingFrame
 	end
 
 	for _, update in ipairs(changelogData) do
 		createUpdateEntry(update)
+		task.wait(0.1) 
 	end
 
 	task.wait()
 	scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, listLayout.AbsoluteContentSize.Y + 30)
 
 	closeButton.MouseButton1Click:Connect(function()
-		screenGui:Destroy()
-        save()
+		local closeTween = TweenService:Create(mainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {
+			Position = UDim2.new(0.5, 0, 1.05, 0),
+			BackgroundTransparency = 1
+		})
+		closeTween:Play()
+		closeTween.Completed:Connect(function()
+			screenGui:Destroy()
+			save()
+		end)
 	end)
 end
 
