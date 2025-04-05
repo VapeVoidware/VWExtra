@@ -1,7 +1,7 @@
 [
     {
         "body": "<b><font color=\"#FFD700\">[VW Rewrite, Rise, Packet & Old]</font></b>\n+ 🛡️ Fixed BedProtector using bad blocks for bed defense & improved the \"too far\" message for better clarity\n+ 🛠️ Fixed BetterDavey not AutoShooting properly & breaking the cannon on shoot\n+ 📱 Added MobileControls to Fly for easier use on touch devices\n+ 🌟 Added Priority TextList to BedProtector to prioritise certain blocks as important layers\n\n<b><font color=\"#FFD700\">[VW Rewrite, Packet]</font></b>\n+ ⏳ Added Fly ProgressBar to Fly for a visual flight timer\n\n<b><font color=\"#FFD700\">[CE Mode - VW Rewrite, Packet] ⚙️</font></b>\n+ 🛠️ Fixed Fly, LongJump, and Scaffold GUIs not appearing\n+ 🛠️ Fixed Fly TP Down not functioning\n+ ✨ Fixed Performance issues with Ping\n\n<b><font color=\"#FFD700\">[VW Packet]</font></b>\n+ 🛠️ Fixed Fly TP Down not working",
-        "date": "3/18/2025",
+        "date": "2/04/2025",
         "image": {
             "aspectRatio": 1,
             "assetId": "rbxassetid://93751776432268",
