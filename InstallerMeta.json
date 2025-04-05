@@ -20,6 +20,34 @@
 			"directory": "VWPink",
 			"color": [255, 192, 203],
 			"image": "rbxassetid://14368301329"
-		}
+		},
+        {
+            "name": "Snow",
+            "description": "🌊❄️",
+            "directory": "VWBlue",
+            "color": [0, 122, 255],
+            "image":"rbxassetid://14368301329"
+        },
+        {
+            "name": "Orange",
+            "description": "🍊",
+            "directory": "VWOrange",
+            "color": [255, 165, 0],
+            "image":"rbxassetid://14368301329"
+        },
+        {
+            "name": "Rainbow",
+            "description": "🌈",
+            "directory": "VWRainbow",
+            "color": [255, 105, 180],
+            "image":"rbxassetid://14368301329"
+        },
+        {
+            "name": "Purple",
+            "description": "🟣",
+            "directory": "VWPurple",
+            "color": [138, 43, 226],
+            "image":"rbxassetid://14368301329"
+        }
 	]
 }
