@@ -47,6 +47,159 @@ if not newest then warn("[VW Update Log]: Failure getting newest update!"); retu
 
 if not shared.UpdateLogBypass and localData.lastRead == tostring(newest.updateLogId) then return end
 
+local NotificationSystem = {}
+NotificationSystem.__index = NotificationSystem
+
+function NotificationSystem.new()
+	local self = setmetatable({}, NotificationSystem)
+	self.ScreenGui = Instance.new("ScreenGui")
+	self.ScreenGui.Name = "NotificationGui"
+	self.ScreenGui.Parent = Players.LocalPlayer:WaitForChild("PlayerGui")
+	self.ScreenGui.ResetOnSpawn = false
+	self.Notifications = {}
+	return self
+end
+
+local isActive = false
+
+function NotificationSystem:CreateNotification(title, message, isInteractive, onYes, onNo)
+	repeat task.wait() until not isActive
+	isActive = true
+	local notificationFrame = Instance.new("Frame")
+	notificationFrame.Size = UDim2.new(0, 300, 0, 120)
+	notificationFrame.Position = UDim2.new(1, 20, 0, -150)
+	notificationFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 60)
+	notificationFrame.BorderSizePixel = 0
+	notificationFrame.Parent = self.ScreenGui
+
+	local corner = Instance.new("UICorner")
+	corner.CornerRadius = UDim.new(0, 12)
+	corner.Parent = notificationFrame
+
+	local blur = Instance.new("ImageLabel")
+	blur.Name = "Blur"
+	blur.Size = UDim2.new(1, 89, 1, 52)
+	blur.Position = UDim2.fromOffset(-48, -31)
+	blur.BackgroundTransparency = 1
+	blur.Image = "rbxassetid://14898786664"
+	blur.ScaleType = Enum.ScaleType.Slice
+	blur.SliceCenter = Rect.new(52, 31, 261, 502)
+	blur.Parent = notificationFrame
+
+	local titleLabel = Instance.new("TextLabel")
+	titleLabel.Size = UDim2.new(1, -20, 0, 30)
+	titleLabel.Position = UDim2.new(0, 10, 0, 10)
+	titleLabel.BackgroundTransparency = 1
+	titleLabel.Text = title
+	titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	titleLabel.Font = Enum.Font.FredokaOne
+	titleLabel.TextSize = 20
+	titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+	titleLabel.Parent = notificationFrame
+
+	local messageLabel = Instance.new("TextLabel")
+	messageLabel.Size = UDim2.new(1, -20, 0, 40)
+	messageLabel.Position = UDim2.new(0, 10, 0, 40)
+	messageLabel.BackgroundTransparency = 1
+	messageLabel.Text = message
+	messageLabel.TextColor3 = Color3.fromRGB(200, 200, 220)
+	messageLabel.Font = Enum.Font.SourceSans
+	messageLabel.TextSize = 16
+	messageLabel.TextXAlignment = Enum.TextXAlignment.Left
+	messageLabel.TextWrapped = true
+	messageLabel.Parent = notificationFrame
+
+	local tweenIn = TweenService:Create(notificationFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {
+		Position = UDim2.new(1, -320, 0, 20) 
+	})
+	tweenIn:Play()
+
+	if isInteractive then
+		local yesButton = Instance.new("TextButton")
+		yesButton.Size = UDim2.new(0, 60, 0, 30)
+		yesButton.Position = UDim2.new(0, 150, 0, 80)
+		yesButton.BackgroundColor3 = Color3.fromRGB(80, 255, 80)
+		yesButton.Text = "Yes"
+		yesButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+		yesButton.Font = Enum.Font.SourceSansBold
+		yesButton.TextSize = 18
+		yesButton.Parent = notificationFrame
+
+		local yesCorner = Instance.new("UICorner")
+		yesCorner.CornerRadius = UDim.new(0, 8)
+		yesCorner.Parent = yesButton
+
+		local noButton = Instance.new("TextButton")
+		noButton.Size = UDim2.new(0, 60, 0, 30)
+		noButton.Position = UDim2.new(0, 220, 0, 80)
+		noButton.BackgroundColor3 = Color3.fromRGB(255, 80, 80)
+		noButton.Text = "No"
+		noButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+		noButton.Font = Enum.Font.SourceSansBold
+		noButton.TextSize = 18
+		noButton.Parent = notificationFrame
+
+		local noCorner = Instance.new("UICorner")
+		noCorner.CornerRadius = UDim.new(0, 8)
+		noCorner.Parent = noButton
+
+		yesButton.MouseEnter:Connect(function()
+			TweenService:Create(yesButton, TweenInfo.new(0.2), { BackgroundColor3 = Color3.fromRGB(120, 255, 120) }):Play()
+		end)
+		yesButton.MouseLeave:Connect(function()
+			TweenService:Create(yesButton, TweenInfo.new(0.2), { BackgroundColor3 = Color3.fromRGB(80, 255, 80) }):Play()
+		end)
+		noButton.MouseEnter:Connect(function()
+			TweenService:Create(noButton, TweenInfo.new(0.2), { BackgroundColor3 = Color3.fromRGB(255, 120, 120) }):Play()
+		end)
+		noButton.MouseLeave:Connect(function()
+			TweenService:Create(noButton, TweenInfo.new(0.2), { BackgroundColor3 = Color3.fromRGB(255, 80, 80) }):Play()
+		end)
+
+		local function closeNotification()
+			local tweenOut = TweenService:Create(notificationFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {
+				Position = UDim2.new(1, 20, 0, 20)
+			})
+			tweenOut:Play()
+			tweenOut.Completed:Connect(function()
+				notificationFrame:Destroy()
+			end)
+			isActive = false
+		end
+
+		yesButton.MouseButton1Click:Connect(function()
+			if onYes then onYes() end
+			closeNotification()
+		end)
+		noButton.MouseButton1Click:Connect(function()
+			if onNo then onNo() end
+			closeNotification()
+		end)
+
+		task.delay(10, function()
+			if notificationFrame.Parent then
+				closeNotification()
+			end
+		end)
+	else
+		task.delay(5, function()
+			if notificationFrame.Parent then
+				local tweenOut = TweenService:Create(notificationFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {
+					Position = UDim2.new(1, 20, 0, 20)
+				})
+				tweenOut:Play()
+				tweenOut.Completed:Connect(function()
+					notificationFrame:Destroy()
+				end)
+			end
+			isActive = false
+		end)
+	end
+
+	table.insert(self.Notifications, notificationFrame)
+	return notificationFrame
+end
+
 local function save()
     localData.lastRead = tostring(newest.updateLogId)
     writefile("Local_VW_Update_Log.json", HttpService:JSONEncode(localData))
@@ -332,4 +485,15 @@ local function createChangelogUI()
 	end)
 end
 
-createChangelogUI()
+local notificationSys = NotificationSystem.new()
+notificationSys:CreateNotification(
+	"New Update Available!",
+	"A new Voidware update (" .. (newest.title or "v" .. newest.updateLogId) .. ") is here! Open the changelog?",
+	true, 
+	function()
+		createChangelogUI()
+	end,
+	function() 
+		save()
+	end
+)
