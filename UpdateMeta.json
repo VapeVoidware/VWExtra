@@ -1,0 +1,41 @@
+[
+    {
+        "body": "<b><font color=\"#FFD700\">[VW Rewrite, Rise, Packet & Old]</font></b>\n+ 🛡️ Fixed BedProtector using bad blocks for bed defense & improved the \"too far\" message for better clarity\n+ 🛠️ Fixed BetterDavey not AutoShooting properly & breaking the cannon on shoot\n+ 📱 Added MobileControls to Fly for easier use on touch devices\n+ 🌟 Added Priority TextList to BedProtector to prioritise certain blocks as important layers\n\n<b><font color=\"#FFD700\">[VW Rewrite, Packet]</font></b>\n+ ⏳ Added Fly ProgressBar to Fly for a visual flight timer\n\n<b><font color=\"#FFD700\">[CE Mode - VW Rewrite, Packet] ⚙️</font></b>\n+ 🛠️ Fixed Fly, LongJump, and Scaffold GUIs not appearing\n+ 🛠️ Fixed Fly TP Down not functioning\n+ ✨ Fixed Performance issues with Ping\n\n<b><font color=\"#FFD700\">[VW Packet]</font></b>\n+ 🛠️ Fixed Fly TP Down not working",
+        "date": "3/18/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://93751776432268",
+            "height": 0
+        },
+        "new": true,
+        "title": "Some fixes and life optimisations 🌟",
+        "updateLogId": 3,
+        "visible": true
+    },
+    {
+        "body": "<b><font color=\"#FFD700\">[Voidware Update Log - VW Rewrite, Packet, Rise & Old Editions]</font></b>\n\n<b><font color=\"#00FFFF\">[Core Improvements] 🛠️</font></b>\n+ ✨ Added a new system to stop Voidware from loading unnecessary components, greatly improving performance and reducing crashes on low-end devices\n+ 🐛 Fixed the core switch so it now properly shows tool switching\n+ 🛠️ Fixed ShopCheck in AimAssist for better reliability\n+ ✋ Added HandCheck to BlockIn for improved accuracy\n+ 🛠️ Resolved occasional AutoBuy failures\n+ ⏳ Slowed down the core error notification for a smoother experience\n+ 🎯 Added FirstPersonCheck to AimAssist for precision\n+ 🛡️ Added an Error Handler to the GamingChair module for stability\n+ 🤝 Added Hannah AutoKit support (HannahExploit merged into it)\n- ❌ Removed HannahExploit (now part of AutoKit)\n+ 🌟 Introduced BetterDavey for a slick upgrade\n+ ⚡ BedProtector now has INF Range!\n+ ⚡ BedProtector now has CPS Slider!\n\n<b><font color=\"#00FFFF\">[Projectile Aimbot Enhancements] 🎮</font></b>\n+ ✨ Added Whim and Umeko to projectile aimbot\n\n<b><font color=\"#00FFFF\">[Projectile Aura Optimizations] 🚀</font></b>\n+ ⚡ Optimized Whim, Umeko, and Lumen for top performance\n+ 🛠️ Fixed Wallcheck to work as intended\n\n<b><font color=\"#FFD700\">[CE Mode - VW Rewrite, Packet, Rise & Old] ⚙️</font></b>\n+ 🎯 Added FirstPersonCheck to AimAssist\n+ 🛠️ Fixed AutoBuy not triggering properly\n+ 🛠️ Fixed NoFall breaking down\n+ 🛠️ Fixed AimAssist glitches\n+ 🛠️ Fixed Killaura in Legit Aura mode\n+ ⚡ Optimized Nuker for faster operation\n+ ⚡ BedProtector now has INF Range!\n+ ⚡ BedProtector now has CPS Slider!\n+ ✨ Added Legit Mode to AutoKit for safer play\n+ 🤝 Added Hannah AutoKit support (HannahExploit merged into it)\n- ❌ Removed HannahExploit (now part of AutoKit)\n\n<b><font color=\"#FFD700\">[VW Rewrite-Specific Updates] 🔧</font></b>\n+ 🛠️ Fixed ProfilesSaver so it saves correctly\n+ 🤝 Added Crypt AutoKit support\n+ 🛠️ Fixed NameTags display issues\n\n<b><font color=\"#FFD700\">[VW Packet-Specific Updates] 📦</font></b>\n! 🔄 Renamed \"Breaker\" to \"Nuker\" for clarity\n\n<b><font color=\"#FFD700\">[VW Rise & Old-Specific Updates] 🕰️</font></b>\n+ 🛠️ Fixed BlockIn functionality\n+ 🛠️ Fixed lobby loading failures\n+ 🛠️ Fixed remotes not responding\n+ 🛠️ Fixed Killaura not attacking Marina Jellyfishes\n+ 🛠️ Fixed AutoBuy consistency\n+ 🤝 Added Zeno AutoKit support\n+ 🎯 Improved Killaura MouseDown check\n- ❌ Removed ScytheExploit (patched)\n- ❌ Removed AntiLagback (patched)\n\n<b><font color=\"#FFD700\">[Code Rewrites - VW Rewrite, Packet, Rise & Old] 💻</font></b>\n+ 🔄 Rewrote QueueCardMods for better performance\n+ 🔄 Revamped HackerDetector for sharper detection\n+ ✨ Rewrote StaffDetector into StaffDetector [Enhanced] with new features\n+ 🔄 Rewrote AutoBuyDiamondUpgrades for seamless upgrades\n+ 🔄 Overhauled Invisibility for reliability\n\n<b><font color=\"#FFD700\">[VW Rise & Old-Specific Rewrites] 🕰️💻</font></b>\n+ 🔄 Rewrote HighlightVisuals for crisper visuals\n+ ✨ Upgraded StaffDetector-Roblox to StaffFetcher-Roblox with enhanced power\n+ 🔄 Revamped DamageIndicator for clearer combat feedback\n+ 🔄 Rewrote WeatherMods for better customization",
+        "date": "1/04/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://93751776432268",
+            "height": 0
+        },
+        "new": false,
+        "title": "HUGE VOIDWARE UPDATE! 🚀",
+        "updateLogId": 2,
+        "visible": true
+    },
+    {
+        "body": "<b><font color=\"#FFD700\">[VW REWRITE & PACKET & OLD & RISE]</font></b>\n<b><font color=\"#00FFFF\">[---- AUTOKIT UPDATE ----]</font></b>\n+ ✅ Fixed KALIYAH AutoKit\n+ ✅ Fixed MetalDetector AutoKit\n+ ✅ Fixed ElderTree AutoKit\n+ ✅ Fixed Cobalt AutoKit\n+ ✅ Fixed Zurot AutoKit\n+ ✅ Fixed Eldric AutoKit\n+ ✅ Fixed Hannah AutoKit\n+ ✅ Fixed Miner AutoKit\n\n+ ➕ Added Kaida Killaura support\n+ 🔄 ReAdded Wallcheck to Killaura\n+ 🎯 Added Testing Dummies in Testing Mode as valid targets\n+ 🛡️ Fixed Panic not disabling Profiles Saving resulting in your Profiles getting lost\n+ 🔄 Fixed BedPlates not auto updating\n+ 🏪 Added ShopCheck to AimAssist\n+ 🔴 Fixed Killaura Range Circle not being created after restarting Killaura\n+ 🛠️ Fixed not being able to build when KA Range Circle is enabled\n- ❌ Removed DoubleHighJump (patched)\n\n<b><font color=\"#00FFFF\">[---- ,,Failure fetching remote'' fixes ----]</font></b>\n+ ✅ Fixed finding WarlockTarget remote\n+ ✅ Fixed finding SpawnRaven remote\n\n<b><font color=\"#00FFFF\">[---- LAGGING ISSUES FIX ----]</font></b>\n+ ⚡ Fixed lag issues with Voidware caused by the new switchTool function\n\n<b><font color=\"#00FFFF\">[---- CORE FIX ----]</font></b>\n+ 🆕 Added a new system which will prevent Voidware from breaking every time the Bedwars devs rename something 💀\n<i>Reconfigured remotes: 15+</i>\n\n<b><font color=\"#FFD700\">[VW OLD & VW RISE]</font></b>\n+ 🔄 Rewrote AutoBuy\n\n<b><font color=\"#FFD700\">[VW OLD & RISE & REWRITE & PACKET] - CE MODE</font></b>\n+ ✅ Fixed AimAssist\n+ 🧱 Added Wallcheck to AimAssist\n+ 🏪 Added Shop Check to AimAssist\n<b><font color=\"#00FFFF\">[---- AUTOKIT UPDATE ----]</font></b>\n+ ➕ Added Eldric AutoKit\n+ ➕ Added Zeno AutoKit\n\n<b><font color=\"#FFD700\">[VW REWRITE & PACKET] - CE MODE</font></b>\n+ ✅ Fixed Limit to Items Killaura\n+ ✅ Fixed not loading in Lobby\n\n<b><font color=\"#00FFFF\">[CONFIG INSTALLER]</font></b>\n+ 🔧 The installer will now auto uninject Voidware to properly install the profiles",
+        "date": "23/03/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://93751776432268",
+            "height": 0
+        },
+        "new": false,
+        "title": "A BIG VOIDWARE UPDATE! 🌟",
+        "updateLogId": 1,
+        "visible": true
+    }
+]
