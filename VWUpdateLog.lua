@@ -18,6 +18,7 @@ local function retry(func, attempts, slowmode)
         local suc, err = pcall(func)
         if suc then
             res = err
+            attempts = -1
         end
         task.wait(slowmode)
     until attempts <= 0
