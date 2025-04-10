@@ -2,52 +2,52 @@
 	"configs": [
 		{
 			"name": "ClosetCheat",
-			"description": "⚪ A subtle yet powerful config",
+			"description": "⚪ Sleek and discreet, this config offers subtle power for stealthy domination.",
 			"directory": "VWCloset",
 			"color": [255, 255, 255],
 			"image": "rbxassetid://14368301329"
 		},
 		{
 			"name": "Blood",
-			"description": "🩸 Bold and aggressive",
+			"description": "🩸 Unleash chaos with this bold, aggressive setup built for relentless action.",
 			"directory": "VWBlood",
 			"color": [220, 20, 60],
 			"image": "rbxassetid://14368301329"
 		},
 		{
 			"name": "Pink",
-			"description": "🌸 Soft and stylish",
+			"description": "🌸 A chic, stylish config blending soft hues with fierce performance.",
 			"directory": "VWPink",
 			"color": [255, 192, 203],
 			"image": "rbxassetid://14368301329"
 		},
-        {
-            "name": "Snow",
-            "description": "🌊❄️",
-            "directory": "VWBlue",
-            "color": [0, 122, 255],
-            "image":"rbxassetid://14368301329"
-        },
-        {
-            "name": "Orange",
-            "description": "🍊",
-            "directory": "VWOrange",
-            "color": [255, 165, 0],
-            "image":"rbxassetid://14368301329"
-        },
-        {
-            "name": "Rainbow",
-            "description": "🌈",
-            "directory": "VWRainbow",
-            "color": [255, 105, 180],
-            "image":"rbxassetid://14368301329"
-        },
-        {
-            "name": "Purple",
-            "description": "🟣",
-            "directory": "VWPurple",
-            "color": [138, 43, 226],
-            "image":"rbxassetid://14368301329"
-        }
+		{
+			"name": "Snow",
+			"description": "🌊❄️ Cool and crisp, this config brings icy precision to every move.",
+			"directory": "VWBlue",
+			"color": [0, 122, 255],
+			"image": "rbxassetid://14368301329"
+		},
+		{
+			"name": "Orange",
+			"description": "🍊 Burst into action with this vibrant, energetic config full of zest.",
+			"directory": "VWOrange",
+			"color": [255, 165, 0],
+			"image": "rbxassetid://14368301329"
+		},
+		{
+			"name": "Rainbow",
+			"description": "🌈 A dazzling, colorful setup that shifts the game in your favor.",
+			"directory": "VWRainbow",
+			"color": [255, 105, 180],
+			"image": "rbxassetid://14368301329"
+		},
+		{
+			"name": "Purple",
+			"description": "🟣 Mysterious and regal, this config delivers power with a royal edge.",
+			"directory": "VWPurple",
+			"color": [138, 43, 226],
+			"image": "rbxassetid://14368301329"
+		}
 	]
 }

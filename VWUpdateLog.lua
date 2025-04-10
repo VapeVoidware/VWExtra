@@ -176,7 +176,7 @@ function NotificationSystem:CreateNotification(title, message, isInteractive, on
 			closeNotification()
 		end)
 
-		task.delay(10, function()
+		task.delay(15, function()
 			if notificationFrame.Parent then
 				closeNotification()
 			end
@@ -410,8 +410,8 @@ local function createChangelogUI()
 
 		if updateData.image and updateData.image.assetId then
 			local imageLabel = Instance.new("ImageLabel")
-			imageLabel.Size = UDim2.new(0, 100, 0, 100 * updateData.image.aspectRatio)
-			imageLabel.Position = UDim2.new(1, -120, 0, 15)
+			imageLabel.Size = UDim2.new(0, updateData.image.banner and 200 or 100, 0, 100 * updateData.image.aspectRatio)
+			imageLabel.Position = UDim2.new(1, updateData.image.banner and -220 or -120, 0, 15)
 			imageLabel.BackgroundTransparency = 1
 			imageLabel.Image = updateData.image.assetId
 			imageLabel.Parent = entryFrame
