@@ -1,5 +1,19 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[VW Rewrite, Packet, Rise & Old]</font></b>\n+ 🌟 INTRODUCING: VW UPDATE LOG! Directly integrated into the script\n+ 🔄 Rewrote completely the config installer\n+ ⏳ (soon) Introducing system to share configs with friends and the Voidware community in just a few easy steps!\n\n<b><font color=\"#00FFFF\">[CORE VOIDWARE FIXES]</font></b>\n+ 🛠️ Fixed Voidware not loading on Ember Executor\n+ 🛠️ Fixed Voidware not loading on Ronix Executor\n\n<b><font color=\"#FFD700\">[VW Old & Rise]</font></b>\n+ 🛠️ Fixed Lumen, Umeko, Whim ProjectileAura not working\n+ 🤝 Added GinerBreadMan AutoKit support (auto destroys gumdrops)\n+ ✨ Added AutoSuffocate\n+ ✨ Added AutoVoidDrop\n+ 🛠️ Fixed DamageIndicator\n+ 🛠️ Fixed WeatherMods\n+ 🔄 Renamed GameFixer -> HitFix\n+ 🔄 Moved HitFix [Legit -> Combat Category]\n+ 🛠️ Fixed StaffFetcher not working\n+ 🛠️ Fixed QueueCardMods not properly updating the gradient\n+ ✨ Added AutoPearl\n+ 🛠️ Fixed Killaura breaking\n+ 🛠️ Fixed NightmareEmote sometimes breaking\n\n<b><font color=\"#FFD700\">[VW Rewrite, Packet]</font></b>\n+ 🔄 Moved HitFix [Legit -> Combat Category]\n+ 🛠️ Fixed AutoPearl\n\n<b><font color=\"#FFD700\">[CE Mode - VW Old, Rise] ⚙️</font></b>\n+ 🛠️ Fixed Killaura breaking\n\n<b><font color=\"#FFD700\">[CE Mode - VW Rewrite, Packet] ⚙️</font></b>\n+ 🛠️ Fixed Sword Animation not working on Killaura when [Swing Only] toggle is enabled\n\n<b><font color=\"#FFD700\">[VW Rewrite, Packet, Rise & Old]</font></b>\n+ 🛠️ Fixed Fly ProgressBar sometimes resulting in fps drops\n+ ✨ Added AutoWhisper - Thanks nonamebetoo#0 for making this\n+ 🛠️ Fixed StaffDetector running into issues\n+ ⚡ Fixed fps drop issues on executing Voidware\n+ ✨ Added [Wool Only] toggle to Scaffold\n\n<b><font color=\"#00FFFF\">[ProjectileAimbot Enhancements] 🎮</font></b>\n+ ⚡ Added Range Slider\n+ ✨ Added Outline creation on targets\n+ 🎯 Added Automatical Target Locking\n\n<b><font color=\"#00FFFF\">[AutoBuy Updates] 🏪</font></b>\n+ ✨ Added Buy Axolotls toggle\n+ 🔥 Added Pyro flamethrower support (will be purchased after emerald sword)\n\n<b><font color=\"#FFD700\">[CE Mode - VW Rewrite, Packet, Rise & Old] ⚙️</font></b>\n+ ✨ Added AutoSuffocate\n+ ✨ Added AutoVoidDrop\n+ 🛠️ Fixed issues with KitESP\n+ ✨ Added [Wool Only] toggle to Scaffold\n+ 🛠️ Fixed Nuker crashing on failing to break a block\n+ 🌟 Added little visualiser telling you when Nuker is breaking a block",
+        "date": "10/04/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://116729730341460",
+            "height": 0,
+            "banner": true
+        },
+        "new": false,
+        "title": "VW UPDATE LOG INTEGRATION + FIXES! 🚀",
+        "updateLogId": 4,
+        "visible": false
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[VW Rewrite, Rise, Packet & Old]</font></b>\n+ 🛡️ Fixed BedProtector using bad blocks for bed defense & improved the \"too far\" message for better clarity\n+ 🛠️ Fixed BetterDavey not AutoShooting properly & breaking the cannon on shoot\n+ 📱 Added MobileControls to Fly for easier use on touch devices\n+ 🌟 Added Priority TextList to BedProtector to prioritise certain blocks as important layers\n\n<b><font color=\"#FFD700\">[VW Rewrite, Packet]</font></b>\n+ ⏳ Added Fly ProgressBar to Fly for a visual flight timer\n\n<b><font color=\"#FFD700\">[CE Mode - VW Rewrite, Packet] ⚙️</font></b>\n+ 🛠️ Fixed Fly, LongJump, and Scaffold GUIs not appearing\n+ 🛠️ Fixed Fly TP Down not functioning\n+ ✨ Fixed Performance issues with Ping\n\n<b><font color=\"#FFD700\">[VW Packet]</font></b>\n+ 🛠️ Fixed Fly TP Down not working",
         "date": "2/04/2025",
         "image": {
