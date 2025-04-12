@@ -1,5 +1,23 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[VW REWRITE, PACKET, OLD, RISE]</font></b>\n+ 🌟 Added images to the UpdateLog\n+ 🚀 VW PACKET IS BACK!\n\n<b><font color=\"#FFD700\">[VW REWRITE, PACKET]</font></b>\n+ ⚡ Optimised the nuker A LOT\n+ 🛠️ Fixed Scaffold [WoolOnly] check\n\n<b><font color=\"#FFD700\">[VW OLD, RISE]</font></b>\n+ ✨ Added block breaking gui from VW Rewrite\n\n<b><font color=\"#FFD700\">[VW REWRITE, PACKET, OLD, RISE]</font></b>\n+ ⚡ Optimised AutoWhisper - Thanks groya9633#0\n+ 🥚 Added /eggclaim chat command to claim the Cheatcode Egg!",
+        "date": "12/04/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://85850875702741",
+            "banner": true,
+            "height": 0
+        },
+        "images": [
+            "rbxassetid://108262912857461",
+            "rbxassetid://123355421196561"
+        ],
+        "new": true,
+        "title": "Images in UpdateLog + Packet Returns! 🌟",
+        "updateLogId": 6,
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[VW Rewrite, Packet, Rise & Old]</font></b>\n+ 🛠️ Fixed Killaura not working properly across multiple scenarios\n+ 🛠️ Fixed DamageIndicator not rendering correctly\n\n<b><font color=\"#FFD700\">[VW Rewrite, Old & Rise]</font></b>\n+ ⚡ Optimized KillEffects and Killaura for smoother performance\n+ 🛠️ Fixed lagging issues on mobile devices when using ProjectileAimbot\n\n<b><font color=\"#FFD700\">[VW Rewrite]</font></b>\n+ 🛡️ Added error handling system to profiles saving for better reliability",
         "date": "11/04/2025",
         "image": {
@@ -8,7 +26,7 @@
             "banner": true,
             "height": 0
         },
-        "new": true,
+        "new": false,
         "title": "Quick Hotfixes for Stability! 🛠️",
         "updateLogId": 5,
         "visible": true

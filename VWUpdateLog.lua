@@ -259,13 +259,11 @@ local function createChangelogUI()
 	closeButton.Font = Enum.Font.SourceSansBold
 	closeButton.TextSize = 20
 	closeButton.Parent = titleBar
-	
-	--addBlur(closeButton)
 
 	local closeCorner = Instance.new("UICorner")
 	closeCorner.CornerRadius = UDim.new(0, 8)
 	closeCorner.Parent = closeButton
-	
+
 	local logtitle = Instance.new("TextLabel")
 	logtitle.TextScaled = true
 	logtitle.Font = Enum.Font.FredokaOne
@@ -277,7 +275,7 @@ local function createChangelogUI()
 	logtitle.AutomaticSize = Enum.AutomaticSize.X
 	logtitle.Size = UDim2.new(0, 100, 0, 30)
 	logtitle.BackgroundTransparency = 1
-	
+
 	local logstroke = Instance.new("UIStroke")
 	logstroke.Parent = logtitle
 	logstroke.Color = Color3.fromRGB(0, 0, 0)
@@ -444,6 +442,45 @@ local function createChangelogUI()
 			textHeight = lineCount * bodyLabel.TextSize 
 		end
 		local padding = 115
+
+		local imageScrollingFrame = nil
+		if updateData.images and type(updateData.images) == "table" and #updateData.images > 0 then
+			imageScrollingFrame = Instance.new("ScrollingFrame")
+			imageScrollingFrame.Size = UDim2.new(1, -30, 0, 180) 
+			imageScrollingFrame.Position = UDim2.new(0, 15, 0, 110 + textHeight + 15)
+			imageScrollingFrame.BackgroundTransparency = 1
+			imageScrollingFrame.BorderSizePixel = 0
+			imageScrollingFrame.ScrollBarThickness = 8
+			imageScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(100, 100, 140)
+			imageScrollingFrame.ScrollingDirection = Enum.ScrollingDirection.X
+			imageScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+			imageScrollingFrame.Parent = entryFrame
+
+			local imageListLayout = Instance.new("UIListLayout")
+			imageListLayout.FillDirection = Enum.FillDirection.Horizontal
+			imageListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+			imageListLayout.Padding = UDim.new(0, 10)
+			imageListLayout.Parent = imageScrollingFrame
+
+			for i, imageAsset in ipairs(updateData.images) do
+				local imageLabel = Instance.new("ImageLabel")
+				imageLabel.Size = UDim2.new(0, 300, 0, 169) 
+				imageLabel.BackgroundTransparency = 1
+				imageLabel.Image = imageAsset
+				imageLabel.Parent = imageScrollingFrame
+
+				local imageCorner = Instance.new("UICorner")
+				imageCorner.CornerRadius = UDim.new(0, 8)
+				imageCorner.Parent = imageLabel
+
+				addBlur(imageLabel)
+			end
+
+			local imageCount = #updateData.images
+			imageScrollingFrame.CanvasSize = UDim2.new(0, (300 * imageCount) + (10 * (imageCount - 1)), 0, 169)
+			padding = padding + 180 + 15 
+		end
+
 		bodyLabel.Size = UDim2.new(1, -30, 0, textHeight)
 		entryFrame.Size = UDim2.new(1, 0, 0, textHeight + padding)
 
@@ -458,7 +495,8 @@ local function createChangelogUI()
 			local finalHeight = bodyLabel.TextBounds.Y
 			if finalHeight ~= textHeight then
 				bodyLabel.Size = UDim2.new(1, -30, 0, finalHeight)
-				entryFrame.Size = UDim2.new(1, 0, 0, finalHeight + padding)
+				local newPadding = padding - textHeight + finalHeight
+				entryFrame.Size = UDim2.new(1, 0, 0, finalHeight + newPadding)
 				scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, listLayout.AbsoluteContentSize.Y + 30)
 			end
 		end)
