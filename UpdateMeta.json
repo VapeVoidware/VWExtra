@@ -1,5 +1,22 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[VW REWRITE, PACKET, OLD, RISE]</font></b>\n+ 🛠️ Fixed Nuker functionality for more reliable block breaking\n+ ✨ Added NoClickDelay for instant interactions\n+ 🤝 Added AutoKit for automated kit management\n\n<b><font color=\"#FFD700\">[BedProtector]</font></b>\n+ ✋ Added Hand Check to ensure correct item usage\n+ 🔄 Added AutoSwitch toggle (enabled by default) to automatically switch to the block being placed, bypassing HandCheck\n+ 🛠️ Added customizable BlockTypeCheck toggle (enabled by default) for flexible block type validation\n\n<b><font color=\"#FFD700\">[AutoWhisper]</font></b>\n+ ⚡ Optimized ground check for better performance\n+ 📏 Added Below Map Trigger toggle to activate abilities when below the map\n+ 🎚️ Added Map Threshold slider to fine-tune below-map activation\n\n<b><font color=\"#FFD700\">[BlockIn]</font></b>\n+ 🔄 Added AutoSwitch toggle (enabled by default) to automatically switch to the block being placed, bypassing HandCheck\n\n<b><font color=\"#FFD700\">[Projectile Aimbot]</font></b>\n+ 🛠️ Fixed ProjectileAimbot causing FPS drops on mobile devices\n+ 🛠️ Fixed ProjectileAimbot target visualizer running when not holding a projectile\n+ 👁️ Added TargetVisualiser toggle (enabled by default) for customizable visuals\n\n<b><font color=\"#FFD700\">[Cheat Engine Mode - VW REWRITE, OLD, PACKET, RISE]</font></b>\n+ 🛠️ Fixed Projectiles not working correctly\n+ 🎯 Added ProjectileAura support with highlight visuals for targeted entities",
+        "date": "14/04/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://139573733848120",
+            "banner": true,
+            "height": 0
+        },
+        "images": [
+            "rbxassetid://90853197071579"
+        ],
+        "new": true,
+        "title": "Fixes & ProjectileAura Highlights 🚀",
+        "updateLogId": 7,
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[VW REWRITE, PACKET, OLD, RISE]</font></b>\n+ 🌟 Added images to the UpdateLog\n+ 🚀 VW PACKET IS BACK!\n\n<b><font color=\"#FFD700\">[VW REWRITE, PACKET]</font></b>\n+ ⚡ Optimised the nuker A LOT\n+ 🛠️ Fixed Scaffold [WoolOnly] check\n\n<b><font color=\"#FFD700\">[VW OLD, RISE]</font></b>\n+ ✨ Added block breaking gui from VW Rewrite\n\n<b><font color=\"#FFD700\">[VW REWRITE, PACKET, OLD, RISE]</font></b>\n+ ⚡ Optimised AutoWhisper - Thanks groya9633#0\n+ 🥚 Added /eggclaim chat command to claim the Cheatcode Egg!",
         "date": "12/04/2025",
         "image": {
@@ -12,7 +29,7 @@
             "rbxassetid://108262912857461",
             "rbxassetid://123355421196561"
         ],
-        "new": true,
+        "new": false,
         "title": "Images in UpdateLog + Packet Returns! 🌟",
         "updateLogId": 6,
         "visible": true
