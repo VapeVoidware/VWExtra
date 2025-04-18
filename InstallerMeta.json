@@ -8,6 +8,13 @@
 			"image": "rbxassetid://14368301329"
 		},
 		{
+			"name": "Aesthetic",
+			"description": "Made with ❤️ by Justme",
+			"directory": "VWAesthetic",
+			"color": [255, 192, 203],
+			"image": "rbxassetid://14368301329"
+		},
+		{
 			"name": "Blood",
 			"description": "🩸 Unleash chaos with this bold, aggressive setup built for relentless action.",
 			"directory": "VWBlood",

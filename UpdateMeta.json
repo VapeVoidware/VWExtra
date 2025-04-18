@@ -1,5 +1,27 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[CustomChat]</font></b> - NEW! 🌟\n+ ⭐ Customise your chat for even better experience\n+ ✨ Added CustomChat module which lets you customise your chat into your very own one :D\n+ 🛠️ Added fixes to the chat tags (clan tags, etc.) not appearing when executing VW\n<b>Toggles:</b>\n+ ✅ Display Kills\n+ ✅ Display Win\n+ ✅ Display Defeat\n+ ✅ Display Bed break\n+ ✅ Typewriter effect\n\n<b><font color=\"#FFD700\">[StreamerMode]</font></b> - NEW! 🌟\n+ 🎥 Added StreamerMode which will help you when making videos/showcases/etc. by hiding your name, display name and userid (not server sided)\n\n<b><font color=\"#FFD700\">[VW PACKET]</font></b> ⭐\n<b>[AutoDodge]</b>\n+ 🛠️ Fixed not working\n\n<b><font color=\"#FFD700\">[VW PACKET, RISE, OLD & REWRITE]</font></b> ⭐\n<b>[Nuker]</b>\n+ ⚡ Optimised Nuker to now ignore other blocks if its breaking a bed\n<b>[Scaffold]</b>\n+ ✨ Added AutoSwitch toggle to automatically switch to the block being placed\n<b>[Antihit V2]</b> - NEW! 🌟\n+ 🛡️ Added Antihit V2 (In a few days i'll review what the opinions on the new antihit are and choose if I'll delete the old antihit or not)",
+        "date": "18/04/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://126689006623766",
+            "banner": true,
+            "height": 0
+        },
+        "images": [
+            "rbxassetid://125253820043581",
+            "rbxassetid://126488166170838"
+        ],
+        "new": true,
+        "title": "CustomChat, StreamerMode & Antihit V2! 🌟",
+        "updateLogId": 8,
+        "video": {
+            "image": "rbxassetid://126488166170838",
+            "url": "https://www.youtube.com/watch?v=example"
+        },
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[VW REWRITE, PACKET, OLD, RISE]</font></b>\n+ 🛠️ Fixed Nuker functionality for more reliable block breaking\n+ ✨ Added NoClickDelay for instant interactions\n+ 🤝 Added AutoKit for automated kit management\n\n<b><font color=\"#FFD700\">[BedProtector]</font></b>\n+ ✋ Added Hand Check to ensure correct item usage\n+ 🔄 Added AutoSwitch toggle (enabled by default) to automatically switch to the block being placed, bypassing HandCheck\n+ 🛠️ Added customizable BlockTypeCheck toggle (enabled by default) for flexible block type validation\n\n<b><font color=\"#FFD700\">[AutoWhisper]</font></b>\n+ ⚡ Optimized ground check for better performance\n+ 📏 Added Below Map Trigger toggle to activate abilities when below the map\n+ 🎚️ Added Map Threshold slider to fine-tune below-map activation\n\n<b><font color=\"#FFD700\">[BlockIn]</font></b>\n+ 🔄 Added AutoSwitch toggle (enabled by default) to automatically switch to the block being placed, bypassing HandCheck\n\n<b><font color=\"#FFD700\">[Projectile Aimbot]</font></b>\n+ 🛠️ Fixed ProjectileAimbot causing FPS drops on mobile devices\n+ 🛠️ Fixed ProjectileAimbot target visualizer running when not holding a projectile\n+ 👁️ Added TargetVisualiser toggle (enabled by default) for customizable visuals\n\n<b><font color=\"#FFD700\">[Cheat Engine Mode - VW REWRITE, OLD, PACKET, RISE]</font></b>\n+ 🛠️ Fixed Projectiles not working correctly\n+ 🎯 Added ProjectileAura support with highlight visuals for targeted entities",
         "date": "14/04/2025",
         "image": {
@@ -11,7 +33,11 @@
         "images": [
             "rbxassetid://90853197071579"
         ],
-        "new": true,
+        "video": {
+            "image": "rbxassetid://84112738077754",
+            "url": "https://youtu.be/n2MSIKxti7s"
+        },
+        "new": false,
         "title": "Fixes & ProjectileAura Highlights 🚀",
         "updateLogId": 7,
         "visible": true
