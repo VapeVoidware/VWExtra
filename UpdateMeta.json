@@ -1,5 +1,18 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[VW PACKET, REWRITE, RISE & OLD]</font></b> 🌟\n+ ✅ Fixed Inventory issues\n+ ✅ Fixed Killaura functionality\n+ ⚡ Optimized Killaura target finding (improved performance by fixing training room dummies check)\n+ 🛠️ Fixed lagging issues caused by UI Cleanup (temporarily removed for this emergency update)\n+ ✅ Fixed AdetundeExploit attempting upgrades without a sword\n- ❌ Removed UI Cleanup (until fixed)\n- ❌ Removed Interface (until fixed)\n- ❌ Removed HitFix (until fixed)",
+        "date": "19/04/202",
+        "image": {
+            "assetId": "rbxassetid://139388446834629",
+            "banner": true,
+            "aspectRatio": 1
+        },
+        "new": true,
+        "title": "Emergency Fixes & Optimizations 🛠️",
+        "updateLogId": 9,
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[CustomChat]</font></b> - NEW! 🌟\n+ ⭐ Customise your chat for even better experience\n+ ✨ Added CustomChat module which lets you customise your chat into your very own one :D\n+ 🛠️ Added fixes to the chat tags (clan tags, etc.) not appearing when executing VW\n<b>Toggles:</b>\n+ ✅ Display Kills\n+ ✅ Display Win\n+ ✅ Display Defeat\n+ ✅ Display Bed break\n+ ✅ Typewriter effect\n\n<b><font color=\"#FFD700\">[StreamerMode]</font></b> - NEW! 🌟\n+ 🎥 Added StreamerMode which will help you when making videos/showcases/etc. by hiding your name, display name and userid (not server sided)\n\n<b><font color=\"#FFD700\">[VW PACKET]</font></b> ⭐\n<b>[AutoDodge]</b>\n+ 🛠️ Fixed not working\n\n<b><font color=\"#FFD700\">[VW PACKET, RISE, OLD & REWRITE]</font></b> ⭐\n<b>[Nuker]</b>\n+ ⚡ Optimised Nuker to now ignore other blocks if its breaking a bed\n<b>[Scaffold]</b>\n+ ✨ Added AutoSwitch toggle to automatically switch to the block being placed\n<b>[Antihit V2]</b> - NEW! 🌟\n+ 🛡️ Added Antihit V2 (In a few days i'll review what the opinions on the new antihit are and choose if I'll delete the old antihit or not)",
         "date": "18/04/2025",
         "image": {
@@ -12,12 +25,12 @@
             "rbxassetid://125253820043581",
             "rbxassetid://126488166170838"
         ],
-        "new": true,
+        "new": false,
         "title": "CustomChat, StreamerMode & Antihit V2! 🌟",
         "updateLogId": 8,
         "video": {
             "image": "rbxassetid://126488166170838",
-            "url": "https://www.youtube.com/watch?v=example"
+            "url": "https://youtu.be/y04vS2_siW0"
         },
         "visible": true
     },
