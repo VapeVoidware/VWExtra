@@ -1,13 +1,26 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[VW PACKET, REWRITE, RISE & OLD]</font></b> 🌟\n<b><font color=\"#FFD700\">[Killaura]</font></b> ⚔️\n- ❌ Removed Charge Ratio\n+ ✅ Added OneTap Cooldown for higher damage per hit\n+ 🛠️ Fixed LegitAura not properly working\n<b><font color=\"#FFD700\">[AimAssist]</font></b> 🎯\n+ 🛠️ Fixed not working when ClickAim is enabled\n<b><font color=\"#FFD700\">[Nuker]</font></b> 💣\n+ 🛠️ Fixed functionality for reliable block breaking\n<b><font color=\"#FFD700\">[AutoClicker]</font></b> 🖱️\n+ 🛠️ Fixed automatic clicking for swords and blocks\n<b><font color=\"#FFD700\">[TriggerBot]</font></b> 🔫\n+ 🛠️ Fixed trigger mechanics for accurate activation\n<b><font color=\"#FFD700\">[AutoVoidDrop & Other Modules]</font></b> 🌌\n+ 🛠️ Fixed improper match state handling to prevent yielding\n<b><font color=\"#FFD700\">[AutoBuy]</font></b> 🛒\n+ 🛠️ Fixed purchasing logic for consistent operation",
+        "date": "26/04/2025",
+        "image": {
+            "assetId": "rbxassetid://134529768377808",
+            "banner": true,
+            "aspectRatio": 1
+        },
+        "new": true,
+        "title": "Module Fixes & OneTap Cooldown! 🚀",
+        "updateLogId": 10,
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[VW PACKET, REWRITE, RISE & OLD]</font></b> 🌟\n+ ✅ Fixed Inventory issues\n+ ✅ Fixed Killaura functionality\n+ ⚡ Optimized Killaura target finding (improved performance by fixing training room dummies check)\n+ 🛠️ Fixed lagging issues caused by UI Cleanup (temporarily removed for this emergency update)\n+ ✅ Fixed AdetundeExploit attempting upgrades without a sword\n- ❌ Removed UI Cleanup (until fixed)\n- ❌ Removed Interface (until fixed)\n- ❌ Removed HitFix (until fixed)",
-        "date": "19/04/202",
+        "date": "19/04/2025",
         "image": {
             "assetId": "rbxassetid://139388446834629",
             "banner": true,
             "aspectRatio": 1
         },
-        "new": true,
+        "new": false,
         "title": "Emergency Fixes & Optimizations 🛠️",
         "updateLogId": 9,
         "visible": true
