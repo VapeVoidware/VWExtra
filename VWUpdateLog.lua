@@ -526,7 +526,7 @@ local function createChangelogUI()
             local lineCount = select(2, updateData.body:gsub("\n", "")) + 1
             textHeight = lineCount * bodyLabel.TextSize
         end
-        local padding = 125 -- Increased to account for titleLabel (50), dateLabel (30), and padding (15+15+15)
+        local padding = 125
 
         local imageScrollingFrame = nil
         if updateData.images and type(updateData.images) == "table" and #updateData.images > 0 then
