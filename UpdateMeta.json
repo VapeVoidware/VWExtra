@@ -1,5 +1,21 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[VW REWRITE]</font></b> 🚗\n- ❌ Removed ScrollGUI\n+ 📱 Optimised Mobile GUI Auto Resizing\n<b><font color=\"#FFD700\">[ALL VOIDWARE VERSIONS]</font></b> 🌌\n+ 📲 Brought back Mobile Legacy Layout (supported executors only)\n<b><font color=\"#FFD700\">[LegacyLayout]</font></b> 🌍\n- World Window/Category",
+        "date": "05/04/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://136573482019511",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://74895788839955"
+        ],
+        "new": true,
+        "title": "Mobile Legacy Layout & GUI Optimizations! 🚀",
+        "updateLogId": 12,
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[VW REWRITE]</font></b> 🎉\n+ 📱 On mobile the gui is now <b>scrollable</b>!\n<b><font color=\"#FFD700\">[ALL VOIDWARE VERSIONS]</font></b> 🚀\n+ 🛡️ Upgraded StaffDetector\n+ 🕵️ Added StaffFetcher\n<b><font color=\"#FFD700\">[BetterSpectator]</font></b> 👀\n+ 🏆 Added BetterSpectator (could be useful in ranked)\n<b>Features:</b> ✨\n+ 📸 Camera locking\n+ 🎒 Inventory syncing\n+ ❤️ Health syncing\n+ 🪄 Enchants syncing\n+ 🔧 Hotbar syncing",
         "date": "03/05/2025",
         "image": {
@@ -11,7 +27,7 @@
             "rbxassetid://132359597726251",
             "rbxassetid://136036218357806"
         ],
-        "new": true,
+        "new": false,
         "title": "Scrollable GUI, BetterSpectator & Module Fixes! 🚀",
         "updateLogId": 11,
         "video": {

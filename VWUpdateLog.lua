@@ -26,9 +26,9 @@ local function retry(func, attempts, slowmode)
     return res
 end
 
-local changelogData = retry(function()
+local changelogData = (shared.UpdateLogDevMode and loadJson("VW_Update_Log.json")) or (retry(function()
     return HttpService:JSONDecode(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VWExtra/main/UpdateMeta.json", true))
-end, 10, 3) or loadJson("VW_Update_Log.json")
+end, 10, 3) or loadJson("VW_Update_Log.json"))
 
 if not changelogData then warn("[VW Update Log]: Failure loading changelogData!"); return end
 pcall(function() writefile("VW_Update_Log.json", HttpService:JSONEncode(changelogData)) end)
@@ -45,7 +45,7 @@ end
 local newest = getNewestUpdate()
 if not newest then warn("[VW Update Log]: Failure getting newest update!"); return end
 
-if not shared.UpdateLogBypass and localData.lastRead == tostring(newest.updateLogId) then return end
+if (not (shared.UpdateLogBypass or shared.UpdateLogDevMode)) and localData.lastRead == tostring(newest.updateLogId) then return end
 
 local NotificationSystem = {}
 NotificationSystem.__index = NotificationSystem
