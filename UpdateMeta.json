@@ -1,5 +1,27 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[ALL VW VERSIONS]</font></b> 🎮\n+ AC Mod View ✨\nFeatures:\n+ Remove Disguises 🕵️‍♂️\n+ Add AC mod controls (ban, kick - visual only) 🚫\n+ Parties viewer 🎉\n+ Autowin! 🏆\nFeatures:\n+ Heal Threshold ❤️\n+ Advanced anti-death system 🛡️\n+ Advanced moving system 🚀\n+ Movement Type - TP/Tween 🔄",
+        "date": "05/21/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://80415871728757",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://114973835703278",
+            "rbxassetid://126788607836429",
+            "rbxassetid://80415871728757"
+        ],
+        "new": true,
+        "title": "AC Mod View & Autowin Features! 🚀",
+        "updateLogId": 13,
+        "video": {
+            "image": "rbxassetid://114973835703278",
+            "url": "https://youtu.be/I0-m_ITJkBA"
+        },
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[VW REWRITE]</font></b> 🚗\n- ❌ Removed ScrollGUI\n+ 📱 Optimised Mobile GUI Auto Resizing\n<b><font color=\"#FFD700\">[ALL VOIDWARE VERSIONS]</font></b> 🌌\n+ 📲 Brought back Mobile Legacy Layout (supported executors only)\n<b><font color=\"#FFD700\">[LegacyLayout]</font></b> 🌍\n- World Window/Category",
         "date": "05/04/2025",
         "image": {
@@ -10,7 +32,7 @@
         "images": [
             "rbxassetid://74895788839955"
         ],
-        "new": true,
+        "new": false,
         "title": "Mobile Legacy Layout & GUI Optimizations! 🚀",
         "updateLogId": 12.1,
         "video": {
