@@ -1,5 +1,26 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[ALL VW VERSIONS]</font></b> 🚀\n+ 💬 Custom Chat Enhancements\n<b>Features:</b> ✨\n+ ✅ Display Joins Toggle\n+ 🚪 Display Leaves Toggle\n+ 🔨 Nuker Improvements\n<b>Features:</b> ✨\n+ 💥 Break Closest Block Toggle (Work In Progress)\n+ 🏦 AutoBank Enhancements\n<b>Features:</b> ✨\n+ 🔧 Activation Dropdown (On Key, Toggle)\n+ 🛏️ BedAssist Module\n<b>Features:</b> ✨\n+ 📏 Assist Range Slider\n+ ⚡ Aim Speed Slider\n+ 📐 Max Angle Slider\n+ 🎥 First Person Only Toggle\n+ 🏪 Shop Check Toggle\n+ 📡 VW Packet Updates\n<b>Features:</b> ✨\n+ 🔍 Added AC Mod View\n+ 🏦 Added AutoBank",
+        "date": "06/06/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://78518944194839",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://129919589240643",
+            "rbxassetid://78518944194839"
+        ],
+        "new": true,
+        "title": "Nuker & BedAssist Upgrades! 🚀",
+        "updateLogId": 14,
+        "video": {
+            "image": "rbxassetid://129919589240643",
+            "url": "https://youtu.be/QoQLO3GjlYs"
+        },
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[ALL VW VERSIONS]</font></b> 🎮\n+ AC Mod View ✨\nFeatures:\n+ Remove Disguises 🕵️‍♂️\n+ Add AC mod controls (ban, kick - visual only) 🚫\n+ Parties viewer 🎉\n+ Autowin! 🏆\nFeatures:\n+ Heal Threshold ❤️\n+ Advanced anti-death system 🛡️\n+ Advanced moving system 🚀\n+ Movement Type - TP/Tween 🔄",
         "date": "05/21/2025",
         "image": {
@@ -12,7 +33,7 @@
             "rbxassetid://126788607836429",
             "rbxassetid://80415871728757"
         ],
-        "new": true,
+        "new": false,
         "title": "AC Mod View & Autowin Features! 🚀",
         "updateLogId": 13,
         "video": {
