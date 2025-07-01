@@ -1,5 +1,26 @@
 [
     {
+        "body": "<b><font color=\"#228B22\">[99 NIGHTS IN THE FOREST SUPPORT]</font></b> 🌲\n+ 🌟 Initial Support for 99 Nights in the Forest\n<b>Features:</b> ✨\n+ 👀 ESP Modules (Health, Fuel, Food, Scrappable, Other)\n+ 🪓 Auto Chop Trees Module\n+ 🛍️ Auto Collect Items with Custom Filters\n+ 🍲 Auto Consume & Cooking Enhancements\n+ 🔥 Teleport to Fire & Back\n+ 💡 Fullbright with Adjustable Brightness\n+ 🚶‍♂️ Teleport Walk with Speed Slider\n+ 🚫 NoClip Module\n+ ⚡ Instant Proximity Prompts\n+ 🔍 Zoom Unlocker (Infinite & Custom Modes)\n+ 🗑️ Drop, Scrap, Biofuel, and Cook Stew All Modules\n+ 🪟 GUI Window Sorting & Uninject Options\n+ 🔄 Play Again & Lobby Teleport\n<b>Enhancements:</b> ✨\n+ 🛠️ CustomRoact UI for Healthbars\n+ 📡 Optimized Resource Tracking\n+ 🐛 Bug Fixes for Stable Execution",
+        "date": "07/01/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://99929390025841",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://99929390025841",
+            "rbxassetid://71056658426481"
+        ],
+        "new": true,
+        "title": "99 Nights in the Forest Support Launch! 🌲✨",
+        "updateLogId": 15,
+        "video": {
+            "image": "rbxassetid://71056658426481",
+            "url": "https://youtu.be/xvMTM1wfV7E"
+        },
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[ALL VW VERSIONS]</font></b> 🚀\n+ 💬 Custom Chat Enhancements\n<b>Features:</b> ✨\n+ ✅ Display Joins Toggle\n+ 🚪 Display Leaves Toggle\n+ 🔨 Nuker Improvements\n<b>Features:</b> ✨\n+ 💥 Break Closest Block Toggle (Work In Progress)\n+ 🏦 AutoBank Enhancements\n<b>Features:</b> ✨\n+ 🔧 Activation Dropdown (On Key, Toggle)\n+ 🛏️ BedAssist Module\n<b>Features:</b> ✨\n+ 📏 Assist Range Slider\n+ ⚡ Aim Speed Slider\n+ 📐 Max Angle Slider\n+ 🎥 First Person Only Toggle\n+ 🏪 Shop Check Toggle\n+ 📡 VW Packet Updates\n<b>Features:</b> ✨\n+ 🔍 Added AC Mod View\n+ 🏦 Added AutoBank",
         "date": "06/06/2025",
         "image": {
@@ -11,7 +32,7 @@
             "rbxassetid://129919589240643",
             "rbxassetid://78518944194839"
         ],
-        "new": true,
+        "new": false,
         "title": "Nuker & BedAssist Upgrades! 🚀",
         "updateLogId": 14,
         "video": {
