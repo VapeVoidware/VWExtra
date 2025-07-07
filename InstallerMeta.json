@@ -8,6 +8,13 @@
 			"image": "rbxassetid://14368301329"
 		},
 		{
+			"name": "Mauve",
+			"description": "Fancy way of saying purple (even though it's mostly pink 💀)",
+			"directory": "VWMauve",
+			"color": [169, 51, 255],
+			"image": "rbxassetid://14368301329"
+		},
+		{
 			"name": "Aesthetic",
 			"description": "Made with ❤️ by Justme",
 			"directory": "VWAesthetic",
