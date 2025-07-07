@@ -437,6 +437,7 @@ end
 local Installer = {}
 function Installer:FetchFiles(dir)
 	local url = "https://api.github.com/repos/Erchobg/VoidwareProfiles/contents/Installer/" .. dir .. "?ref=main"
+	print("[INSTALLER] Fetching files from " .. tostring(url))
 	local res = request({Url = url, Method = "GET"})
 	if res.StatusCode == 200 then
 		local data = API.Services.HttpService:JSONDecode(res.Body)
@@ -446,11 +447,14 @@ function Installer:FetchFiles(dir)
 		end
 		return files
 	end
+	print("[INSTALLER] Failed to fetch files")
 	error("Failed to fetch files")
 end
 
 function Installer:InstallFiles(files, dir, download)
+	print("[INSTALLER] Installing files from " .. tostring(dir))
 	for _, file in pairs(files) do
+		print("[INSTALLER] Installing files | URL: " .. tostring("https://raw.githubusercontent.com/Erchobg/VoidwareProfiles/main/Installer/" .. dir .. "/" .. file))
 		download.UpdateText("Downloading " .. file .. "...")
 		local content = game:HttpGet("https://raw.githubusercontent.com/Erchobg/VoidwareProfiles/main/Installer/" .. dir .. "/" .. file)
 		for _, folder in pairs({"vape/profiles", "rise/profiles", "vape/libraries", "rise/libraries"}) do
