@@ -1,5 +1,26 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[ALL VERSIONS]</font></b> 🌟\n+ ✨ Added working Invisibility module (thanks pandacrazycrazy#0)\n+ ⚡ Optimised Autowin & Fixed a lot of issues with it\n+ 🎯 Added new Damage Indicator\n+ 🎭 Added PlayerAttach\n+ 💬 Added new stuff to Custom Chat\n+ 🎨 Added Hotbar Visuals\n\n<b><font color=\"#00FFFF\">[[ Player Attach ]]</font></b> 🎭\n+ 📏 Range slider\n+ 🔄 Movement Type dropdown (Teleport, Tween, Velocity)\n+ ⏱️ Tween Duration slider\n+ 🔙 Stay Behind Target toggle\n+ 📐 Behind Distance slider\n\n<b><font color=\"#00FFFF\">[[ Damage Indicator ]]</font></b> 🎯\n+ 🌈 Color Mode dropdown (Rainbow, Custom, Lunar)\n+ 🌈 Rainbow Style dropdown (Gradient, Paint)\n+ 📝 Text Mode dropdown (Rainbow, Custom, Lunar)\n+ 🎨 Custom Color toggle\n+ 🎨 Text Color color slider\n+ ✍️ Custom Text toggle\n+ 💬 Custom Messages text list\n+ 🔤 Custom Font toggle\n+ 🔤 Font dropdown\n\n<b><font color=\"#00FFFF\">[[ Custom Chat ]]</font></b> 💬\n+ 🌟 Gradient toggle\n+ 🎨 Chat Color 1 color slider\n+ 🎨 Chat Color 2 color slider\n+ 🎨 Chat Color 3 color slider\n+ 🔧 Third Chat Color toggle\n\n<b><font color=\"#00FFFF\">[[ Hotbar Visuals ]]</font></b> 🎨\n+ 🎨 Slot Color toggle\n+ 🌟 Gradient Slot Color toggle\n+ 🌈 Animated Gradient toggle\n+ 🎨 Gradient Color color slider\n+ 🎨 Gradient Color 2 color slider\n+ 🎨 Slot Color color slider\n+ 🔲 Rounding toggle\n+ 🔲 Corner Radius color slider\n+ ✨ Outline Highlight toggle\n+ 🎨 Highlight Color color slider\n+ 🔢 No Slot Numbers toggle\n\n<b><font color=\"#FFD700\">[VW REWRITE]</font></b> 🔧\n+ 👾 Added Amongus Changer\n\n<b><font color=\"#00FFFF\">[[ Autowin ]]</font></b> 🏆\n+ 📏 Added Scaffold Disable Distance slider\n+ ⚡ Optimised suffocation checks",
+        "date": "07/07/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://136542351992560",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://136542351992560",
+            "rbxassetid://83549195159691"
+        ],
+        "new": true,
+        "title": "Invisibility, PlayerAttach & Damage Indicator! 🚀",
+        "updateLogId": 16,
+        "video": {
+            "image": "rbxassetid://83549195159691",
+            "url": "https://youtu.be/WZsV4Azwl1U"
+        },
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#228B22\">[99 NIGHTS IN THE FOREST SUPPORT]</font></b> 🌲\n+ 🌟 Initial Support for 99 Nights in the Forest\n<b>Features:</b> ✨\n+ 👀 ESP Modules (Health, Fuel, Food, Scrappable, Other)\n+ 🪓 Auto Chop Trees Module\n+ 🛍️ Auto Collect Items with Custom Filters\n+ 🍲 Auto Consume & Cooking Enhancements\n+ 🔥 Teleport to Fire & Back\n+ 💡 Fullbright with Adjustable Brightness\n+ 🚶‍♂️ Teleport Walk with Speed Slider\n+ 🚫 NoClip Module\n+ ⚡ Instant Proximity Prompts\n+ 🔍 Zoom Unlocker (Infinite & Custom Modes)\n+ 🗑️ Drop, Scrap, Biofuel, and Cook Stew All Modules\n+ 🪟 GUI Window Sorting & Uninject Options\n+ 🔄 Play Again & Lobby Teleport\n<b>Enhancements:</b> ✨\n+ 🛠️ CustomRoact UI for Healthbars\n+ 📡 Optimized Resource Tracking\n+ 🐛 Bug Fixes for Stable Execution",
         "date": "07/01/2025",
         "image": {
@@ -11,7 +32,7 @@
             "rbxassetid://99929390025841",
             "rbxassetid://71056658426481"
         ],
-        "new": true,
+        "new": false,
         "title": "99 Nights in the Forest Support Launch! 🌲✨",
         "updateLogId": 15,
         "video": {
