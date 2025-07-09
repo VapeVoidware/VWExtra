@@ -50,11 +50,18 @@ if (not (shared.UpdateLogBypass or shared.UpdateLogDevMode)) and localData.lastR
 local NotificationSystem = {}
 NotificationSystem.__index = NotificationSystem
 
+local function getCoreGui()
+    local suc, err = pcall(function()
+        return game:GetService("CoreGui")
+    end)
+    return suc and err
+end
+
 function NotificationSystem.new()
     local self = setmetatable({}, NotificationSystem)
     self.ScreenGui = Instance.new("ScreenGui")
     self.ScreenGui.Name = "NotificationGui"
-    self.ScreenGui.Parent = Players.LocalPlayer:WaitForChild("PlayerGui")
+    self.ScreenGui.Parent = getCoreGui() or Players.LocalPlayer:WaitForChild("PlayerGui")
     self.ScreenGui.ResetOnSpawn = false
     self.Notifications = {}
     return self
@@ -226,7 +233,7 @@ local function createChangelogUI()
 
     local screenGui = Instance.new("ScreenGui")
     screenGui.Name = "ChangelogUI"
-    screenGui.Parent = playerGui
+    screenGui.Parent = getCoreGui() or playerGui
     screenGui.ResetOnSpawn = false
 
     local mainFrame = Instance.new("Frame")
