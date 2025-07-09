@@ -1,5 +1,26 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[INK GAME SUPPORT LAUNCH]</font></b> 🦑 🎲\n\n<b>[Ink Game - Main Features]</b> 🌟\n+ Complete Red Light / Green Light 🏃‍♂️\n+ Complete Dalgona Game 🍬\n+ Reveal Glass Bridge 🥾\n+ Auto Pull (Tug of War) 💪\n+ Perfect Pull (Tug of War) 🎯\n+ Remove Ragdoll Effect 🧍\n+ Anti Ragdoll + No Stun 🚫\n+ Fix Camera 📷\n+ Join Discord Server 🔗\n+ Unload Script 🗑️\n\n<b>[Ink Game - Player Modifications]</b> 🧑\n+ Walk Speed Adjustment 🚶\n+ Speed Toggle (with Keybind) ⚡\n+ Noclip (with Keybind) 🚫\n+ Infinite Jump 🦘\n+ Fly ✈️\n+ Fly Speed Adjustment 🛩️\n+ FOV Adjustment 👁️\n\n<b>[Ink Game - ESP Features]</b> 👀\n+ Player ESP ❤️\n+ Guard ESP 🛡️\n+ Hider ESP 🙈\n+ Seeker ESP 🔍\n+ Key ESP 🔑\n+ Door ESP 🚪\n+ ESP Highlight Toggle 🌟\n+ Show Distance on ESP 📏\n+ ESP Fill Transparency Slider 🌫️\n+ ESP Outline Transparency Slider 🖼️\n+ ESP Text Size Slider 🔠\n\n<b>[Ink Game - UI Settings]</b> ⚙️\n+ Open Keybind Menu 🎹\n+ Custom Cursor Toggle 🖱️\n+ Menu Keybind Customization 🔧\n+ Theme Management 🎨\n+ Save Configuration 💾",
+        "date": "07/09/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://130181744053779",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://130181744053779",
+            "rbxassetid://84789762481311"
+        ],
+        "new": true,
+        "title": "Ink Game Support Launch! 🦑 🎲",
+        "updateLogId": 17,
+        "video": {
+            "image": "rbxassetid://84789762481311",
+            "url": "https://youtu.be/2t3WgitelCs"
+        },
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[ALL VERSIONS]</font></b> 🌟\n+ ✨ Added working Invisibility module (thanks pandacrazycrazy#0)\n+ ⚡ Optimised Autowin & Fixed a lot of issues with it\n+ 🎯 Added new Damage Indicator\n+ 🎭 Added PlayerAttach\n+ 💬 Added new stuff to Custom Chat\n+ 🎨 Added Hotbar Visuals\n\n<b><font color=\"#00FFFF\">[[ Player Attach ]]</font></b> 🎭\n+ 📏 Range slider\n+ 🔄 Movement Type dropdown (Teleport, Tween, Velocity)\n+ ⏱️ Tween Duration slider\n+ 🔙 Stay Behind Target toggle\n+ 📐 Behind Distance slider\n\n<b><font color=\"#00FFFF\">[[ Damage Indicator ]]</font></b> 🎯\n+ 🌈 Color Mode dropdown (Rainbow, Custom, Lunar)\n+ 🌈 Rainbow Style dropdown (Gradient, Paint)\n+ 📝 Text Mode dropdown (Rainbow, Custom, Lunar)\n+ 🎨 Custom Color toggle\n+ 🎨 Text Color color slider\n+ ✍️ Custom Text toggle\n+ 💬 Custom Messages text list\n+ 🔤 Custom Font toggle\n+ 🔤 Font dropdown\n\n<b><font color=\"#00FFFF\">[[ Custom Chat ]]</font></b> 💬\n+ 🌟 Gradient toggle\n+ 🎨 Chat Color 1 color slider\n+ 🎨 Chat Color 2 color slider\n+ 🎨 Chat Color 3 color slider\n+ 🔧 Third Chat Color toggle\n\n<b><font color=\"#00FFFF\">[[ Hotbar Visuals ]]</font></b> 🎨\n+ 🎨 Slot Color toggle\n+ 🌟 Gradient Slot Color toggle\n+ 🌈 Animated Gradient toggle\n+ 🎨 Gradient Color color slider\n+ 🎨 Gradient Color 2 color slider\n+ 🎨 Slot Color color slider\n+ 🔲 Rounding toggle\n+ 🔲 Corner Radius color slider\n+ ✨ Outline Highlight toggle\n+ 🎨 Highlight Color color slider\n+ 🔢 No Slot Numbers toggle\n\n<b><font color=\"#FFD700\">[VW REWRITE]</font></b> 🔧\n+ 👾 Added Amongus Changer\n\n<b><font color=\"#00FFFF\">[[ Autowin ]]</font></b> 🏆\n+ 📏 Added Scaffold Disable Distance slider\n+ ⚡ Optimised suffocation checks",
         "date": "07/07/2025",
         "image": {
@@ -11,7 +32,7 @@
             "rbxassetid://136542351992560",
             "rbxassetid://83549195159691"
         ],
-        "new": true,
+        "new": false,
         "title": "Invisibility, PlayerAttach & Damage Indicator! 🚀",
         "updateLogId": 16,
         "video": {
