@@ -1,5 +1,21 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[New Ink Game Support Update]🦑✨</font></b> 🎮✨\n\n<b>[Fun]</b> 🎉\n+ Autowin [Lights Out, HideAndSeek, RedLightGreenLight, TugOfWar, Mingle, Dalgona Support] 🏆\n+ Anti Fling (beta version) 🚀\n+ Fling Aura 🔥\n+ Killaura 🔪\n\n<b>[Red Light / Green Light]</b> 🚦\n+ Godmode 😇\n+ Remove Injured Walking 🚑\n\n<b>[Dalgona]</b> 🍬\n+ Immune Dalgona Game (beta version) 🛡️\n\n<b>[Mingle]</b> 🤝\n+ Auto Mingle (beta version) 😄\n\n<b>[Glass Bridge]</b> 🌉\n+ Complete Glass Bridge Game ✅\n\n<b>[Hide And Seek]</b> 🙈\n+ Teleport To Hider 📍\n\n<b>[Rebel]</b> ⚔️\n+ Expand Guard Hitbox 🎯\n\n<b>[Misc]</b> 🛠️\n+ Emotes List 😃\n+ Play Emote 💃\n+ Stop Emoting 🛑\n+ Enable Spectator Mode 👻\n+ Teleport To Safe Place 🏠\n+ Fix Players Visibility 👀\n\n<b>[Security]</b> 🔒\n+ Anti AFK ⏰\n+ Staff Detector 🕵️",
+        "date": "07/10/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://100256144467619",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://100256144467619"
+        ],
+        "new": true,
+        "title": "New Ink Game Support Update! 🦑✨",
+        "updateLogId": 18,
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[INK GAME SUPPORT LAUNCH]</font></b> 🦑 🎲\n\n<b>[Ink Game - Main Features]</b> 🌟\n+ Complete Red Light / Green Light 🏃‍♂️\n+ Complete Dalgona Game 🍬\n+ Reveal Glass Bridge 🥾\n+ Auto Pull (Tug of War) 💪\n+ Perfect Pull (Tug of War) 🎯\n+ Remove Ragdoll Effect 🧍\n+ Anti Ragdoll + No Stun 🚫\n+ Fix Camera 📷\n+ Join Discord Server 🔗\n+ Unload Script 🗑️\n\n<b>[Ink Game - Player Modifications]</b> 🧑\n+ Walk Speed Adjustment 🚶\n+ Speed Toggle (with Keybind) ⚡\n+ Noclip (with Keybind) 🚫\n+ Infinite Jump 🦘\n+ Fly ✈️\n+ Fly Speed Adjustment 🛩️\n+ FOV Adjustment 👁️\n\n<b>[Ink Game - ESP Features]</b> 👀\n+ Player ESP ❤️\n+ Guard ESP 🛡️\n+ Hider ESP 🙈\n+ Seeker ESP 🔍\n+ Key ESP 🔑\n+ Door ESP 🚪\n+ ESP Highlight Toggle 🌟\n+ Show Distance on ESP 📏\n+ ESP Fill Transparency Slider 🌫️\n+ ESP Outline Transparency Slider 🖼️\n+ ESP Text Size Slider 🔠\n\n<b>[Ink Game - UI Settings]</b> ⚙️\n+ Open Keybind Menu 🎹\n+ Custom Cursor Toggle 🖱️\n+ Menu Keybind Customization 🔧\n+ Theme Management 🎨\n+ Save Configuration 💾",
         "date": "07/09/2025",
         "image": {
