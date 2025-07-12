@@ -1,5 +1,22 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[Aimbot, Gun Mods, Anticheat Patch & Fixes]🦑🎲</font></b> 🚀\n\n<b>[Fixes]</b> 🛠️\n+ Fixed Anti Fling preventing the game from teleporting u to the next stage 🚀\n+ Fixed the anticheat patches preventing some of the game's core functions from not working 🛡️\n+ Fixed Complete Dalgona Game not working on some executors 🍬\n+ Fixed Complete Glass Bridge not checking the game state 🌉\n+ Fixed the keybind menu being visible on mobile 📱\n+ Fixed Speed not disabling when toggled off ⚡\n+ Fixed Glass Bridge Autowin not working 🏆\n+ Fixed Fling Aura completely ✨\n+ Fixed Autowin Glass Bridge 🎯\n\n<b>[Rebel]</b> ⚔️\n+ Added Gun Mods 🔫\n+ Added Aimbot 🔍\n\n<b>[Misc]</b> 🛠️\n+ Added Keybind for Teleport To Safe Place 🏠\n\n<b>[Hide And Seek]</b> 🙈\n+ Added Keybind for Teleport To Hider 📍\n\n<b>[Fun]</b> 🎉\n+ Added Ghost Mode (beta version) 👻\n\n<b>[Security]</b> 🔒\n+ Added Anticheat Patch (this will fix Fling Aura not working and bypass some new anticheat detections) 🛡️\n\n<b>[Information]</b> ℹ️\n+ Added Save Settings button to make it even easier to save your settings 💾\n+ Added Reset Settings button 🔄",
+        "date": "07/12/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://139810278323928",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://134208497971108",
+            "rbxassetid://139810278323928"
+        ],
+        "new": true,
+        "title": "Aimbot, Gun Mods, Anticheat Patch & Fixes! 🦑🎲",
+        "updateLogId": 19,
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[New Ink Game Support Update]🦑✨</font></b> 🎮✨\n\n<b>[Fun]</b> 🎉\n+ Autowin [Lights Out, HideAndSeek, RedLightGreenLight, TugOfWar, Mingle, Dalgona Support] 🏆\n+ Anti Fling (beta version) 🚀\n+ Fling Aura 🔥\n+ Killaura 🔪\n\n<b>[Red Light / Green Light]</b> 🚦\n+ Godmode 😇\n+ Remove Injured Walking 🚑\n\n<b>[Dalgona]</b> 🍬\n+ Immune Dalgona Game (beta version) 🛡️\n\n<b>[Mingle]</b> 🤝\n+ Auto Mingle (beta version) 😄\n\n<b>[Glass Bridge]</b> 🌉\n+ Complete Glass Bridge Game ✅\n\n<b>[Hide And Seek]</b> 🙈\n+ Teleport To Hider 📍\n\n<b>[Rebel]</b> ⚔️\n+ Expand Guard Hitbox 🎯\n\n<b>[Misc]</b> 🛠️\n+ Emotes List 😃\n+ Play Emote 💃\n+ Stop Emoting 🛑\n+ Enable Spectator Mode 👻\n+ Teleport To Safe Place 🏠\n+ Fix Players Visibility 👀\n\n<b>[Security]</b> 🔒\n+ Anti AFK ⏰\n+ Staff Detector 🕵️",
         "date": "07/10/2025",
         "image": {
@@ -10,7 +27,7 @@
         "images": [
             "rbxassetid://100256144467619"
         ],
-        "new": true,
+        "new": false,
         "title": "New Ink Game Support Update! 🦑✨",
         "updateLogId": 18,
         "visible": true
