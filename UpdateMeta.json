@@ -1,5 +1,27 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[NEW UI, PLAYER ATTACH & More]🦑🎉</font></b> 🚀\n\n<b>[Fixes]</b> 🛠️\n+ Fixed Players/Guards getting invisible after completion of the dalgona game 🫥\n+ Fixed Complete Dalgona Game breaking the game camera and shiftlock 📸\n+ Fixed Guard Expand Hitbox expanding the hitbox of non-guards 🎯\n+ Fixed Guard ESP not deleting itself after the guard dies 💀\n+ Optimised Aimbot reducing fps drops significantly 🚀\n+ Fixed Cutscenes breaking after using Fix Camera 🎬\n+ Added Health Check to Aimbot ❤️\n\n<b>[Interaction]</b> 🤝\n+ Added Instant Interact ⚡\n+ Added Interaction Reach Multiplier slider 📏\n+ Added Interaction Reach ✋\n\n<b>[Red Light Green Light]</b> 🚦\n+ Added Bring Injured Player 🩹\n\n<b>[Useful Stuff]</b> 🛠️\n+ Added Auto Skip Dialogue ⏭️\n+ Added Fullbright 💡\n\n<b>[Rebel]</b> 😈\n+ Added Bring All Guards 🛡️\n\n<b>[Guard ESP]</b> 👀\n+ Added Health Checks ❤️\n\n<b>[Hide And Seek]</b> 🙈\n+ Added Infinite Stamina 🏃‍♂️\n+ Added Teleport to Safe Hiding Spot 🏠\n\n<b>[Player Attach]</b> 🧲\n+ Player Attach 🤝\n+ Attach Range 📏\n+ Movement Type [Tween, Teleport, Velocity] 🚀\n+ Stay Behind Target 👥\n+ Behind Distance ↔️\n\n<b>[Misc]</b> 🛠️\n+ Made Teleport To Safe Place teleport you back to your original position when disabled 🔄\n\n<b>[Aimbot]</b> 🎯\n+ Added Player Aimbot 👤\n+ Renamed -> Guard Aimbot 🛡️\n+ Added Wall Check 🏯\n\n<b>[Hide And Seek ESP]</b> 👀\n+ Added Escape Door ESP 🚪",
+        "date": "07/14/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://109814965715244",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://111386082317943",
+            "rbxassetid://118055690122787",
+            "rbxassetid://109814965715244"
+        ],
+        "new": true,
+        "title": "NEW UI, PLAYER ATTACH & More! 🦑🎉",
+        "updateLogId": 20,
+        "video": {
+            "image": "rbxassetid://118055690122787",
+            "url": "https://youtu.be/4Gsc-rPdcCg"
+        },
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[Aimbot, Gun Mods, Anticheat Patch & Fixes]🦑🎲</font></b> 🚀\n\n<b>[Fixes]</b> 🛠️\n+ Fixed Anti Fling preventing the game from teleporting u to the next stage 🚀\n+ Fixed the anticheat patches preventing some of the game's core functions from not working 🛡️\n+ Fixed Complete Dalgona Game not working on some executors 🍬\n+ Fixed Complete Glass Bridge not checking the game state 🌉\n+ Fixed the keybind menu being visible on mobile 📱\n+ Fixed Speed not disabling when toggled off ⚡\n+ Fixed Glass Bridge Autowin not working 🏆\n+ Fixed Fling Aura completely ✨\n+ Fixed Autowin Glass Bridge 🎯\n\n<b>[Rebel]</b> ⚔️\n+ Added Gun Mods 🔫\n+ Added Aimbot 🔍\n\n<b>[Misc]</b> 🛠️\n+ Added Keybind for Teleport To Safe Place 🏠\n\n<b>[Hide And Seek]</b> 🙈\n+ Added Keybind for Teleport To Hider 📍\n\n<b>[Fun]</b> 🎉\n+ Added Ghost Mode (beta version) 👻\n\n<b>[Security]</b> 🔒\n+ Added Anticheat Patch (this will fix Fling Aura not working and bypass some new anticheat detections) 🛡️\n\n<b>[Information]</b> ℹ️\n+ Added Save Settings button to make it even easier to save your settings 💾\n+ Added Reset Settings button 🔄",
         "date": "07/12/2025",
         "image": {
@@ -11,7 +33,7 @@
             "rbxassetid://134208497971108",
             "rbxassetid://139810278323928"
         ],
-        "new": true,
+        "new": false,
         "title": "Aimbot, Gun Mods, Anticheat Patch & Fixes! 🦑🎲",
         "updateLogId": 19,
         "visible": true
