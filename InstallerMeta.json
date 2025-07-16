@@ -8,6 +8,13 @@
 			"image": "rbxassetid://14368301329"
 		},
 		{
+			"name": "Gold",
+			"description": "Listen to Golden by Huntr/x 😌",
+			"directory": "VWGold",
+			"color": [212, 175, 55],
+			"image": "rbxassetid://14368301329"
+		},
+		{
 			"name": "Mauve",
 			"description": "Fancy way of saying purple (even though it's mostly pink 💀)",
 			"directory": "VWMauve",
