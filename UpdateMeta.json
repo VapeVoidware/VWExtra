@@ -1,5 +1,27 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[REBEL FIXES & More]🦑⚔️</font></b> 🚀\n\n<b>[Fixes]</b> 🛠️\n+ Fixed Voidware sometimes failing to load and inf looping into errors 🔄\n+ Fixed Anti Death not properly working while Player Attach is enabled ⚡\n+ Fixed Anti Death preventing you from teleporting to safe place 🛡️\n+ Fixed Anti Void not cleaning up after unloading Voidware 🧹\n+ Fixed Anti Death looping through safe teleporting 🔄\n+ Fixed Keys ESP in Hide And Seek 🔍\n+ Fixed Guard Aimbot not working 🎯\n\n<b>[Autowin - GlassBridge]</b> 🌉\n+ Added cooldown before teleporting to the end of the bridge to prevent noclipping and dying (15 seconds) ⏱️\n\n<b>[Killaura]</b> ⚔️\n+ Added Push Aura 💨\n\n<b>[Rebel]</b> 🏴‍☠️\n+ Added Auto Steal Guns 🔫\n\n<b>[Auto Vote]</b> 🗳️\n+ Added Auto Vote toggle ✅\n+ Added Vote Options dropdown 📜",
+        "date": "07/18/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://95503745833878",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://116005117928958",
+            "rbxassetid://99854514828179",
+            "rbxassetid://95503745833878"
+        ],
+        "new": true,
+        "title": "REBEL FIXES & More! 🦑⚔️",
+        "updateLogId": 22,
+        "video": {
+            "image": "rbxassetid://116005117928958",
+            "url": "https://youtu.be/qdHeo6fwRWg"
+        },
+        "visible": true
+    },  
+    {
         "body": "<b><font color=\"#FFD700\">[NEW PROFILES, KILLAURA & More]✨⚔️</font></b> 🚀\n\n<b>[Fixes]</b> 🛠️\n+ Fixed Voidware Packet not loading 🚀\n+ Fixed AutoBank on Voidware Packet 💰\n+ Optimised Chest Stealer to reduce ping spikes and fps drops ⚡\n+ Fixed Projectile Aura resulting in huge fps drops on Voidware Packet, Rise & Old 🎯\n\n<b>[All Versions]</b> 🌟\n+ NEW PROFILES Voidware Golden! ✨\n\n<b>[Killaura]</b> ⚔️\n+ Added Kaida Kit Support 🐉\n+ Added Sigrid Check toggle ✅\n+ Added Preserve Mobile Icon toggle (for mobile) 📱\n\n<b>[Misc]</b> 🛠️\n+ Added UICleanup to Cheat Engine Mode 🧹",
         "date": "07/16/2025",
         "image": {
@@ -11,7 +33,7 @@
             "rbxassetid://74979655716847",
             "rbxassetid://82008369010391"
         ],
-        "new": true,
+        "new": false,
         "title": "NEW PROFILES, KILLAURA & More! ✨⚔️",
         "updateLogId": 21,
         "video": {
