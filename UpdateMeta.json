@@ -1,5 +1,37 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[ANTICHEAT PATCH UPGRADES & JUMP ROPE] 🦑⚔️</font></b> 🚀\n\n<b>[Fixes]</b> 🛠️\n+ Fixed Auto Pull not working ✅\n+ Fixed Auto Skip Dialogue resulting in fps drops (50% chance it fixes itself) 📉\n\n<b>[Anticheat Patch] - UPGRADED</b> 🚀\n+ Added Block Anticheat Remote 🔒\n+ Added Spoof Fling Velocity 🛡️\n+ Added Fling Character Hook 🎣\n+ Added Anticheat Patch Version for Bad Executors 🌟\n\n<b>[Jump Rope]</b> 🪢\n+ Added Complete Jump Rope Game 🎮\n+ Added Anti Fall [beta] 🛑\n+ Added Auto Perfect [beta] ✨\n+ Added Destroy Fall Detection [beta] 💥\n\n<b>[Autowin]</b> 🏆\n+ Added Jump Rope support 🪢\n\n<b>[Coordinates]</b> 📍\n+ Added Coordinates to Misc Tab - by 3rfe#0 🗺️\n\n<b>[Killaura]</b> ⚔️\n+ Added Range Slider 🎚️",
+        "date": "07/20/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://72385929509787",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://72385929509787"
+        ],
+        "new": true,
+        "title": "ANTICHEAT PATCH UPGRADES & JUMP ROPE! 🦑⚔️",
+        "updateLogId": 24,
+        "visible": true
+    },
+    {
+        "body": "<b><font color=\"#FFD700\">[PERFORMANCE & UPCOMING FEATURES] 🔨🌧️</font></b> 🚀\n\n<b>[Fixes]</b> 🛠️\n+ Fixed Adetunde Exploit resulting in ping spikes and attempting to upgrade hammer even when we don't have it 🔨\n+ Fixed Game Weather Rain module not working 🌧️\n+ Fixed Chest Stealer 🧰\n+ Optimised Remote Middleware to prevent ping spikes and fix killaura working slowly on some executors ⚡\n\n<b>[Planned]</b> 📅\n! New Profiles 👤\n! Wave Trails 🌊\n! Neon Traces ✨\n! And more 🎉",
+        "date": "07/20/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://127944074932833",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://127944074932833"
+        ],
+        "new": false,
+        "title": "PERFORMANCE & UPCOMING FEATURES! 🔨🌧️",
+        "updateLogId": 23,
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[REBEL FIXES & More]🦑⚔️</font></b> 🚀\n\n<b>[Fixes]</b> 🛠️\n+ Fixed Voidware sometimes failing to load and inf looping into errors 🔄\n+ Fixed Anti Death not properly working while Player Attach is enabled ⚡\n+ Fixed Anti Death preventing you from teleporting to safe place 🛡️\n+ Fixed Anti Void not cleaning up after unloading Voidware 🧹\n+ Fixed Anti Death looping through safe teleporting 🔄\n+ Fixed Keys ESP in Hide And Seek 🔍\n+ Fixed Guard Aimbot not working 🎯\n\n<b>[Autowin - GlassBridge]</b> 🌉\n+ Added cooldown before teleporting to the end of the bridge to prevent noclipping and dying (15 seconds) ⏱️\n\n<b>[Killaura]</b> ⚔️\n+ Added Push Aura 💨\n\n<b>[Rebel]</b> 🏴‍☠️\n+ Added Auto Steal Guns 🔫\n\n<b>[Auto Vote]</b> 🗳️\n+ Added Auto Vote toggle ✅\n+ Added Vote Options dropdown 📜",
         "date": "07/18/2025",
         "image": {
@@ -12,7 +44,7 @@
             "rbxassetid://99854514828179",
             "rbxassetid://95503745833878"
         ],
-        "new": true,
+        "new": false,
         "title": "REBEL FIXES & More! 🦑⚔️",
         "updateLogId": 22,
         "video": {
