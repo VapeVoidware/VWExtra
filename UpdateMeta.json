@@ -1,5 +1,28 @@
 [
     {
+        "body": "<b><font color=\"#FFD700\">[NEW WIND UI & ANTICHEAT BYPASS] 🎉💨</font></b> 🚀\n\n<b>[Fixes]</b> 🛠️\n+ Fixed Player Attach attacking anyone in Hide And Seek ✅\n+ Fixed Guard ESP not updating when new guards spawn ✅\n\n<b>[Autowin]</b> 🏆\n+ Added Autowin Seeker support in Hide And Seek ✅\n\n<b>[Ambient]</b> 🌌\n+ Added Rich Shader ✨\n+ Added Lighting Theme 💡\n+ Added Aesthetic Lighting 🌟\n\n<b>[VIP]</b> 👑\n+ Added VIP Tag Toggle 🏷️\n+ Added Custom Clothing Toggle 👕\n+ Added Clothing Color Slider 🎨\n+ Added Custom Player Tag Toggle 📛\n+ Added Tag Input ✍️\n\n<b>[Bring Injured Player]</b> 🚑\n+ Added Bring Mode [Help, Kill, Troll] 🚀\n+ Help - Get them to the end 🤝\n+ Kill - TP them to the void 💀\n+ Troll - TP them to the start 😜\n\n<b>[FUN]</b> 🎮\n+ Added Unlock Phantom Dash 🏃‍♂️\n\n<b>[Anticheat Bypass]</b> 🛡️\n+ Patched yet another detection made by the ink game devs 💀",
+        "date": "07/24/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://86444289619555",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://103056715406956",
+            "rbxassetid://86444289619555",
+            "rbxassetid://88524428154798",
+            "rbxassetid://85935188652297"
+        ],
+        "new": true,
+        "title": "NEW WIND UI & ANTICHEAT BYPASS! 🎉💨",
+        "updateLogId": 25,
+        "video": {
+            "image": "rbxassetid://103056715406956",
+            "url": "https://youtu.be/rKq2LhL6O6w"
+        },
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[ANTICHEAT PATCH UPGRADES & JUMP ROPE] 🦑⚔️</font></b> 🚀\n\n<b>[Fixes]</b> 🛠️\n+ Fixed Auto Pull not working ✅\n+ Fixed Auto Skip Dialogue resulting in fps drops (50% chance it fixes itself) 📉\n\n<b>[Anticheat Patch] - UPGRADED</b> 🚀\n+ Added Block Anticheat Remote 🔒\n+ Added Spoof Fling Velocity 🛡️\n+ Added Fling Character Hook 🎣\n+ Added Anticheat Patch Version for Bad Executors 🌟\n\n<b>[Jump Rope]</b> 🪢\n+ Added Complete Jump Rope Game 🎮\n+ Added Anti Fall [beta] 🛑\n+ Added Auto Perfect [beta] ✨\n+ Added Destroy Fall Detection [beta] 💥\n\n<b>[Autowin]</b> 🏆\n+ Added Jump Rope support 🪢\n\n<b>[Coordinates]</b> 📍\n+ Added Coordinates to Misc Tab - by 3rfe#0 🗺️\n\n<b>[Killaura]</b> ⚔️\n+ Added Range Slider 🎚️",
         "date": "07/20/2025",
         "image": {
@@ -10,7 +33,7 @@
         "images": [
             "rbxassetid://72385929509787"
         ],
-        "new": true,
+        "new": false,
         "title": "ANTICHEAT PATCH UPGRADES & JUMP ROPE! 🦑⚔️",
         "updateLogId": 24,
         "visible": true
