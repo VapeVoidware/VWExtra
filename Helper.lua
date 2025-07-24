@@ -174,13 +174,13 @@ local RuntimeLib = {
                 end
             })
         else
-            Tabs.Tests:Paragraph({
+            --[[Tabs.Tests:Paragraph({
                 Title = "Error when receiving information about the Discord server",
                 Desc = game:GetService("HttpService"):JSONEncode(Response),
                 Image = "triangle-alert",
                 ImageSize = 26,
                 Color = "Red",
-            })
+            })--]]
         end
         tab:Keybind({
             Title = "Voidware Keybind",
