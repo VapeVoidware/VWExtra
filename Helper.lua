@@ -134,16 +134,18 @@ local RuntimeLib = {
         local InviteCode = "voidware"
         local DiscordAPI = "https://discord.com/api/v10/invites/" .. InviteCode .. "?with_counts=true&with_expiration=true"
 
-        local Response = game:GetService("HttpService"):JSONDecode(WindUI.Creator.Request({
-            Url = DiscordAPI,
-            Method = "GET",
-            Headers = {
-                ["User-Agent"] = "RobloxBot/1.0",
-                ["Accept"] = "application/json"
-            }
-        }).Body)
+        local suc, Response = pcall(function()
+            return game:GetService("HttpService"):JSONDecode(WindUI.Creator.Request({
+                Url = DiscordAPI,
+                Method = "GET",
+                Headers = {
+                    ["User-Agent"] = "RobloxBot/1.0",
+                    ["Accept"] = "application/json"
+                }
+            }).Body)
+        end)
 
-        if Response and Response.guild then
+        if suc and Response and Response.guild then
             local DiscordInfo = tab:Paragraph({
                 Title = Response.guild.name,
                 Desc = 
@@ -172,13 +174,13 @@ local RuntimeLib = {
                 end
             })
         else
-            --[[Tabs.Tests:Paragraph({
+            Tabs.Tests:Paragraph({
                 Title = "Error when receiving information about the Discord server",
                 Desc = game:GetService("HttpService"):JSONEncode(Response),
                 Image = "triangle-alert",
                 ImageSize = 26,
                 Color = "Red",
-            })--]]
+            })
         end
         tab:Keybind({
             Title = "Voidware Keybind",
