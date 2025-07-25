@@ -672,6 +672,15 @@ end
 function WindUIAdapter:Unload()
     if self._win then
         pcall(function() self._win:Close():Destroy() end)
+        task.spawn(function()
+            task.wait(0.5)
+            pcall(function()
+                local a = game:GetService("CoreGui")
+                --a["WindUI"]:Destroy()
+                a["WindUI/Dropdowns"]:Destroy()
+                a["WindUI/Notifications"]:Destroy()
+            end)
+        end)
     end
     self.Unloaded = true
     getgenv().voidware_loaded = false
