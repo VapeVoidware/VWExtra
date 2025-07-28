@@ -1,5 +1,26 @@
 [
     {
+        "body": "<b><font color=\"#00FF00\">[NEON TRACES & WAVE TRAILS UPDATE] 🌟🌊</font></b> 🚀\n\n<b>[Fixes]</b> 🛠️\n+ Fixed Killaura on cheat engines (if there are still issues please report in #report-bugs) 🐛\n+ Optimised the Remote Middleware to prevent ping spikes 📡\n+ Optimised Killaura ⚔️\n+ Fixed cat Long Jump 🐱\n\n<b>[Neon Traces]</b> ✨\n+ Added in the Misc/World Window 🖼️\n+ Orbit Speed slider 🚀\n+ Number Circles slider 🔢\n+ Circle Size slider 📏\n+ Color Mode dropdown [Single, Gradient] 🎨\n+ 3 Color Sliders 🌈\n\n<b>[Wave Trails]</b> 🌊\n+ Added in the Misc/World Window 🖼️\n+ Fade in Color Picker 🎨\n+ Fade out Color Picker 🎨\n+ Enable Explosion Effect toggle 💥",
+        "date": "07/28/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://103353460466407",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://70739733098310",
+            "rbxassetid://103353460466407"
+        ],
+        "new": true,
+        "title": "NEON TRACES & WAVE TRAILS UPDATE! 🌟🌊",
+        "updateLogId": 26,
+        "video": {
+            "image": "rbxassetid://70739733098310",
+            "url": "https://youtu.be/Fng16a881Ig"
+        },
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FFD700\">[NEW WIND UI & ANTICHEAT BYPASS] 🎉💨</font></b> 🚀\n\n<b>[Fixes]</b> 🛠️\n+ Fixed Player Attach attacking anyone in Hide And Seek ✅\n+ Fixed Guard ESP not updating when new guards spawn ✅\n\n<b>[Autowin]</b> 🏆\n+ Added Autowin Seeker support in Hide And Seek ✅\n\n<b>[Ambient]</b> 🌌\n+ Added Rich Shader ✨\n+ Added Lighting Theme 💡\n+ Added Aesthetic Lighting 🌟\n\n<b>[VIP]</b> 👑\n+ Added VIP Tag Toggle 🏷️\n+ Added Custom Clothing Toggle 👕\n+ Added Clothing Color Slider 🎨\n+ Added Custom Player Tag Toggle 📛\n+ Added Tag Input ✍️\n\n<b>[Bring Injured Player]</b> 🚑\n+ Added Bring Mode [Help, Kill, Troll] 🚀\n+ Help - Get them to the end 🤝\n+ Kill - TP them to the void 💀\n+ Troll - TP them to the start 😜\n\n<b>[FUN]</b> 🎮\n+ Added Unlock Phantom Dash 🏃‍♂️\n\n<b>[Anticheat Bypass]</b> 🛡️\n+ Patched yet another detection made by the ink game devs 💀",
         "date": "07/24/2025",
         "image": {
@@ -13,7 +34,7 @@
             "rbxassetid://88524428154798",
             "rbxassetid://85935188652297"
         ],
-        "new": true,
+        "new": false,
         "title": "NEW WIND UI & ANTICHEAT BYPASS! 🎉💨",
         "updateLogId": 25,
         "video": {
