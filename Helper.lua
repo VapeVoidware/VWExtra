@@ -21,7 +21,7 @@ local function wrapElement(name, element, isToggle)
         _element = element,
         Get = function(self)
             if tostring(self._element.__type) == "Slider" and type(self._element.Value) == "table" and self._element.Value.Default ~= nil then
-                return self._element.Value.Default
+                return tonumber(self._element.Value.Default) or self._element.Value.Default
             elseif tostring(self._element.__type) == "Colorpicker" and self._element.Default ~= nil then
                 return self._element.Default
             else
