@@ -129,7 +129,7 @@ local RuntimeLib = {
     HandleSection = function(self, title, tab)
         if title ~= "Information" then return end
         if WindUI._win then
-            WindUI._win:SelectTab(13)
+            WindUI._win:SelectTab(shared.Voidware_NightsInTheForest_Library and 15 or 13)
         end
         local InviteCode = "voidware"
         local DiscordAPI = "https://discord.com/api/v10/invites/" .. InviteCode .. "?with_counts=true&with_expiration=true"
@@ -185,7 +185,7 @@ local RuntimeLib = {
         tab:Keybind({
             Title = "Voidware Keybind",
             Desc = "Keybind to open ui",
-            Value = "M",
+            Value = "RightShift",
             Callback = function(v)
                 WindUI._win:SetToggleKey(Enum.KeyCode[v])
             end
