@@ -1,5 +1,27 @@
 [
     {
+        "body": "<b><font color=\"#00FF00\">[99 NIGHTS IN THE FOREST SCRIPT LAUNCH] 🌲🔥</font></b> 🚀\n\n<b>[Main Features]</b> 🛠️\n+ Reveal entire map for exploration 🗺️\n+ Teleport trees, chests, and entities (wolves, bears, aliens, etc.) 🌳🎁🐺\n+ Auto pickup flowers and gold stacks 💐💰\n+ Plant saplings and build log walls in circles 🌱🏯\n+ Cleanup logs to workbench or fire 🪵\n\n<b>[Player Modifications]</b> 🧑\n+ Adjustable walk speed and FOV 🚶👁️\n+ Toggleable speed, noclip, and infinite jump ⚡🚫🦘\n+ Anti AFK to stay active 🕒\n\n<b>[ESP Features]</b> 👀\n+ Player ESP with health and distance display ❤️📏\n+ Customizable ESP highlight, transparency, and text size 🌟\n\n<b>[Visual & Performance]</b> 🖥️\n+ Fullbright, remove fog/sky, and low GFX mode ☀️🌫️\n+ Show coordinates and instant interact 📍🚀\n\n<b>[UI Settings]</b> ⚙️\n+ Customizable keybinds, cursor, and themes 🎹🖱️🎨\n+ Save and load configurations 💾",
+        "date": "08/02/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://108826121095875",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://108826121095875",
+            "rbxassetid://76023795066587",
+            "rbxassetid://71199378532210"
+        ],
+        "new": true,
+        "title": "99 NIGHTS IN THE FOREST SCRIPT LAUNCH! 🌲🔥",
+        "updateLogId": 27,
+        "video": {
+            "image": "rbxassetid://108826121095875",
+            "url": "https://youtu.be/xWp5AXAa_v8"
+        },
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#00FF00\">[NEON TRACES & WAVE TRAILS UPDATE] 🌟🌊</font></b> 🚀\n\n<b>[Fixes]</b> 🛠️\n+ Fixed Killaura on cheat engines (if there are still issues please report in #report-bugs) 🐛\n+ Optimised the Remote Middleware to prevent ping spikes 📡\n+ Optimised Killaura ⚔️\n+ Fixed cat Long Jump 🐱\n\n<b>[Neon Traces]</b> ✨\n+ Added in the Misc/World Window 🖼️\n+ Orbit Speed slider 🚀\n+ Number Circles slider 🔢\n+ Circle Size slider 📏\n+ Color Mode dropdown [Single, Gradient] 🎨\n+ 3 Color Sliders 🌈\n\n<b>[Wave Trails]</b> 🌊\n+ Added in the Misc/World Window 🖼️\n+ Fade in Color Picker 🎨\n+ Fade out Color Picker 🎨\n+ Enable Explosion Effect toggle 💥",
         "date": "07/28/2025",
         "image": {
@@ -11,7 +33,7 @@
             "rbxassetid://70739733098310",
             "rbxassetid://103353460466407"
         ],
-        "new": true,
+        "new": false,
         "title": "NEON TRACES & WAVE TRAILS UPDATE! 🌟🌊",
         "updateLogId": 26,
         "video": {
