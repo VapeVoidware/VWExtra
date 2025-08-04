@@ -1,4 +1,8 @@
-local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+if not (shared.TestingMode or shared.VoidDev) then
+    local commit = "17cdac5241b6df014abde3f7456f03cc2da1dd4a"
+    return loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VWExtra/"..tostring(commit).."/Helper.lua", true))()
+end
+local WindUI = shared.WindUIDevMode and isfile("windui.lua") and loadstring(readfile("windui.lua"))() or loadstring(game:HttpGet("https://github.com/VapeVoidware/WindUI/releases/latest/download/main.lua"))()
 
 getgenv().Toggles = getgenv().Toggles or {}
 getgenv().Options = getgenv().Options or {}
@@ -21,7 +25,7 @@ local function wrapElement(name, element, isToggle)
         _element = element,
         Get = function(self)
             if tostring(self._element.__type) == "Slider" and type(self._element.Value) == "table" and self._element.Value.Default ~= nil then
-                return tonumber(self._element.Value.Default) or self._element.Value.Default
+                return self._element.Value.Default
             elseif tostring(self._element.__type) == "Colorpicker" and self._element.Default ~= nil then
                 return self._element.Default
             else
@@ -91,24 +95,81 @@ local function ListFiles()
     return files
 end
 
+local Section_Meta = {
+    main = {
+        "fun",
+        "automation",
+        "bring stuff",
+        "main",
+        "teleport",
+        "visuals",
+        "local player"
+    },
+    other = {
+        "information",
+        "misc",
+        "theme",
+        "config"
+    }
+}
+
+local section = setmetatable({
+    _cache = {},
+    register = function(self, _win)
+        self._win = _win
+    end
+}, {
+    __call = function(self, name)
+        if self._cache[name] then return self._cache[name] end
+        self._cache[name] = self._win:Section({
+            Title = name,
+            Opened = true
+        })
+        return self._cache[name]
+    end
+})
+
 local RuntimeLib = {
     Init = function(self, _win)
-        self.Sections.Games = _win:Section({
-            Title = "Games",
-            Opened = true
-        })
-        self.Sections.ESP = _win:Section({
-            Title = "ESP",
-            Opened = true
-        })
-        self.Sections.Config = _win:Section({
-            Title = "Config",
-            Opened = true
-        })
-        self.Sections.Other = _win:Section({
-            Title = "Other",
-            Opened = true
-        })
+        if shared.NightsInTheForest then
+           self.Sections = setmetatable({}, {
+                __index = function(self, key)
+                    return _win
+                end
+            })
+            --[[section:register(_win)
+            self.Sections.Main = section("Main")
+            self.Sections.Other = section("Other")
+            self.Sections = setmetatable({
+                Main = section("Main"),
+                Other = section("Other")
+            }, {
+                __index = function(self, key)
+                    return self.Sections.Other
+                end
+            })--]]
+        else
+            self.Sections.Games = _win:Section({
+                Title = shared.NightsInTheForest and "Main" or "Games",
+                Opened = true
+            })
+            if shared.NightsInTheForest then
+                WindUIAdapter._maintab = self.Sections.Games:Tab({ Title = "Main", Icon = "superscript" })
+            end
+            self.Sections.ESP = _win:Section({
+                Title = "ESP",
+                Opened = true
+            })
+            self.Sections.Config = _win:Section({
+                Title = "Config",
+                Opened = true,
+                Visible = false
+            })
+            self.Sections.Other = _win:Section({
+                Title = "Other",
+                Opened = true
+            })
+        end
         self._loaded = true
         WindUI._win = _win
         WindUI.OnUnload = _win.OnDestroy
@@ -118,19 +179,36 @@ local RuntimeLib = {
     GetSection = function(self, title)
         assert(self._loaded, "[RuntimeLib]: Tried getting section before being loaded.")
         title = string.lower(title)
-        if string.find(title, "esp") or string.find(title, "self") then
-            return self.Sections.ESP
-        elseif string.find(title, "misc") or string.find(title, "information") or string.find(title, "security") or string.find(title, "performance") or string.find(title, "useful") or string.find(title, "ui section") or string.find(title, "ambient") then
-            return self.Sections.Other
+        if shared.NightsInTheForest then
+            print(title)
+            if table.find(Section_Meta.main, title) then
+                return self.Sections.Main
+            elseif table.find(Section_Meta.other, title) then
+                return self.Sections.Other
+            else
+                return WindUI._win
+            end
         else
-            return self.Sections.Games
+            if string.find(title, "esp") or string.find(title, "self") then
+                return self.Sections.ESP
+            elseif string.find(title, "misc") or string.find(title, "information") or string.find(title, "security") or string.find(title, "performance") or string.find(title, "useful") or string.find(title, "ui section") or string.find(title, "ambient") then
+                return self.Sections.Other
+            else
+                return self.Sections.Games
+            end
         end
     end,
     HandleSection = function(self, title, tab)
         if title ~= "Information" then return end
         if WindUI._win then
-            WindUI._win:SelectTab(shared.Voidware_NightsInTheForest_Library and 15 or 13)
+            for i,v in pairs(WindUI._win.TabModule.Tabs) do
+                if v.Title == "Information" then
+                    WindUI._win:SelectTab(i)
+                    break
+                end
+            end
         end
+        shared.WindUI = WindUI
         local InviteCode = "voidware"
         local DiscordAPI = "https://discord.com/api/v10/invites/" .. InviteCode .. "?with_counts=true&with_expiration=true"
 
@@ -306,6 +384,7 @@ local RuntimeLib = {
                 WindUI:SetTheme(theme)
             end
         })
+        WindUI:SetTheme("Indigo")
         themeDropdown:Select(WindUI:GetCurrentTheme())
 
         local ToggleTransparency = ThemesTab:Toggle({
@@ -395,11 +474,17 @@ WindUIAdapter.RuntimeLib = RuntimeLib
 function WindUIAdapter:CreateWindow(opts)
     local win = WindUI:CreateWindow({
         Title = opts.Title or "Window",
-        Icon = opts.Icon,
+        Icon = opts.Icon or "door-open",
+        Background = opts.Background,
         Author = opts.Footer,
         Folder = opts.Folder or "WindUIAdapter",
         Size = opts.Size or UDim2.fromOffset(580, 460),
         Theme = opts.Theme or "Dark",
+        HideSearchBar = opts.HideSearchBar,
+        ScrollBarEnabled = false,
+        User = {
+            Enabled = opts.UserEnabled
+        }
     })
     RuntimeLib:Init(win)
     local obj = setmetatable({ _win = win }, { __index = WindUIAdapter.Window })
@@ -416,13 +501,136 @@ function WindUIAdapter.Window:AddTab(title, icon)
     return setmetatable({_win = self._win}, { __index = WindUIAdapter.TempTab })
 end
 
+local function GetTab(name)
+    for i,v in pairs(WindUI._win.TabModule.Tabs) do
+        if v.Title == name then
+            return v
+        end
+    end
+end
+
+local function GetMiscTab()
+    if WindUI._misctab then return WindUI._misctab end
+    WindUI._misctab = GetTab("Misc")
+    return WindUI._misctab
+end
+
+local function GetAutomationTab()
+    if WindUI._automationtab then return WindUI._automationtab end
+    WindUI._automationtab = GetTab("Automation")
+    return WindUI._automationtab
+end
+
+local Tabs_Meta = {
+    maintab = {
+        "hitbox expansion",
+        "tree farm",
+        "kill aura",
+        "health",
+        "other"
+    },
+    automation = {
+        "auto campfire",
+        "auto collect",
+        "plant stuff"
+    },
+    playertab = {
+        "useful stuff",
+        "performance",
+        "security",
+        "player",
+        "ambient",
+        "self"
+    },
+    misc = {
+        "coordinates",
+        "credits"
+    },
+    visuals = {
+        "main esp",
+        "esp",
+        "esp settings"
+    }
+}
+
 WindUIAdapter.TempTab = {}
 function WindUIAdapter.TempTab:handleGroupBox(title, icon)
     local section = RuntimeLib:GetSection(title) or self._win
-    local tab = section:Tab({ Title = title, Icon = icon })
-    local result = setmetatable({ _tab = tab }, { __index = WindUIAdapter.Tab })
-    RuntimeLib:HandleSection(title, tab)
-    return result
+    if shared.NightsInTheForest and string.find(string.lower(title), "bring") then
+        WindUIAdapter._bringitemstab = WindUIAdapter._bringitemstab or section:Tab({ Title = "Bring Stuff", Icon = "bring-to-front" })
+        WindUIAdapter._bringitemstab:Section({
+            Title = title,
+            TextXAlignment = "Left",
+            TextSize = 17
+        })
+        local result = setmetatable({ _tab = WindUIAdapter._bringitemstab }, { __index = function(self, key)
+            return WindUIAdapter.Tab[key] or WindUIAdapter._bringitemstab[key]
+        end })
+        return result
+    elseif shared.NightsInTheForest and table.find(Tabs_Meta.maintab, string.lower(title)) then
+        WindUIAdapter._maintab = WindUIAdapter._maintab or section:Tab({ Title = "Main", Icon = "superscript" })
+        WindUIAdapter._maintab:Section({
+            Title = title,
+            TextXAlignment = "Left",
+            TextSize = 17
+        })
+        local result = setmetatable({ _tab = WindUIAdapter._maintab }, { __index = function(self, key)
+            return WindUIAdapter.Tab[key] or WindUIAdapter._maintab[key]
+        end })
+        return result
+    elseif shared.NightsInTheForest and table.find(Tabs_Meta.automation, string.lower(title)) then
+        local tab = GetAutomationTab()
+        tab:Section({
+            Title = title,
+            TextXAlignment = "Left",
+            TextSize = 17
+        })
+        local result = setmetatable({ _tab = tab }, { __index = function(self, key)
+            return WindUIAdapter.Tab[key] or tab[key]
+        end })
+        return result
+    elseif shared.NightsInTheForest and table.find(Tabs_Meta.playertab, string.lower(title)) then
+        WindUIAdapter._playertab = WindUIAdapter._playertab or section:Tab({ Title = "Local Player", Icon = "circle-user" })
+        if title == "Player" then title = "Movement" end
+        WindUIAdapter._playertab:Section({
+            Title = title,
+            TextXAlignment = "Left",
+            TextSize = 17
+        })
+        local result = setmetatable({ _tab = WindUIAdapter._playertab }, { __index = function(self, key)
+            return WindUIAdapter.Tab[key] or WindUIAdapter._playertab[key]
+        end })
+        return result
+    elseif shared.NightsInTheForest and table.find(Tabs_Meta.misc, string.lower(title)) then
+        local tab = GetMiscTab()
+        tab:Section({
+            Title = title,
+            TextXAlignment = "Left",
+            TextSize = 17
+        })
+        local result = setmetatable({ _tab = tab }, { __index = function(self, key)
+            return WindUIAdapter.Tab[key] or tab[key]
+        end })
+        return result
+    elseif shared.NightsInTheForest and table.find(Tabs_Meta.visuals, string.lower(title)) then
+        WindUIAdapter._visualstab = WindUIAdapter._visualstab or section:Tab({ Title = "Visuals", Icon = "eye" })
+        WindUIAdapter._visualstab:Section({
+            Title = title,
+            TextXAlignment = "Left",
+            TextSize = 17
+        })
+        local result = setmetatable({ _tab = WindUIAdapter._visualstab }, { __index = function(self, key)
+            return WindUIAdapter.Tab[key] or WindUIAdapter._visualstab[key]
+        end })
+        return result
+    else
+        local tab = section:Tab({ Title = title, Icon = icon })
+        local result = setmetatable({ _tab = tab }, { __index = function(self, key)
+            return WindUIAdapter.Tab[key] or tab[key]
+        end })
+        RuntimeLib:HandleSection(title, tab)
+        return result
+    end
 end
 
 function WindUIAdapter.TempTab:AddLeftGroupbox(...)
@@ -443,10 +651,14 @@ function WindUIAdapter.Tab:AddRightGroupbox()
     return self
 end
 
+--[[function WindUIAdapter.Tab:Section(opts)
+    return self._tab:Section(opts)
+end--]]
+
 function WindUIAdapter.Tab:AddToggle(name, opts)
     local changedListeners = {}
     local toggle = self._tab:Toggle({
-        Title = opts.Text or opts.Title or name,
+        Title = opts.Name or opts.Text or opts.Title or name,
         Value = opts.Default,
         Callback = function(v)
             if opts.Callback then
@@ -458,7 +670,7 @@ function WindUIAdapter.Tab:AddToggle(name, opts)
             end
         end,
         Desc = opts.Desc,
-        Icon = opts.Icon,
+        Icon = opts.Icon or "check",
         Type = opts.Type,
     })
     RuntimeLib:RegisterSavingObject(name, toggle)
@@ -654,7 +866,7 @@ function WindUIAdapter.Tab:AddInput(name, opts)
         Desc = opts.Desc,
         Type = opts.Type,
         InputIcon = opts.InputIcon,
-        ClearTextOnFocus = opts.ClearTextOnFocus,
+        ClearTextOnFocus = opts.ClearTextOnFocus
     })
     local wrapper = wrapElement(name, inp)
     function wrapper:OnChanged(func)
