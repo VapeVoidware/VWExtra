@@ -1,7 +1,3 @@
-if not (shared.TestingMode or shared.VoidDev) then
-    local commit = "17cdac5241b6df014abde3f7456f03cc2da1dd4a"
-    return loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VWExtra/"..tostring(commit).."/Helper.lua", true))()
-end
 local WindUI = shared.WindUIDevMode and isfile("windui.lua") and loadstring(readfile("windui.lua"))() or loadstring(game:HttpGet("https://github.com/VapeVoidware/WindUI/releases/latest/download/main.lua"))()
 
 getgenv().Toggles = getgenv().Toggles or {}

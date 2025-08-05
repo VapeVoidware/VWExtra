@@ -1,5 +1,27 @@
 [
     {
+        "body": "<b><font color=\"#00FF00\">[AUTO CHOP, NEW THINGS & UI OVERHAUL] 🌟⚙️</font></b> 🚀\n\n<b>[FIXES]</b> 🛠️\n+ Fixed Linoria Library not working ✅\n+ Fixed Bring Items not working on Delta 🔧\n+ Fixed Killaura not working ⚔️\n+ Created new system for bring items 🆕\n+ Added default values to a bunch of dropdowns to save you time ⏱️\n\n<b>[UI Changes]</b> 🎨\n+ Redesigned dropdowns 📋\n+ Redesigned Inputs ✍️\n+ Moved from sliders to inputs in some areas 🔄\n+ Moved every bring mode in a single tab for easier use 📑\n+ Major tab redesign ✨\n\n<b>[ESP]</b> 👁️\n+ Added Children ESP 🧒\n\n<b>[Main]</b> 🚀\n+ Auto Campfire 🔥\n+ Auto Open Seed Boxes 🌱\n+ Tree Farm 🌳\n+ Auto Eat 🍽️\n+ Auto Bandage 🩹\n+ Hitbox Expansion 🎯\n\n<b>[Teleport]</b> 🌌\n+ Auto TP to Warm Place ☀️\n+ Chest TP [BETA] 🧰\n+ Child TP 👶\n+ Structure TP 🏛️\n+ Teleport to Camp ⛺\n+ Teleport to Caravan 🚛\n+ Teleport to Fairy 🧚\n+ Teleport to Anvil 🔨\n\n<b>[Auto Collect]</b> 🤖\n+ Auto Pickup Flowers 💐\n+ Auto Collect Coin Stacks 💰",
+        "date": "08/05/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://93848933990798",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://93848933990798",
+            "rbxassetid://84705356833041",
+            "rbxassetid://131391079683185"
+        ],
+        "new": true,
+        "title": "AUTO CHOP, NEW THINGS & UI OVERHAUL! 🌟⚙️",
+        "updateLogId": 28,
+        "video": {
+            "image": "rbxassetid://93848933990798",
+            "url": "https://youtu.be/pYuiKESAWPU"
+        },
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#00FF00\">[99 NIGHTS IN THE FOREST SCRIPT LAUNCH] 🌲🔥</font></b> 🚀\n\n<b>[Main Features]</b> 🛠️\n+ Reveal entire map for exploration 🗺️\n+ Teleport trees, chests, and entities (wolves, bears, aliens, etc.) 🌳🎁🐺\n+ Auto pickup flowers and gold stacks 💐💰\n+ Plant saplings and build log walls in circles 🌱🏯\n+ Cleanup logs to workbench or fire 🪵\n\n<b>[Player Modifications]</b> 🧑\n+ Adjustable walk speed and FOV 🚶👁️\n+ Toggleable speed, noclip, and infinite jump ⚡🚫🦘\n+ Anti AFK to stay active 🕒\n\n<b>[ESP Features]</b> 👀\n+ Player ESP with health and distance display ❤️📏\n+ Customizable ESP highlight, transparency, and text size 🌟\n\n<b>[Visual & Performance]</b> 🖥️\n+ Fullbright, remove fog/sky, and low GFX mode ☀️🌫️\n+ Show coordinates and instant interact 📍🚀\n\n<b>[UI Settings]</b> ⚙️\n+ Customizable keybinds, cursor, and themes 🎹🖱️🎨\n+ Save and load configurations 💾",
         "date": "08/02/2025",
         "image": {
@@ -12,7 +34,7 @@
             "rbxassetid://76023795066587",
             "rbxassetid://71199378532210"
         ],
-        "new": true,
+        "new": false,
         "title": "99 NIGHTS IN THE FOREST SCRIPT LAUNCH! 🌲🔥",
         "updateLogId": 27,
         "video": {
