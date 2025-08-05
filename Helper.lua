@@ -180,7 +180,6 @@ local RuntimeLib = {
         assert(self._loaded, "[RuntimeLib]: Tried getting section before being loaded.")
         title = string.lower(title)
         if shared.NightsInTheForest then
-            print(title)
             if table.find(Section_Meta.main, title) then
                 return self.Sections.Main
             elseif table.find(Section_Meta.other, title) then
@@ -527,12 +526,14 @@ local Tabs_Meta = {
         "tree farm",
         "kill aura",
         "health",
-        "other"
+        "other",
+        "auto eat"
     },
     automation = {
         "auto campfire",
         "auto collect",
-        "plant stuff"
+        "plant stuff",
+        "auto open seed boxes"
     },
     playertab = {
         "useful stuff",
@@ -614,11 +615,13 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
         return result
     elseif shared.NightsInTheForest and table.find(Tabs_Meta.visuals, string.lower(title)) then
         WindUIAdapter._visualstab = WindUIAdapter._visualstab or section:Tab({ Title = "Visuals", Icon = "eye" })
-        WindUIAdapter._visualstab:Section({
-            Title = title,
-            TextXAlignment = "Left",
-            TextSize = 17
-        })
+        if title ~= "ESP" then
+            WindUIAdapter._visualstab:Section({
+                Title = title,
+                TextXAlignment = "Left",
+                TextSize = 17
+            })
+        end
         local result = setmetatable({ _tab = WindUIAdapter._visualstab }, { __index = function(self, key)
             return WindUIAdapter.Tab[key] or WindUIAdapter._visualstab[key]
         end })
@@ -887,7 +890,7 @@ function WindUIAdapter:Unload()
         task.spawn(function()
             task.wait(0.5)
             pcall(function()
-                local a = game:GetService("CoreGui")
+                local a = game.CoreGui
                 --a["WindUI"]:Destroy()
                 a["WindUI/Dropdowns"]:Destroy()
                 a["WindUI/Notifications"]:Destroy()
