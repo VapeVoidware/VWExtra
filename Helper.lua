@@ -3,6 +3,8 @@ local WindUI = shared.WindUIDevMode and isfile("windui.lua") and loadstring(read
 getgenv().Toggles = getgenv().Toggles or {}
 getgenv().Options = getgenv().Options or {}
 
+if shared.NightsInTheForest or shared.VoidwareForsaken then shared.VoidwareCustom = true end
+
 local WindUIAdapter = {}
 
 local function wrapElement(name, element, isToggle)
@@ -127,7 +129,7 @@ local section = setmetatable({
 
 local RuntimeLib = {
     Init = function(self, _win)
-        if shared.NightsInTheForest then
+        if shared.VoidwareCustom then
            self.Sections = setmetatable({}, {
                 __index = function(self, key)
                     return _win
@@ -146,10 +148,10 @@ local RuntimeLib = {
             })--]]
         else
             self.Sections.Games = _win:Section({
-                Title = shared.NightsInTheForest and "Main" or "Games",
+                Title = shared.VoidwareCustom and "Main" or "Games",
                 Opened = true
             })
-            if shared.NightsInTheForest then
+            if shared.VoidwareCustom then
                 WindUIAdapter._maintab = self.Sections.Games:Tab({ Title = "Main", Icon = "superscript" })
             end
             self.Sections.ESP = _win:Section({
@@ -175,7 +177,7 @@ local RuntimeLib = {
     GetSection = function(self, title)
         assert(self._loaded, "[RuntimeLib]: Tried getting section before being loaded.")
         title = string.lower(title)
-        if shared.NightsInTheForest then
+        if shared.VoidwareCustom then
             if table.find(Section_Meta.main, title) then
                 return self.Sections.Main
             elseif table.find(Section_Meta.other, title) then
@@ -379,7 +381,11 @@ local RuntimeLib = {
                 WindUI:SetTheme(theme)
             end
         })
-        WindUI:SetTheme("Indigo")
+        if shared.VoidwareForsaken then
+            WindUI:SetTheme("Red")
+        else
+            WindUI:SetTheme("Indigo")
+        end
         themeDropdown:Select(WindUI:GetCurrentTheme())
 
         local ToggleTransparency = ThemesTab:Toggle({
@@ -523,13 +529,17 @@ local Tabs_Meta = {
         "kill aura",
         "health",
         "other",
-        "auto eat"
+        "auto eat",
+        "infinite stamina",
+        "full bright",
+        "player attach"
     },
     automation = {
         "auto campfire",
         "auto collect",
         "plant stuff",
-        "auto open seed boxes"
+        "auto open seed boxes",
+        "auto complete flow game"
     },
     playertab = {
         "useful stuff",
@@ -553,83 +563,84 @@ local Tabs_Meta = {
 WindUIAdapter.TempTab = {}
 function WindUIAdapter.TempTab:handleGroupBox(title, icon)
     local section = RuntimeLib:GetSection(title) or self._win
-    if shared.NightsInTheForest and string.find(string.lower(title), "bring") then
-        WindUIAdapter._bringitemstab = WindUIAdapter._bringitemstab or section:Tab({ Title = "Bring Stuff", Icon = "bring-to-front" })
-        WindUIAdapter._bringitemstab:Section({
-            Title = title,
-            TextXAlignment = "Left",
-            TextSize = 17
-        })
-        local result = setmetatable({ _tab = WindUIAdapter._bringitemstab }, { __index = function(self, key)
-            return WindUIAdapter.Tab[key] or WindUIAdapter._bringitemstab[key]
-        end })
-        return result
-    elseif shared.NightsInTheForest and table.find(Tabs_Meta.maintab, string.lower(title)) then
-        WindUIAdapter._maintab = WindUIAdapter._maintab or section:Tab({ Title = "Main", Icon = "superscript" })
-        WindUIAdapter._maintab:Section({
-            Title = title,
-            TextXAlignment = "Left",
-            TextSize = 17
-        })
-        local result = setmetatable({ _tab = WindUIAdapter._maintab }, { __index = function(self, key)
-            return WindUIAdapter.Tab[key] or WindUIAdapter._maintab[key]
-        end })
-        return result
-    elseif shared.NightsInTheForest and table.find(Tabs_Meta.automation, string.lower(title)) then
-        local tab = GetAutomationTab()
-        tab:Section({
-            Title = title,
-            TextXAlignment = "Left",
-            TextSize = 17
-        })
-        local result = setmetatable({ _tab = tab }, { __index = function(self, key)
-            return WindUIAdapter.Tab[key] or tab[key]
-        end })
-        return result
-    elseif shared.NightsInTheForest and table.find(Tabs_Meta.playertab, string.lower(title)) then
-        WindUIAdapter._playertab = WindUIAdapter._playertab or section:Tab({ Title = "Local Player", Icon = "circle-user" })
-        if title == "Player" then title = "Movement" end
-        WindUIAdapter._playertab:Section({
-            Title = title,
-            TextXAlignment = "Left",
-            TextSize = 17
-        })
-        local result = setmetatable({ _tab = WindUIAdapter._playertab }, { __index = function(self, key)
-            return WindUIAdapter.Tab[key] or WindUIAdapter._playertab[key]
-        end })
-        return result
-    elseif shared.NightsInTheForest and table.find(Tabs_Meta.misc, string.lower(title)) then
-        local tab = GetMiscTab()
-        tab:Section({
-            Title = title,
-            TextXAlignment = "Left",
-            TextSize = 17
-        })
-        local result = setmetatable({ _tab = tab }, { __index = function(self, key)
-            return WindUIAdapter.Tab[key] or tab[key]
-        end })
-        return result
-    elseif shared.NightsInTheForest and table.find(Tabs_Meta.visuals, string.lower(title)) then
-        WindUIAdapter._visualstab = WindUIAdapter._visualstab or section:Tab({ Title = "Visuals", Icon = "eye" })
-        if title ~= "ESP" then
-            WindUIAdapter._visualstab:Section({
+    if shared.VoidwareCustom then
+        if string.find(string.lower(title), "bring") then
+            WindUIAdapter._bringitemstab = WindUIAdapter._bringitemstab or section:Tab({ Title = "Bring Stuff", Icon = "bring-to-front" })
+            WindUIAdapter._bringitemstab:Section({
                 Title = title,
                 TextXAlignment = "Left",
                 TextSize = 17
             })
+            local result = setmetatable({ _tab = WindUIAdapter._bringitemstab }, { __index = function(self, key)
+                return WindUIAdapter.Tab[key] or WindUIAdapter._bringitemstab[key]
+            end })
+            return result
+        elseif table.find(Tabs_Meta.maintab, string.lower(title)) then
+            WindUIAdapter._maintab = WindUIAdapter._maintab or section:Tab({ Title = "Main", Icon = "superscript" })
+            WindUIAdapter._maintab:Section({
+                Title = title,
+                TextXAlignment = "Left",
+                TextSize = 17
+            })
+            local result = setmetatable({ _tab = WindUIAdapter._maintab }, { __index = function(self, key)
+                return WindUIAdapter.Tab[key] or WindUIAdapter._maintab[key]
+            end })
+            return result
+        elseif table.find(Tabs_Meta.automation, string.lower(title)) then
+            local tab = GetAutomationTab()
+            tab:Section({
+                Title = title,
+                TextXAlignment = "Left",
+                TextSize = 17
+            })
+            local result = setmetatable({ _tab = tab }, { __index = function(self, key)
+                return WindUIAdapter.Tab[key] or tab[key]
+            end })
+            return result
+        elseif table.find(Tabs_Meta.playertab, string.lower(title)) then
+            WindUIAdapter._playertab = WindUIAdapter._playertab or section:Tab({ Title = "Local Player", Icon = "circle-user" })
+            if title == "Player" then title = "Movement" end
+            WindUIAdapter._playertab:Section({
+                Title = title,
+                TextXAlignment = "Left",
+                TextSize = 17
+            })
+            local result = setmetatable({ _tab = WindUIAdapter._playertab }, { __index = function(self, key)
+                return WindUIAdapter.Tab[key] or WindUIAdapter._playertab[key]
+            end })
+            return result
+        elseif table.find(Tabs_Meta.misc, string.lower(title)) then
+            local tab = GetMiscTab()
+            tab:Section({
+                Title = title,
+                TextXAlignment = "Left",
+                TextSize = 17
+            })
+            local result = setmetatable({ _tab = tab }, { __index = function(self, key)
+                return WindUIAdapter.Tab[key] or tab[key]
+            end })
+            return result
+        elseif table.find(Tabs_Meta.visuals, string.lower(title)) then
+            WindUIAdapter._visualstab = WindUIAdapter._visualstab or section:Tab({ Title = "Visuals", Icon = "eye" })
+            if title ~= "ESP" and ((not shared.VoidwareForsaken) or (shared.VoidwareForsaken and title ~= "Main ESP")) then
+                WindUIAdapter._visualstab:Section({
+                    Title = title,
+                    TextXAlignment = "Left",
+                    TextSize = 17
+                })
+            end
+            local result = setmetatable({ _tab = WindUIAdapter._visualstab }, { __index = function(self, key)
+                return WindUIAdapter.Tab[key] or WindUIAdapter._visualstab[key]
+            end })
+            return result
         end
-        local result = setmetatable({ _tab = WindUIAdapter._visualstab }, { __index = function(self, key)
-            return WindUIAdapter.Tab[key] or WindUIAdapter._visualstab[key]
-        end })
-        return result
-    else
-        local tab = section:Tab({ Title = title, Icon = icon })
-        local result = setmetatable({ _tab = tab }, { __index = function(self, key)
-            return WindUIAdapter.Tab[key] or tab[key]
-        end })
-        RuntimeLib:HandleSection(title, tab)
-        return result
     end
+    local tab = section:Tab({ Title = title, Icon = icon })
+    local result = setmetatable({ _tab = tab }, { __index = function(self, key)
+        return WindUIAdapter.Tab[key] or tab[key]
+    end })
+    RuntimeLib:HandleSection(title, tab)
+    return result
 end
 
 function WindUIAdapter.TempTab:AddLeftGroupbox(...)
