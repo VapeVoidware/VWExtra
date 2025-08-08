@@ -1,5 +1,26 @@
 [
     {
+        "body": "<b><font color=\"#00FF00\">[ANTICHEAT PATCH UPDATE] 🎉🔒</font></b> 🚀\n\n<b>[Main Updates]</b> 🌟\n+ ANTICHEAT PATCHED 🎉🔒\n! Added warning ⚠️ for using Aimbot until we verify that we have fully patched the detection for that 🛡️\n- Removed Gun Mods 🔫 until we patch the detection for them 🚫\n- RLGL Godmode 😎💪\n- Dalgona Immunity 🛡️🍬",
+        "date": "08/08/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://70900965938139",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://70900965938139",
+            "rbxassetid://75315084046877"
+        ],
+        "new": true,
+        "title": "ANTICHEAT PATCH UPDATE! 🎉🔒",
+        "updateLogId": 30,
+        "video": {
+            "image": "rbxassetid://70900965938139",
+            "url": "https://youtu.be/6D8GMIkF7PI"
+        },
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FF0000\">[FORSAKEN SCRIPT LAUNCH] 🖤⚔️</font></b> 🚀\n\n<b>[Main Features]</b> 🌟\n+ Infinite Stamina ♾️\n+ Kill Aura with customizable range ⚔️\n+ Auto Win for seamless victories 🏆\n+ Auto Fix Generators for survivors 🔧\n+ Anti Death to stay alive 🛡️\n+ Auto Complete Flow Game for quick wins 🎮\n+ Full Bright Loop for better visibility ☀️\n+ Player Attach with multiple movement types 👥\n\n<b>[Player Modifications]</b> 🧑\n+ Anti AFK to prevent kicks 🕒\n+ Noclip with keybind for freedom 🚫\n+ Infinite Jump for mobility 🦘\n+ FOV Adjustment for better vision 👁️\n+ Interaction Reach Multiplier for easier interactions 📏\n+ Instant Interact for faster actions 🚀\n\n<b>[ESP Features]</b> 👀\n+ Player ESP to track others ❤️\n+ Killer ESP to spot threats 😈\n+ Survivor ESP for team awareness 🏃\n+ Generator ESP to locate objectives ⚡️\n+ Customizable ESP settings (Highlight, Distance, Transparency, Text Size) 🌟\n\n<b>[Visual & Performance]</b> 🖥️\n+ Full Bright Toggle for clear visuals ☀️\n+ Low GFX Mode for better performance ⚙️\n+ Show Coordinates for navigation 📍\n+ Anti Void to prevent falling 🕳️\n+ Reset Camera for view fixes 📷\n\n<b>[UI Settings]</b> ⚙️\n+ Open Keybind Menu for easy controls 🎹\n+ Custom Cursor Toggle for style 🖱️\n+ Menu Keybind Customization for accessibility 🔧\n+ Theme Management for personalization 🎨\n+ Save and Reset Configuration for convenience 💾",
         "date": "08/06/2025",
         "image": {
@@ -11,7 +32,7 @@
             "rbxassetid://98928321910770",
             "rbxassetid://118610595163186"
         ],
-        "new": true,
+        "new": false,
         "title": "FORSAKEN SCRIPT LAUNCH! 🖤⚔️",
         "updateLogId": 29,
         "video": {
