@@ -1,9 +1,9 @@
-local WindUI = shared.WindUIDevMode and isfile("windui.lua") and loadstring(readfile("windui.lua"))() or loadstring(game:HttpGet("https://github.com/VapeVoidware/WindUI/releases/latest/download/main.lua"))()
+local WindUI = shared.WindUIDevMode and isfolder("vwdev") and isfile("vwdev/windui.lua") and loadstring(readfile("vwdev/windui.lua"))() or loadstring(game:HttpGet("https://github.com/VapeVoidware/WindUI/releases/latest/download/main.lua"))()
 
 getgenv().Toggles = getgenv().Toggles or {}
 getgenv().Options = getgenv().Options or {}
 
-if shared.NightsInTheForest or shared.VoidwareForsaken then shared.VoidwareCustom = true end
+if shared.NightsInTheForest or shared.VoidwareForsaken or shared.VoidwareDoors or shared.VoidwareHypershot then shared.VoidwareCustom = true end
 
 local WindUIAdapter = {}
 
@@ -273,8 +273,231 @@ local RuntimeLib = {
         --local LoadingTab = self.Sections.Config:Tab({ Title = "Loading" })
 
         local ConfigTab = self.Sections.Config:Tab({ Title = "Config" })
+        local HttpService = game:GetService("HttpService")
+        local FileSystem = {
+            _verify_path = function(self, path)
+                local folderPath = path:match("(.+)/[^/]+$") or path:match("(.+)\\[^\\]+$")
+                
+                if folderPath then
+                    local folders = {}
+                    local currentPath = ""
+                    for folder in folderPath:gmatch("[^/\\]+") do
+                        table.insert(folders, folder)
+                    end
+                    
+                    for _, folder in ipairs(folders) do
+                        currentPath = currentPath .. (currentPath == "" and "" or "/") .. folder
+                        local suc, err = self:addFolder(currentPath)
+                        if not suc then
+                            return false, err
+                        end
+                    end
+                end
+                return true
+            end,
+            addFolder = function(self, name)
+                if not isfolder(name) then 
+                    local suc, err = pcall(makefolder, name)
+                    if not suc then warn(err) end
+                    return suc, err
+                end
+                return true, nil
+            end,
+            addFile = function(self, path, contents, ignoreIfExists)
+                self:_verify_path(path)
+                
+                if isfile(path) and ignoreIfExists then return end
 
-        local ConfigManager = WindUI._win.ConfigManager
+                local suc, err = pcall(writefile, path, contents)
+                if not suc then
+                    warn("Failed to write file: " .. tostring(err))
+                    return false, err
+                end
+                return true, nil
+            end,
+            fetchFile = function(self, path)
+                self:_verify_path(path)
+                return isfile(path) and readfile(path)
+            end,
+            encodeTable = function(self, tbl)
+                local suc, res = pcall(function()
+                    return HttpService:JSONEncode(tbl)
+                end)
+                if not suc then warn(res) return nil end
+                return res
+            end,
+            decodeTable = function(self, str)
+                local suc, res = pcall(function()
+                    return HttpService:JSONDecode(str)
+                end)
+                if not suc then warn(res) return nil end
+                return res
+            end
+        }
+
+        FileSystem:addFolder("voidware_linoria")
+
+        local default_metatable
+        default_metatable = setmetatable({}, {
+            __call = function() return default_metatable end,
+            __index = function() return default_metatable end,
+            __default_metatableindex = function() return default_metatable end
+        })
+
+        local ConfigManager = setmetatable({
+            __config = "default",
+            __resolver = {
+                _cache = {},
+                _resolveKey = function(self, key : string)
+                    key = tostring(key)
+                    if self._cache[key] then return self._cache[key] end
+                    local res
+                    if key == "Colorpicker" then
+                        res = "ColorPicker" 
+                    else
+                        res = key
+                    end
+                    self._cache[key] = res
+                    return res
+                end,
+                _resolveValue = function(self, key, tbl)
+                    local _type = self:_resolveKey(key.__type)
+                    if _type == "ColorPicker" then
+                        tbl.transparency = key.Transparency
+                        tbl.value = tostring(Color3.fromHSV(key.Hue, key.Sat, key.Vib):ToHex())
+                    elseif _type == "Slider" then
+                        tbl.value = key.Value.Default
+                    elseif _type == "Input" then
+                        tbl.text = key.Value
+                    elseif _type == "Dropdown" then
+                        if not key.Multi then
+                            tbl.value = key.Value
+                        end
+                    else
+                        tbl.value = key.Value
+                    end
+                end
+            },
+            __loader = {
+                _return = setmetatable({}, {
+                    __call = function(self, res, info)
+                        return {
+                            res = res,
+                            info = info
+                        }
+                    end
+                }),
+                _load_object = function(self, obj, config)
+                    local suc, err = pcall(function()
+                        local key = config.__registry[obj.idx]
+                        if not key then 
+                            return self._return(false, "key not found!")
+                        end
+                        if obj.type == "ColorPicker" then
+                            if key.__type ~= "Colorpicker" then
+                                return self._return(false, "type mismatch ("..tostring(obj.type)..")")
+                            end
+                            key:Update(Color3.fromHex(obj.value), obj.transparency)
+                        elseif obj.type == "Dropdown" then
+                            if key.__type ~= "Dropdown" then
+                                return self._return(false, "type mismatch ("..tostring(obj.type)..")")
+                            end
+                            if key.Multi then
+                                return self._return(false, "dropdown with [multi] enabled")
+                            end
+                            key:Refresh({key.value})
+                        else
+                            if key.Set then
+                                key:Set(obj.value)
+                            elseif key.Select then
+                                key:Select(obj.value)
+                            else
+                                key.Value = obj.value
+                            end
+                        end
+                        return self._return(true, "")
+                    end)
+                    if not suc then 
+                        warn("[_load_object]: Failure for "..tostring(obj ~= nil and type(obj) == "table" and tostring(obj.idx) or "[invalid obj format]")..": "..tostring(err)) 
+                    else
+                        if not err.res then
+                            warn("[_load_object]: Failure for "..tostring(obj.idx)..": "..tostring(err.err))
+                        end
+                    end
+                end,
+                load = function(self, data, config)
+                    for _, v in pairs(data) do
+                        task.spawn(function()
+                            self:_load_object(v, config)
+                        end)
+                    end
+                end
+            }
+        }, {
+            __call = function(self)
+                return self
+            end,
+            __index = function(self, key)
+                if key == "CreateConfig" then
+                    return function(self, name)
+                        self._main_path = "voidware_linoria/"..tostring(name)
+                        self._file_path = self._main_path.."/settings/"..tostring(name)..".json"
+                        FileSystem:addFolder(self._main_path)
+                        FileSystem:addFolder(self._main_path.."/themes")
+                        FileSystem:addFolder(self._main_path.."/settings")
+                        FileSystem:addFile(self._main_path.."/settings/autoload.txt", tostring(name))
+                        FileSystem:addFile(self._file_path, FileSystem:encodeTable({objects = {}}), true)
+                        self.__config = setmetatable({
+                            __main = self,
+                            __registry = {},
+                            __loader = self.__loader,
+                            __resolver = self.__resolver,
+                            __current_data = {objects = {}},
+                            Save = function(self)
+                                for i, v in pairs(self.__current_data.objects) do
+                                    local reg = self.__registry[v.idx]
+                                    if not reg then
+                                        warn("[__current_data]: Data table found for "..tostring(v.idx).." but not in the registry???")
+                                        table.remove(self.__current_data.objects, i)
+                                        continue
+                                    end
+                                    self.__resolver:_resolveValue(reg, v)
+                                end
+                                FileSystem:addFile(self._file_path, FileSystem:encodeTable(self.__current_data))
+                            end,
+                            Load = function(self)
+                                local file = FileSystem:fetchFile(self._file_path)
+                                if not file then warn("no config file found!"); return end
+                                local data = FileSystem:decodeTable(file)
+                                if not data then warn("error fetching the data!"); return end
+                                self.__loader:load(data.objects, self)
+                            end,
+                            Register = function(self, index, key)
+                                assert(not self.__registry[index], "[__config:Register]: Key with index "..tostring(index).." already exists!")
+                                self.__registry[index] = key
+                                local forIndex = {
+                                    idx = index,
+                                    type = self.__resolver:_resolveKey(key.__type)
+                                }
+                                self.__resolver:_resolveValue(key, forIndex)
+                                table.insert(self.__current_data.objects, forIndex)
+                            end
+                        }, {
+                            __tostring = "__config",
+                            __index = function(self, key)
+                                warn("Unknown key given to __config: "..tostring(key).."! Returning default val.")
+                                return default_metatable
+                            end
+                        })
+                        return self.__config
+                    end
+                else
+                    warn("Unknown key given to ConfigManager: "..tostring(key).."! Returning default val.")
+                    return self
+                end
+            end
+        })
+        ConfigManager = WindUI._win.ConfigManager
         local config = ConfigManager:CreateConfig("default")
         WindUI._config = config
 
@@ -472,6 +695,9 @@ local RuntimeLib = {
 
 WindUIAdapter.RuntimeLib = RuntimeLib
 
+local UserInputService = game:GetService("UserInputService")
+local ismobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled and not UserInputService.MouseEnabled
+
 function WindUIAdapter:CreateWindow(opts)
     local win = WindUI:CreateWindow({
         Title = opts.Title or "Window",
@@ -479,7 +705,7 @@ function WindUIAdapter:CreateWindow(opts)
         Background = opts.Background,
         Author = opts.Footer,
         Folder = opts.Folder or "WindUIAdapter",
-        Size = opts.Size or UDim2.fromOffset(580, 460),
+        Size = opts.Size or ismobile and shared.MobileSizeTesting and UDim2.fromOffset(320, 240) or UDim2.fromOffset(580, 460),
         Theme = opts.Theme or "Dark",
         HideSearchBar = opts.HideSearchBar,
         ScrollBarEnabled = false,
@@ -527,12 +753,15 @@ local Tabs_Meta = {
         "hitbox expansion",
         "tree farm",
         "kill aura",
+        "ice aura",
         "health",
+        "auto bandage",
         "other",
         "auto eat",
         "infinite stamina",
         "full bright",
-        "player attach"
+        "player attach",
+        "gun mods"
     },
     automation = {
         "auto campfire",
@@ -560,7 +789,15 @@ local Tabs_Meta = {
     }
 }
 
+WindUIAdapter.TempTabBox = {}
+function WindUIAdapter.TempTabBox:AddTab(title, icon)
+    return WindUIAdapter.TempTab:handleGroupBox(title, icon)
+end
+
 WindUIAdapter.TempTab = {}
+function WindUIAdapter.TempTab:AddRightTabbox()
+    return setmetatable({_win = self._win}, { __index = WindUIAdapter.TempTabBox })
+end
 function WindUIAdapter.TempTab:handleGroupBox(title, icon)
     local section = RuntimeLib:GetSection(title) or self._win
     if shared.VoidwareCustom then
@@ -569,6 +806,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
             WindUIAdapter._bringitemstab:Section({
                 Title = title,
                 TextXAlignment = "Left",
+                Icon = icon,
                 TextSize = 17
             })
             local result = setmetatable({ _tab = WindUIAdapter._bringitemstab }, { __index = function(self, key)
@@ -580,6 +818,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
             WindUIAdapter._maintab:Section({
                 Title = title,
                 TextXAlignment = "Left",
+                Icon = icon,
                 TextSize = 17
             })
             local result = setmetatable({ _tab = WindUIAdapter._maintab }, { __index = function(self, key)
@@ -591,6 +830,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
             tab:Section({
                 Title = title,
                 TextXAlignment = "Left",
+                Icon = icon,
                 TextSize = 17
             })
             local result = setmetatable({ _tab = tab }, { __index = function(self, key)
@@ -603,6 +843,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
             WindUIAdapter._playertab:Section({
                 Title = title,
                 TextXAlignment = "Left",
+                Icon = icon,
                 TextSize = 17
             })
             local result = setmetatable({ _tab = WindUIAdapter._playertab }, { __index = function(self, key)
@@ -614,6 +855,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
             tab:Section({
                 Title = title,
                 TextXAlignment = "Left",
+                Icon = icon,
                 TextSize = 17
             })
             local result = setmetatable({ _tab = tab }, { __index = function(self, key)
@@ -626,6 +868,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
                 WindUIAdapter._visualstab:Section({
                     Title = title,
                     TextXAlignment = "Left",
+                    Icon = icon,
                     TextSize = 17
                 })
             end
@@ -907,9 +1150,15 @@ function WindUIAdapter:Unload()
     self.Unloaded = true
     getgenv().voidware_loaded = false
     shared.Voidware_InkGame_Library = nil
+    shared.Voidware_Forsaken_Library = nil
+    shared.Voidware_Hypershot_Library = nil
+    shared.Voidware_NightsInTheForest_Library = nil
 end
 
 function WindUIAdapter:Notify(msg, dur)
+    if setthreadidentity and type(setthreadidentity) == "function" then
+        pcall(setthreadidentity, 8)
+    end
     return WindUI:Notify({
         Title = "Voidware",
         Content = msg,
