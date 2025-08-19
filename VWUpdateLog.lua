@@ -619,8 +619,8 @@ local function createChangelogUI()
 end
 
 notificationSys:CreateNotification(
-    "New Update Available!",
-    "A new Voidware update (" .. (newest.title or "v" .. newest.updateLogId) .. ") is here! Open the changelog?",
+    "New Patch Note!",
+    "A new patch note (" .. (newest.title or "v" .. newest.updateLogId) .. ") is available! Open the changelog?",
     true,
     function()
         createChangelogUI()
