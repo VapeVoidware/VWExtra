@@ -209,16 +209,42 @@ local RuntimeLib = {
         local InviteCode = "voidware"
         local DiscordAPI = "https://discord.com/api/v10/invites/" .. InviteCode .. "?with_counts=true&with_expiration=true"
 
-        local suc, Response = pcall(function()
-            return game:GetService("HttpService"):JSONDecode(WindUI.Creator.Request({
-                Url = DiscordAPI,
-                Method = "GET",
-                Headers = {
-                    ["User-Agent"] = "RobloxBot/1.0",
-                    ["Accept"] = "application/json"
-                }
-            }).Body)
-        end)
+        local suc, Response
+        if not shared.TestingMode then
+            suc, Response = pcall(function()
+                return game:GetService("HttpService"):JSONDecode(WindUI.Creator.Request({
+                    Url = DiscordAPI,
+                    Method = "GET",
+                    Headers = {
+                        ["User-Agent"] = "RobloxBot/1.0",
+                        ["Accept"] = "application/json"
+                    }
+                }).Body)
+            end)
+        else
+            task.spawn(function()
+                local ok, result = pcall(function()
+                    return WindUI.Creator.Request({
+                        Url = DiscordAPI,
+                        Method = "GET",
+                        Headers = {
+                            ["User-Agent"] = "RobloxBot/1.0",
+                            ["Accept"] = "application/json"
+                        }
+                    })
+                end)
+            
+                if ok and result and result.Body then
+                    local decoded = HttpService:JSONDecode(result.Body)
+                    suc, Response = true, decoded
+                else
+                    suc, Response = false, result
+                end
+            end)
+            
+            local start = tick()
+            repeat task.wait() until suc ~= nil or tick() - start >= 5
+        end
 
         if suc and Response and Response.guild then
             local DiscordInfo = tab:Paragraph({
