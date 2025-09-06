@@ -765,6 +765,7 @@ local Tabs_Meta = {
     maintab = {
         "hitbox expansion",
         "tree farm",
+        "entity godmode",
         "kill aura",
         "ice aura",
         "health",
