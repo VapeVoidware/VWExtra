@@ -3,7 +3,8 @@
       "user_id": 841741831556825088,
       "name": "Mr Erco",
       "description": "Owner & Head Developer of Voidware",
-      "role": "Owner & Head Developer"
+      "role": "Owner & Head Developer",
+      "github": "Erchobg"
     },
     {
         "user_id": 1187823462312587285,
@@ -21,6 +22,7 @@
         "user_id": 1380011634801512619,
         "name": "YellowGreg",
         "description": "Web Developer",
-        "role": "Web Developer"
+        "role": "Web Developer",
+        "github": "YellowGregs"
     }
 ]
