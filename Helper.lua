@@ -618,9 +618,13 @@ local RuntimeLib = {
             end
         })
         if shared.VoidwareForsaken then
-            WindUI:SetTheme("Red")
+            pcall(function()
+                WindUI:SetTheme("Red")
+            end)
         else
-            WindUI:SetTheme("Lavender")
+            pcall(function()
+                WindUI:SetTheme("Lavender")
+            end)
         end
         themeDropdown:Select(WindUI:GetCurrentTheme())
 
