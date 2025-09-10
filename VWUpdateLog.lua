@@ -728,5 +728,6 @@ notificationSys:CreateNotification(
     end,
     function()
         save()
+        shared.UPDATE_LOG_EXECUTED = false
     end
 )
