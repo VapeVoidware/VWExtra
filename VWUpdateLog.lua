@@ -2,6 +2,12 @@ local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 local TweenService = game:GetService("TweenService")
 
+if shared.UPDATE_LOG_EXECUTED then 
+    shared.UPDATE_LOG_EXECUTED = false
+    return 
+end
+shared.UPDATE_LOG_EXECUTED = true
+
 local function loadJson(path)
     local suc, res = pcall(function()
         return HttpService:JSONDecode(readfile(path))
@@ -65,6 +71,11 @@ function NotificationSystem.new()
     self.ScreenGui.ResetOnSpawn = false
     self.Notifications = {}
     return self
+end
+
+local function save()
+    localData.lastRead = tostring(newest.updateLogId)
+    writefile("Local_VW_Update_Log.json", HttpService:JSONEncode(localData))
 end
 
 local isActive = false
@@ -205,11 +216,6 @@ function NotificationSystem:CreateNotification(title, message, isInteractive, on
 
     table.insert(self.Notifications, notificationFrame)
     return notificationFrame
-end
-
-local function save()
-    localData.lastRead = tostring(newest.updateLogId)
-    writefile("Local_VW_Update_Log.json", HttpService:JSONEncode(localData))
 end
 
 local function addBlur(parent)
