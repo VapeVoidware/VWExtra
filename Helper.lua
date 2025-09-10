@@ -620,7 +620,7 @@ local RuntimeLib = {
         if shared.VoidwareForsaken then
             WindUI:SetTheme("Red")
         else
-            WindUI:SetTheme("Indigo")
+            WindUI:SetTheme("Lavender")
         end
         themeDropdown:Select(WindUI:GetCurrentTheme())
 
@@ -778,6 +778,7 @@ local Tabs_Meta = {
         "gun mods"
     },
     automation = {
+        "auto chest",
         "auto campfire",
         "auto collect",
         "plant stuff",
@@ -785,6 +786,7 @@ local Tabs_Meta = {
         "auto complete flow game"
     },
     playertab = {
+        "fly",
         "useful stuff",
         "performance",
         "security",
@@ -841,6 +843,9 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
             return result
         elseif table.find(Tabs_Meta.automation, string.lower(title)) then
             local tab = GetAutomationTab()
+            if string.lower(title) == "auto chest" then
+                title = "Auto Chest [BETA]"
+            end
             tab:Section({
                 Title = title,
                 TextXAlignment = "Left",
