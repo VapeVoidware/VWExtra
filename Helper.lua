@@ -1,4 +1,6 @@
-local WindUI = shared.WindUIDevMode and isfolder("vwdev") and isfile("vwdev/windui.lua") and loadstring(readfile("vwdev/windui.lua"))() or loadstring(game:HttpGet("https://github.com/VapeVoidware/WindUI/releases/latest/download/main.lua"))()
+local WindUI = shared.WindUIDevMode and isfolder("vwdev") and isfile("vwdev/windui.lua") and loadstring(readfile("vwdev/windui.lua"))() or 
+    shared.CustomWindUICommit and loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/WindUI/"..tostring(shared.CustomWindUICommit).."/dist/main.lua"))() or
+    loadstring(game:HttpGet("https://github.com/VapeVoidware/WindUI/releases/latest/download/main.lua"))()
 
 getgenv().Toggles = getgenv().Toggles or {}
 getgenv().Options = getgenv().Options or {}
