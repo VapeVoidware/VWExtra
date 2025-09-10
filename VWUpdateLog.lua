@@ -433,7 +433,15 @@ local function createChangelogUI()
             videoYPosition = videoYPosition + (updateData.image.banner and 200 or 100) + 15
         end
 
-        if updateData.video and type(updateData.video) == "table" and updateData.video.url and updateData.video.image then
+        if updateData.video and type(updateData.video) == "table" then
+            if not updateData.videos then
+                updateData.videos = {}
+            end
+            table.insert(updateData.videos, updateData.video)
+            updateData.video = nil
+        end
+
+        --[[if updateData.video and type(updateData.video) == "table" and updateData.video.url and updateData.video.image then
             local thumbnailLabel = Instance.new("ImageLabel")
             thumbnailLabel.Size = UDim2.new(0, 240, 0, 135)
             thumbnailLabel.Position = UDim2.new(1, -260, 0, videoYPosition)
@@ -511,6 +519,93 @@ local function createChangelogUI()
                     warn("Failed to copy video URL: ", err)
                 end
             end)
+        end--]]
+
+        if updateData.videos and type(updateData.videos) == "table" and #updateData.videos > 0 then
+            local currentY = videoYPosition
+            for i, videoData in ipairs(updateData.videos) do
+                if videoData.url and videoData.image then
+                    local thumbnailLabel = Instance.new("ImageLabel")
+                    thumbnailLabel.Size = UDim2.new(0, 240, 0, 135)
+                    thumbnailLabel.Position = UDim2.new(1, -260, 0, currentY)
+                    thumbnailLabel.BackgroundTransparency = 1
+                    thumbnailLabel.Image = videoData.image
+                    thumbnailLabel.Parent = entryFrame
+        
+                    addBlur(thumbnailLabel)
+        
+                    local thumbnailCorner = Instance.new("UICorner")
+                    thumbnailCorner.CornerRadius = UDim.new(0, 8)
+                    thumbnailCorner.Parent = thumbnailLabel
+        
+                    local showcaseLabel = Instance.new("TextLabel")
+                    showcaseLabel.Size = UDim2.new(0, 240, 0, 30)
+                    showcaseLabel.Position = UDim2.new(1, -260, 0, currentY + 135 + 15)
+                    showcaseLabel.BackgroundTransparency = 1
+                    showcaseLabel.Text = videoData.title or "Showcase " .. i
+                    showcaseLabel.TextColor3 = Color3.fromRGB(200, 200, 220)
+                    showcaseLabel.Font = Enum.Font.SourceSans
+                    showcaseLabel.TextSize = 20
+                    showcaseLabel.TextXAlignment = Enum.TextXAlignment.Left
+                    showcaseLabel.Parent = entryFrame
+        
+                    local copyButton = Instance.new("TextButton")
+                    copyButton.Size = UDim2.new(0, 120, 0, 30)
+                    copyButton.Position = UDim2.new(1, -260, 0, currentY + 135 + 45)
+                    copyButton.BackgroundColor3 = Color3.fromRGB(80, 120, 255)
+                    copyButton.Text = "Copy Video URL"
+                    copyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+                    copyButton.Font = Enum.Font.SourceSansBold
+                    copyButton.TextSize = 18
+                    copyButton.Parent = entryFrame
+        
+                    local copyCorner = Instance.new("UICorner")
+                    copyCorner.CornerRadius = UDim.new(0, 8)
+                    copyCorner.Parent = copyButton
+        
+                    addBlur(copyButton)
+        
+                    local copyStroke = Instance.new("UIStroke", copyButton)
+                    copyStroke.Thickness = 1
+        
+                    copyButton.MouseEnter:Connect(function()
+                        TweenService:Create(copyButton, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
+                            Size = UDim2.new(0, 130, 0, 34),
+                            BackgroundColor3 = Color3.fromRGB(120, 160, 255)
+                        }):Play()
+                        TweenService:Create(copyStroke, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
+                            Thickness = 2
+                        }):Play()
+                    end)
+        
+                    copyButton.MouseLeave:Connect(function()
+                        TweenService:Create(copyButton, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
+                            Size = UDim2.new(0, 120, 0, 30),
+                            BackgroundColor3 = Color3.fromRGB(80, 120, 255)
+                        }):Play()
+                        TweenService:Create(copyStroke, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
+                            Thickness = 1
+                        }):Play()
+                    end)
+        
+                    copyButton.MouseButton1Click:Connect(function()
+                        local success, err = pcall(function()
+                            setclipboard(videoData.url)
+                        end)
+                        if success then
+                            print("Copied video URL to clipboard: ", videoData.url)
+                            copyButton.Text = "Copied!"
+                            task.delay(0.5, function()
+                                copyButton.Text = "Copy Video URL"
+                            end)
+                        else
+                            warn("Failed to copy video URL: ", err)
+                        end
+                    end)
+        
+                    currentY = currentY + 135 + 90
+                end
+            end
         end
 
         local bodyLabel = Instance.new("TextLabel")
