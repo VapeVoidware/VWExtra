@@ -862,7 +862,7 @@ local Tabs_Meta = {
     automation = {
         "auto chest",
         "auto campfire",
-        "auto crock pot"
+        "auto crock pot",
         "auto collect",
         "plant stuff",
         "auto open seed boxes",
