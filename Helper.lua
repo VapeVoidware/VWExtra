@@ -1,6 +1,4 @@
-local WindUI = shared.WindUIDevMode and isfolder("vwdev") and isfile("vwdev/windui.lua") and loadstring(readfile("vwdev/windui.lua"))() or 
-    shared.CustomWindUICommit and loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/WindUI/"..tostring(shared.CustomWindUICommit).."/dist/main.lua"))() or
-    loadstring(game:HttpGet("https://github.com/VapeVoidware/WindUI/releases/latest/download/main.lua"))()
+local WindUI = shared.WindUIDevMode and isfolder("vwdev") and isfile("vwdev/windui.lua") and loadstring(readfile("vwdev/windui.lua"))() or loadstring(game:HttpGet("https://github.com/VapeVoidware/WindUI/releases/latest/download/main.lua"))()
 
 getgenv().Toggles = getgenv().Toggles or {}
 getgenv().Options = getgenv().Options or {}
@@ -129,6 +127,75 @@ local section = setmetatable({
     end
 })
 
+local LanguageFlags = {
+    ["en"] = "🇺🇸", -- English (United States default)
+    ["en-GB"] = "🇬🇧", -- English (United Kingdom)
+    ["en-CA"] = "🇨🇦", -- English (Canada)
+    ["fr"] = "🇫🇷", -- French
+    ["fr-CA"] = "🇨🇦", -- French (Canada)
+    ["es"] = "🇪🇸", -- Spanish (Spain)
+    ["es-MX"] = "🇲🇽", -- Spanish (Mexico)
+    ["pt"] = "🇵🇹", -- Portuguese
+    ["pt-BR"] = "🇧🇷", -- Portuguese (Brazil)
+    ["de"] = "🇩🇪", -- German
+    ["it"] = "🇮🇹", -- Italian
+    ["nl"] = "🇳🇱", -- Dutch
+    ["ru"] = "🇷🇺", -- Russian
+    ["uk"] = "🇺🇦", -- Ukrainian
+    ["pl"] = "🇵🇱", -- Polish
+    ["cs"] = "🇨🇿", -- Czech
+    ["sk"] = "🇸🇰", -- Slovak
+    ["sl"] = "🇸🇮", -- Slovenian
+    ["hr"] = "🇭🇷", -- Croatian
+    ["sr"] = "🇷🇸", -- Serbian
+    ["bs"] = "🇧🇦", -- Bosnian
+    ["mk"] = "🇲🇰", -- Macedonian
+    ["bg"] = "🇧🇬", -- Bulgarian
+    ["ro"] = "🇷🇴", -- Romanian
+    ["hu"] = "🇭🇺", -- Hungarian
+    ["tr"] = "🇹🇷", -- Turkish
+    ["el"] = "🇬🇷", -- Greek
+    ["he"] = "🇮🇱", -- Hebrew
+    ["ar"] = "🇸🇦", -- Arabic (default: Saudi Arabia)
+    ["fa"] = "🇮🇷", -- Persian
+    ["ur"] = "🇵🇰", -- Urdu
+    ["hi"] = "🇮🇳", -- Hindi
+    ["bn"] = "🇧🇩", -- Bengali
+    ["ta"] = "🇮🇳", -- Tamil (India)
+    ["te"] = "🇮🇳", -- Telugu
+    ["ml"] = "🇮🇳", -- Malayalam
+    ["kn"] = "🇮🇳", -- Kannada
+    ["pa"] = "🇮🇳", -- Punjabi
+    ["gu"] = "🇮🇳", -- Gujarati
+    ["ne"] = "🇳🇵", -- Nepali
+    ["si"] = "🇱🇰", -- Sinhala
+    ["th"] = "🇹🇭", -- Thai
+    ["lo"] = "🇱🇦", -- Lao
+    ["km"] = "🇰🇭", -- Khmer
+    ["vi"] = "🇻🇳", -- Vietnamese
+    ["id"] = "🇮🇩", -- Indonesian
+    ["ms"] = "🇲🇾", -- Malay
+    ["fil"] = "🇵🇭", -- Filipino
+    ["zh"] = "🇨🇳", -- Chinese (Simplified default: China)
+    ["zh-CN"] = "🇨🇳", -- Simplified Chinese
+    ["zh-Hans"] = "🇨🇳", -- Simplified Chinese
+    ["zh-TW"] = "🇹🇼", -- Traditional Chinese (Taiwan)
+    ["zh-HK"] = "🇭🇰", -- Traditional Chinese (Hong Kong)
+    ["ja"] = "🇯🇵", -- Japanese
+    ["ko"] = "🇰🇷", -- Korean
+    ["mn"] = "🇲🇳", -- Mongolian
+    ["am"] = "🇪🇹", -- Amharic
+    ["sw"] = "🇰🇪", -- Swahili
+    ["zu"] = "🇿🇦", -- Zulu
+    ["xh"] = "🇿🇦", -- Xhosa
+    ["st"] = "🇿🇦", -- Sotho
+    ["af"] = "🇿🇦", -- Afrikaans
+    ["yo"] = "🇳🇬", -- Yoruba
+    ["ig"] = "🇳🇬", -- Igbo
+    ["ha"] = "🇳🇬", -- Hausa
+    ["so"] = "🇸🇴", -- Somali
+}
+
 local RuntimeLib = {
     Init = function(self, _win)
         if shared.VoidwareCustom then
@@ -169,6 +236,14 @@ local RuntimeLib = {
                 Title = "Other",
                 Opened = true
             })
+        end
+        if shared.TargetLanguage and LanguageFlags[tostring(shared.TargetLanguage)] then
+            pcall(function()
+                _win:Tag({
+                    Title = tostring(shared.TargetLanguage).." "..tostring(LanguageFlags[tostring(shared.TargetLanguage)]),
+                    Color = Color3.fromHex("#ffffff")
+                })
+            end)
         end
         self._loaded = true
         WindUI._win = _win
@@ -247,7 +322,7 @@ local RuntimeLib = {
             })
 
             tab:Button({
-                Title = "Update Discord Info",
+                Title = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION("Update Discord Info") or "Update Discord Info",
                 Image = "refresh-ccw",
                 Callback = function()
                     local UpdatedResponse = game:GetService("HttpService"):JSONDecode(WindUI.Creator.Request({
@@ -273,8 +348,8 @@ local RuntimeLib = {
             })--]]
         end
         tab:Keybind({
-            Title = "Voidware Keybind",
-            Desc = "Keybind to open ui",
+            Title = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION("Voidware Keybind") or "Voidware Keybind",
+            Desc = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION("Keybind to open ui") or "Keybind to open ui",
             Value = "RightShift",
             Callback = function(v)
                 WindUI._win:SetToggleKey(Enum.KeyCode[v])
@@ -748,6 +823,7 @@ function WindUIAdapter.Window:AddTab(title, icon)
 end
 
 local function GetTab(name)
+    if shared.TRANSLATION_FUNCTION then name = shared.TRANSLATION_FUNCTION(name) end
     for i,v in pairs(WindUI._win.TabModule.Tabs) do
         if v.Title == name then
             return v
@@ -786,6 +862,7 @@ local Tabs_Meta = {
     automation = {
         "auto chest",
         "auto campfire",
+        "auto crock pot"
         "auto collect",
         "plant stuff",
         "auto open seed boxes",
@@ -821,9 +898,10 @@ function WindUIAdapter.TempTab:AddRightTabbox()
     return setmetatable({_win = self._win}, { __index = WindUIAdapter.TempTabBox })
 end
 function WindUIAdapter.TempTab:handleGroupBox(title, icon)
+    local searchIndex = shared.REVERT_TRANSLATION_META and shared.REVERT_TRANSLATION_META[title] or title
     local section = RuntimeLib:GetSection(title) or self._win
     if shared.VoidwareCustom then
-        if string.find(string.lower(title), "bring") then
+        if string.find(string.lower(searchIndex), "bring") then
             WindUIAdapter._bringitemstab = WindUIAdapter._bringitemstab or section:Tab({ Title = "Bring Stuff", Icon = "bring-to-front" })
             WindUIAdapter._bringitemstab:Section({
                 Title = title,
@@ -835,7 +913,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
                 return WindUIAdapter.Tab[key] or WindUIAdapter._bringitemstab[key]
             end })
             return result
-        elseif table.find(Tabs_Meta.maintab, string.lower(title)) then
+        elseif table.find(Tabs_Meta.maintab, string.lower(searchIndex)) then
             WindUIAdapter._maintab = WindUIAdapter._maintab or section:Tab({ Title = "Main", Icon = "superscript" })
             WindUIAdapter._maintab:Section({
                 Title = title,
@@ -847,11 +925,12 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
                 return WindUIAdapter.Tab[key] or WindUIAdapter._maintab[key]
             end })
             return result
-        elseif table.find(Tabs_Meta.automation, string.lower(title)) then
+        elseif table.find(Tabs_Meta.automation, string.lower(searchIndex)) then
             local tab = GetAutomationTab()
             if string.lower(title) == "auto chest" then
                 title = "Auto Chest [BETA]"
             end
+            if shared.TRANSLATION_FUNCTION then title = shared.TRANSLATION_FUNCTION(title) end
             tab:Section({
                 Title = title,
                 TextXAlignment = "Left",
@@ -862,8 +941,8 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
                 return WindUIAdapter.Tab[key] or tab[key]
             end })
             return result
-        elseif table.find(Tabs_Meta.playertab, string.lower(title)) then
-            WindUIAdapter._playertab = WindUIAdapter._playertab or section:Tab({ Title = "Local Player", Icon = "circle-user" })
+        elseif table.find(Tabs_Meta.playertab, string.lower(searchIndex)) then
+            WindUIAdapter._playertab = WindUIAdapter._playertab or section:Tab({ Title = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION("Local Player") or "Local Player", Icon = "circle-user" })
             if title == "Player" then title = "Movement" end
             WindUIAdapter._playertab:Section({
                 Title = title,
@@ -875,7 +954,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
                 return WindUIAdapter.Tab[key] or WindUIAdapter._playertab[key]
             end })
             return result
-        elseif table.find(Tabs_Meta.misc, string.lower(title)) then
+        elseif table.find(Tabs_Meta.misc, string.lower(searchIndex)) then
             local tab = GetMiscTab()
             tab:Section({
                 Title = title,
@@ -887,8 +966,8 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
                 return WindUIAdapter.Tab[key] or tab[key]
             end })
             return result
-        elseif table.find(Tabs_Meta.visuals, string.lower(title)) then
-            WindUIAdapter._visualstab = WindUIAdapter._visualstab or section:Tab({ Title = "Visuals", Icon = "eye" })
+        elseif table.find(Tabs_Meta.visuals, string.lower(searchIndex)) then
+            WindUIAdapter._visualstab = WindUIAdapter._visualstab or section:Tab({ Title = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION("Visuals") or "Visuals", Icon = "eye" })
             if title ~= "ESP" and ((not shared.VoidwareForsaken) or (shared.VoidwareForsaken and title ~= "Main ESP")) then
                 WindUIAdapter._visualstab:Section({
                     Title = title,
@@ -1187,6 +1266,7 @@ function WindUIAdapter:Notify(msg, dur)
     return WindUI:Notify({
         Title = "Voidware",
         Content = msg,
+        Icon = 'bell',
         Duration = dur or 5
     })
 end
