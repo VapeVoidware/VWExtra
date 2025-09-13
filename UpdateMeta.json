@@ -1,5 +1,35 @@
 [
     {
+        "body": "<b><font color=\"#00FF00\">[99 NIGHTS IN THE FOREST UPDATE] 🦌</font></b>\n\n<b>🌟 Highlights</b>\n\n<b>🌲 99 Nights In The Forest</b>\n- <b>🚀 Teleports</b>\n  - 🏰 Cultist Generator Base: Added teleport button.\n  - 🌋 Volcano: Added teleport.\n- <b>💪 Entities</b>\n  - 🦂 Scorpion: Added to valid entities (Killaura support).\n- <b>⚡ Improvements</b>\n  - ⚡ Bring Speed: Upgraded A LOT.\n- <b>🌐 Translations</b>\n  - Chinese Simplified and Turkish added.\n- <b>🎨 UI</b>\n  - 🌀 Wind UI Refresh.\n- <b>🍲 Auto Cooking</b>\n  - NEW: Auto Crock Pot (Work In Progress).\n  - 🥘 Bring Food To Cook Pot: Added.\n  - 🍖 Food Choice added.",
+        "date": "09/13/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://123946469657031",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://123946469657031",
+            "rbxassetid://113852932649070",
+            "rbxassetid://92203647814891"
+        ],
+        "new": true,
+        "title": "99 NIGHTS IN THE FOREST UPDATE! 🦌",
+        "updateLogId": 33,
+        "videos": [
+            {
+                "title": "New Bring Method",
+                "image": "rbxassetid://113852932649070",
+                "url": "https://streamable.com/s41lkr"
+            },
+            {
+                "title": "Translations",
+                "image": "rbxassetid://92203647814891",
+                "url": "https://streamable.com/jd4xb4"
+            }
+        ],
+        "visible": true
+    },    
+    {
         "body": "<b><font color=\"#00FF00\">[INK GAME & 99 NIGHTS IN THE FOREST UPDATE] 🦑🦌</font></b>\n\n<b>🌟 Highlights</b>\n\n<b>🎨 Ink Game</b>\n- <b>🛠️ Fixes</b>\n  - ⚡ Lighting God Awakening: Fixed not working.\n  - 🚫 Disable Games: Fixed toggle not working.\n- <b>🎉 Minigames</b>\n  - 🔥 Dalgona: Free Lighter option added.\n  - 💢 Mingle: New Rage Mode.\n\n<b>🌲 99 Nights In The Forest</b>\n- <b>🚀 Teleports</b>\n  - 🏰 Stronghold: New teleport button.\n  - 💎 Stronghold Diamond Chest: New teleport button.\n- <b>💪 Entity Godmode</b>\n  - Makes you completely unhitable by entities.\n- <b>🛠️ Fixes & Improvements</b>\n  - 🥣 Auto Eat: Stew & Steak Dinner now supported.\n  - ⛑️ Auto Bandage: MedKit support added.\n  - 🌸 Auto Pickup Flowers: Optimised, added visualisers, plus new Stop button.\n  - 💰 Auto Pickup Gold Stacks: Optimised with visualisers.\n  - ⚡ Bring Items Speed: Now a LOT faster.\n- <b>🎨 New Themes</b>\n  - 🌸 Lavender – soft purple / pastel theme\n  - 🌊 Ocean – deep ocean blue theme\n  - 🪸 Coral – coral pink/orange theme\n  - 🌅 Sunset – warm orange/red gradient-inspired theme\n  - 🌲 Forest – deep green nature theme\n  - 🌌 Midnight – dark indigo/purple night theme\n  - 🍋 Citrus – bright yellow/orange theme\n  - 💧 Aqua – vibrant cyan/teal theme\n  - 🍑 Peach – soft peachy orange theme\n  - ❄️ Aurora – northern lights inspired turquoise/green theme",
         "date": "09/09/2025",
         "image": {
@@ -14,7 +44,7 @@
             "rbxassetid://88166567452884",
             "rbxassetid://84598133667635"
         ],
-        "new": true,
+        "new": false,
         "title": "INK GAME & 99 NIGHTS IN THE FOREST UPDATE! 🦑🦌",
         "updateLogId": 32,
         "videos": [
