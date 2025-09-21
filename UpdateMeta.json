@@ -1,5 +1,30 @@
 [
     {
+        "body": "<b><font color=\"#00FF00\">[99 NIGHTS IN THE FOREST UPDATE] 🦌🎉</font></b>\n\n<b>🌟 Highlights</b>\n\n<b>🌐 Translations</b>\n- Spanish 🇪🇸, Portuguese 🇵🇹, Portuguese (Brazil) 🇧🇷\n- Japanese 🇯🇵, Korean 🇰🇷\n- Russian 🇷🇺, German 🇩🇪, French 🇫🇷, Italian 🇮🇹\n- Vietnamese 🇻🇳, Tagalog 🇵🇭, Norwegian 🇳🇴, Danish 🇩🇰, Polish 🇵🇱, Catalan 🇪🇸\n\n<b>⚙️ Bring Stuff – Settings</b>\n- 📥 New Bring Method dropdown.\n- ⚡ NEW: ULTRA FAST Method (overpowered).\n\n<b>🔥 Bring Cultists</b>\n- 🎭 Cultist Choice dropdown.\n- 🧲 Bring Cultists button.\n\n<b>🪄 Bring Other</b>\n- Added Wildfire Potion.\n- Added Sacrifice Totem.\n\n<b>🛡️ Bring Guns & Armor</b>\n- Added Infernal Sword.\n- Added Morningstar.\n- Added Crossbow.\n\n<b>💥 Killaura</b>\n- Added support: Hellephant, Naill, Ram.\n\n<b>🗝️ Auto Chest – Upgraded 🔥</b>\n- Fully reworked Auto Chest system.\n- 📍 Bring Location dropdown: Player, Workbench.\n- ⚡ Loot Method dropdown:\n  - Simple Mode – Opens chest, waits for item, moves to next.\n  - Safe Mode – Opens all chests fast, then teleports to items.\n- 📏 Loot Radius Slider: Adjust range.",
+        "date": "09/20/2025",
+        "image": {
+          "aspectRatio": 1,
+          "assetId": "rbxassetid://119793671438914",
+          "banner": true
+        },
+        "images": [
+          "rbxassetid://119793671438914",
+          "rbxassetid://116431548889956",
+          "rbxassetid://101600487375780"
+        ],
+        "new": true,
+        "title": "99 NIGHTS IN THE FOREST UPDATE UPDATE! 🦌🎉",
+        "updateLogId": 34,
+        "videos": [
+          {
+            "title": "NEW VIDEO!",
+            "image": "rbxassetid://987654321098765",
+            "url": "https://youtu.be/F30wadIQp28"
+          }
+        ],
+        "visible": true
+    },      
+    {
         "body": "<b><font color=\"#00FF00\">[99 NIGHTS IN THE FOREST UPDATE] 🦌</font></b>\n\n<b>🌟 Highlights</b>\n\n<b>🌲 99 Nights In The Forest</b>\n- <b>🚀 Teleports</b>\n  - 🏰 Cultist Generator Base: Added teleport button.\n  - 🌋 Volcano: Added teleport.\n- <b>💪 Entities</b>\n  - 🦂 Scorpion: Added to valid entities (Killaura support).\n- <b>⚡ Improvements</b>\n  - ⚡ Bring Speed: Upgraded A LOT.\n- <b>🌐 Translations</b>\n  - Chinese Simplified and Turkish added.\n- <b>🎨 UI</b>\n  - 🌀 Wind UI Refresh.\n- <b>🍲 Auto Cooking</b>\n  - NEW: Auto Crock Pot (Work In Progress).\n  - 🥘 Bring Food To Cook Pot: Added.\n  - 🍖 Food Choice added.",
         "date": "09/13/2025",
         "image": {
@@ -12,7 +37,7 @@
             "rbxassetid://113852932649070",
             "rbxassetid://92203647814891"
         ],
-        "new": true,
+        "new": false,
         "title": "99 NIGHTS IN THE FOREST UPDATE! 🦌",
         "updateLogId": 33,
         "videos": [
