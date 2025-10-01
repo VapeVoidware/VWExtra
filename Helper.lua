@@ -134,6 +134,9 @@ local LanguageFlags = {
     ["fr"] = "🇫🇷", -- French
     ["fr-CA"] = "🇨🇦", -- French (Canada)
     ["es"] = "🇪🇸", -- Spanish (Spain)
+    ["es-CA"] = "🇪🇸", -- Spanish (Catalan)
+    ["ca"] = "🇪🇸", -- Spanish (Catalan)
+    ["da"] = "🇩🇰", -- Danish
     ["es-MX"] = "🇲🇽", -- Spanish (Mexico)
     ["pt"] = "🇵🇹", -- Portuguese
     ["pt-BR"] = "🇧🇷", -- Portuguese (Brazil)
@@ -193,7 +196,8 @@ local LanguageFlags = {
     ["yo"] = "🇳🇬", -- Yoruba
     ["ig"] = "🇳🇬", -- Igbo
     ["ha"] = "🇳🇬", -- Hausa
-    ["so"] = "🇸🇴", -- Somali
+    ["so"] = "🇸🇴", -- Somali,
+    ["no"] = "🇳🇴" -- Norwegian
 }
 
 local RuntimeLib = {
@@ -237,14 +241,32 @@ local RuntimeLib = {
                 Opened = true
             })
         end
-        if shared.TargetLanguage and LanguageFlags[tostring(shared.TargetLanguage)] then
-            pcall(function()
+        pcall(function()
+            if shared.TargetLanguage and LanguageFlags[tostring(shared.TargetLanguage)] then
                 _win:Tag({
                     Title = tostring(shared.TargetLanguage).." "..tostring(LanguageFlags[tostring(shared.TargetLanguage)]),
                     Color = Color3.fromHex("#ffffff")
                 })
-            end)
-        end
+            end
+            if shared.VoidDev then
+                _win:Tag({
+                    Title = "🔥 Dev Mode",
+                    Color = Color3.fromHex("#9370DB")
+                })
+            end
+            if shared.TestingMode or shared.StagingMode then
+                _win:Tag({
+                    Title = "🛠️ Testing Mode",
+                    Color = Color3.fromHex("#FFD700")
+                })
+            end
+            if tostring(shared.environment) == "translator_env" then
+                _win:Tag({
+                    Title = "✍️ (Translation) Testing Mode",
+                    Color = Color3.fromHex("#32CD32")
+                })
+            end
+        end)   
         self._loaded = true
         WindUI._win = _win
         WindUI.OnUnload = _win.OnDestroy
@@ -850,6 +872,7 @@ local Tabs_Meta = {
         "entity godmode",
         "kill aura",
         "ice aura",
+        "ore aura",
         "health",
         "auto bandage",
         "other",
