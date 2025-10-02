@@ -241,6 +241,12 @@ local RuntimeLib = {
                 Opened = true
             })
         end
+        shared.CREATE_TAG_FUNCTION_WIND_UI = function(...)
+            local args = {...}
+            pcall(function()
+                _win:Tag(unpack(args))
+            end)
+        end
         pcall(function()
             if shared.TargetLanguage and LanguageFlags[tostring(shared.TargetLanguage)] then
                 _win:Tag({
@@ -821,7 +827,8 @@ function WindUIAdapter:CreateWindow(opts)
         Background = opts.Background,
         Author = opts.Footer,
         Folder = opts.Folder or "WindUIAdapter",
-        Size = opts.Size or ismobile and shared.MobileSizeTesting and UDim2.fromOffset(320, 240) or UDim2.fromOffset(580, 460),
+        Size = opts.Size or UDim2.fromOffset(520, 420),
+        -- opts.Size or ismobile and shared.MobileSizeTesting and UDim2.fromOffset(320, 240) or UDim2.fromOffset(580, 460),
         Theme = opts.Theme or "Dark",
         HideSearchBar = opts.HideSearchBar,
         ScrollBarEnabled = false,
@@ -861,7 +868,7 @@ end
 
 local function GetAutomationTab()
     if WindUI._automationtab then return WindUI._automationtab end
-    WindUI._automationtab = GetTab("Automation")
+    WindUI._automationtab = GetTab("Automation") or GetTab("Auto")
     return WindUI._automationtab
 end
 
@@ -870,6 +877,7 @@ local Tabs_Meta = {
         "hitbox expansion",
         "tree farm",
         "entity godmode",
+        "fishing",
         "kill aura",
         "ice aura",
         "ore aura",
@@ -894,7 +902,7 @@ local Tabs_Meta = {
     playertab = {
         "fly",
         "useful stuff",
-        "performance",
+        --"performance",
         "security",
         "player",
         "ambient",
@@ -1087,7 +1095,7 @@ function WindUIAdapter.Tab:AddToggle(name, opts)
     return result
 end
 
-function WindUIAdapter.Tab:AddButton(name, callback)
+function WindUIAdapter.Tab:AddButton(name, callback, desc)
     if type(name) == "table" then
         return self._tab:Button({
             Title = name.Text or name.Title or "Button",
@@ -1100,6 +1108,7 @@ function WindUIAdapter.Tab:AddButton(name, callback)
         return self._tab:Button({
             Title = name,
             Callback = callback,
+            Desc = desc
         })
     end
 end
@@ -1262,6 +1271,9 @@ function WindUIAdapter:GiveSignal(signal)
 end
 
 function WindUIAdapter:Unload()
+    pcall(function()
+        shared.CREATE_TAG_FUNCTION_WIND_UI = nil
+    end)
     if self._win then
         pcall(function() self._win:Close():Destroy() end)
         task.spawn(function()
