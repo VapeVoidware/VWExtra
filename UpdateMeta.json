@@ -1,5 +1,28 @@
 [
     {
+        "body": "<b><font color=\"#00FF00\">[VOIDWARE TAMING + RESTOCK UPDATE] 🐾🔑🚀</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b>🐻 TAMING UPDATE SUPPORT 🛠️</b>\n- 🧢 Equip <b>Zookeeper Class</b> (FREE!)\n- 🥕 Bring <b>Carrots</b> & 🥩 <b>Steak</b> to tame new creatures!\n- 💯 <b>100% Taming Success Rate</b> – guaranteed every time!\n- ⚡ <b>Instant Taming Minigame</b> – no delay, super OP!\n\n<b>💎 STORE UPDATE 🔥</b>\n- 🔑 <b>Keys have been RESTOCKED!</b>\n- 🌐 <a href=\"https://voidware.mysellauth.com/product/voidware-private\">voidware.mysellauth.com/product/voidware-private</a>\n- ⚡ Grab yours before they sell out again!\n\n<b>🔨 Fixes & Improvements</b>\n- 🌳 <b>Fixed Build Saplings in Circle</b> – works perfectly again!\n\n<b>🌀 UI Enhancements</b>\n- Updated visuals for the <b>Bring Menu</b> and <b>Taming Interface</b>.\n- Improved responsiveness and animations.\n\n<b>⚡ Get ready for smoother gameplay and even more OP features!</b>",
+        "date": "10/04/2025",
+        "image": {
+          "aspectRatio": 1,
+          "assetId": "rbxassetid://112236751902614",
+          "banner": true
+        },
+        "images": [
+          "rbxassetid://112236751902614"
+        ],
+        "new": true,
+        "title": "VOIDWARE UPDATE – TAMING SUPPORT + RESTOCKED KEYS! 🐾🔑🚀",
+        "updateLogId": 36,
+        "videos": [
+          {
+            "title": "NEW TAMING UPDATE SHOWCASE!",
+            "image": "rbxassetid://112236751902614",
+            "url": "https://streamable.com/9aeogh"
+          }
+        ],
+        "visible": true
+    },      
+    {
         "body": "<b><font color=\"#00FF00\">[VOIDWARE UPDATE] 🚀🛠️🎉</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b>🛡️ NEW MODULE – BECOME INVINCIBLE 🔥</b>\n- 💥 Become Invincible:\n  - Makes you <b>unhittable by all entities</b>.\n  - You also <b>can’t die from hunger</b>.\n  - The ultimate survival buff! ⚡\n\n<b>🐸 Forest Expansion</b>\n- 👑 Added FrogKing to Killaura Support.\n- 🐸 Added Frog Key to Bring Other Items.\n\n<b>⚡ Bring System Overhaul</b>\n- 🛡️ NEW: \"Untouchable by Others\" toggle – items you bring cannot be touched by others unless you pick & drop them.\n- 📦 Fixed Bring Limit being capped at 200 – now truly infinite.\n\n<b>🔨 Gameplay Improvements</b>\n- ⚒️ Fixed Anvil TP (smoother than ever).\n- ⛏️ Added Ore Aura.\n- 🐨 Fixed TP to Children (Koala & Squid Kid now teleport correctly).\n\n<b>🎨 UI & Style</b>\n- 🌀 Wind UI fully refreshed.\n- 📏 Window Scaling: Menu is now <b>smaller & optimized</b> to fit more devices.\n- 🎣 Fishing Tab: Moved to the <b>Main Tab</b> for easier access.\n- ⚙️ Performance Tab: Now includes Cleanup Big Trees 🌲 & Cleanup Logs 🪵.\n- 🌈 NEW THEMES PACK: Neon Blue, Neon Pink, Neon Green, Neon Yellow, Cyberpunk.\n\n<b>⚡ These themes are brighter, glowing, and perfect for futuristic vibes!</b>",
         "date": "10/02/2025",
         "image": {
@@ -13,7 +36,7 @@
           "rbxassetid://99069921531589",
           "rbxassetid://91409943951732"
         ],
-        "new": true,
+        "new": false,
         "title": "VOIDWARE UPDATE - BIG NEW FEATURES & FIXES! 🚀🎉",
         "updateLogId": 35,
         "videos": [
