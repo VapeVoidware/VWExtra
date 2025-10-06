@@ -310,6 +310,15 @@ local RuntimeLib = {
                 end
             end
         end
+        pcall(function()
+            if shared.VW_AUTOFARM_SCRIPT then
+                tab:Section({
+                    Title = "Voidware Auto Farm Script 🎉 ",
+                    TextXAlignment = "Left",
+                    TextSize = 20
+                })
+            end
+        end)
         shared.WindUI = WindUI
         local InviteCode = "voidware"
         local DiscordAPI = "https://discord.com/api/v10/invites/" .. InviteCode .. "?with_counts=true&with_expiration=true"
@@ -881,6 +890,7 @@ local Tabs_Meta = {
         "kill aura",
         "ice aura",
         "ore aura",
+        "aura",
         "health",
         "auto bandage",
         "other",
