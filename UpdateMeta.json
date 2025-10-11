@@ -1,5 +1,29 @@
 [
     {
+        "body": "<b><font color=\"#00FF00\">[VOIDWARE LOADING & TELEPORT UPDATE] 🎨🏦🚀</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b>🎨 LOADING SCREEN UPGRADE ✨</b>\n- 😄 <b>Brand New Loading Screen</b> – A sleek, exciting revamp\n\n<b>📍 TELEPORT ENHANCEMENTS 💥</b>\n- 🏦 <b>Teleport to Bank Button</b> – Teleports to the brand new bank structure!\n\n<b>🔨 Other</b>\n- ⚔️ <b>Aura Range Adjustments</b>: Updated Killaura, Tree Farm, Ore Aura, and Ice Aura to max 250 range (devs patched it :c ) \n- 🔥 <b>Chop Status Visualiser</b>: Brought back the option to disable tree farm visuals!\n\n<b>⚡ Dive into smoother gameplay with these fresh tweaks and stay OP!</b>",
+        "date": "10/11/2025",
+        "image": {
+          "aspectRatio": 1,
+          "assetId": "rbxassetid://122528710350039",
+          "banner": true
+        },
+        "images": [
+          "rbxassetid://122528710350039",
+          "rbxassetid://75521483217159"
+        ],
+        "new": true,
+        "title": "VOIDWARE UPDATE – NEW LOADING SCREEN & NEW TELEPORT! 🎨🏦🚀",
+        "updateLogId": 37,
+        "videos": [
+          {
+            "title": "NEW LOADING SCREEN!",
+            "image": "rbxassetid://75521483217159",
+            "url": "https://streamable.com/ov46od"
+          }
+        ],
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#00FF00\">[VOIDWARE TAMING + RESTOCK UPDATE] 🐾🔑🚀</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b>🐻 TAMING UPDATE SUPPORT 🛠️</b>\n- 🧢 Equip <b>Zookeeper Class</b> (FREE!)\n- 🥕 Bring <b>Carrots</b> & 🥩 <b>Steak</b> to tame new creatures!\n- 💯 <b>100% Taming Success Rate</b> – guaranteed every time!\n- ⚡ <b>Instant Taming Minigame</b> – no delay, super OP!\n\n<b>💎 STORE UPDATE 🔥</b>\n- 🔑 <b>Keys have been RESTOCKED!</b>\n- 🌐 <a href=\"https://voidware.mysellauth.com/product/voidware-private\">voidware.mysellauth.com/product/voidware-private</a>\n- ⚡ Grab yours before they sell out again!\n\n<b>🔨 Fixes & Improvements</b>\n- 🌳 <b>Fixed Build Saplings in Circle</b> – works perfectly again!\n\n<b>🌀 UI Enhancements</b>\n- Updated visuals for the <b>Bring Menu</b> and <b>Taming Interface</b>.\n- Improved responsiveness and animations.\n\n<b>⚡ Get ready for smoother gameplay and even more OP features!</b>",
         "date": "10/04/2025",
         "image": {
@@ -10,7 +34,7 @@
         "images": [
           "rbxassetid://112236751902614"
         ],
-        "new": true,
+        "new": false,
         "title": "VOIDWARE UPDATE – TAMING SUPPORT + RESTOCKED KEYS! 🐾🔑🚀",
         "updateLogId": 36,
         "videos": [
