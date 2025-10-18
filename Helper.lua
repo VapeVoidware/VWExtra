@@ -3,7 +3,7 @@ local WindUI = shared.WindUIDevMode and isfolder("vwdev") and isfile("vwdev/wind
 getgenv().Toggles = getgenv().Toggles or {}
 getgenv().Options = getgenv().Options or {}
 
-if shared.NightsInTheForest or shared.VoidwareForsaken or shared.VoidwareDoors or shared.VoidwareHypershot then shared.VoidwareCustom = true end
+if shared.NightsInTheForest or shared.VoidwareForsaken or shared.VoidwareDoors or shared.VoidwareHypershot or shared.VoidwareInkGame then shared.VoidwareCustom = true end
 
 local WindUIAdapter = {}
 
@@ -387,11 +387,14 @@ local RuntimeLib = {
         tab:Keybind({
             Title = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION("Voidware Keybind") or "Voidware Keybind",
             Desc = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION("Keybind to open ui") or "Keybind to open ui",
-            Value = "RightShift",
+            Value = shared.VoidwareInkGame and "M" or "RightShift",
             Callback = function(v)
                 WindUI._win:SetToggleKey(Enum.KeyCode[v])
             end
         })
+        pcall(function()
+            WindUI._win:SetToggleKey(Enum.KeyCode[shared.VoidwareInkGame and "M" or "RightShift"])
+        end)
     end,
     LoadSaving = function(self)
         assert(self._loaded, "[RuntimeLib]: Tried loading saving before being loaded.")
@@ -885,6 +888,7 @@ local Tabs_Meta = {
     maintab = {
         "hitbox expansion",
         "tree farm",
+        "taming",
         "entity godmode",
         "fishing",
         "kill aura",
@@ -895,10 +899,16 @@ local Tabs_Meta = {
         "auto bandage",
         "other",
         "auto eat",
+        "infinitefly",
+        "auto vote",
+        "interaction",
+        "killaura",
+        "anti death",
         "infinite stamina",
         "full bright",
         "player attach",
-        "gun mods"
+        "gun mods",
+        "anti hit"
     },
     automation = {
         "auto chest",
@@ -919,15 +929,33 @@ local Tabs_Meta = {
         "self"
     },
     misc = {
+        "misc",
         "coordinates",
         "credits"
     },
     visuals = {
         "main esp",
         "esp",
-        "esp settings"
+        "esp settings",
+        "hide and seek esp"
+    },
+    rebel = {
+        "rebel",
+        "aimbot",
+        "auto shoot"
+    },
+    vip = {
+        "vip",
+        "title choice"
     }
 }
+
+if shared.VoidwareInkGame then
+    table.insert(Tabs_Meta.misc, "performance")
+else
+    Tabs_Meta.rebel = nil
+    Tabs_Meta.vip = nil
+end
 
 WindUIAdapter.TempTabBox = {}
 function WindUIAdapter.TempTabBox:AddTab(title, icon)
@@ -966,6 +994,30 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
                 return WindUIAdapter.Tab[key] or WindUIAdapter._maintab[key]
             end })
             return result
+        elseif Tabs_Meta.vip ~= nil and table.find(Tabs_Meta.vip, string.lower(searchIndex)) then
+            WindUIAdapter._viptab = WindUIAdapter._viptab or section:Tab({ Title = "VIP", Icon = "star" })
+            WindUIAdapter._viptab:Section({
+                Title = title,
+                TextXAlignment = "Left",
+                Icon = icon,
+                TextSize = 17
+            })
+            local result = setmetatable({ _tab = WindUIAdapter._viptab }, { __index = function(self, key)
+                return WindUIAdapter.Tab[key] or WindUIAdapter._viptab[key]
+            end })
+            return result
+        elseif Tabs_Meta.rebel ~= nil and table.find(Tabs_Meta.rebel, string.lower(searchIndex)) then
+            WindUIAdapter._rebeltab = WindUIAdapter._rebeltab or section:Tab({ Title = "Rebel", Icon = "sword" })
+            WindUIAdapter._rebeltab:Section({
+                Title = title,
+                TextXAlignment = "Left",
+                Icon = icon,
+                TextSize = 17
+            })
+            local result = setmetatable({ _tab = WindUIAdapter._rebeltab }, { __index = function(self, key)
+                return WindUIAdapter.Tab[key] or WindUIAdapter._rebeltab[key]
+            end })
+            return result
         elseif table.find(Tabs_Meta.automation, string.lower(searchIndex)) then
             local tab = GetAutomationTab()
             if string.lower(title) == "auto chest" then
@@ -996,7 +1048,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
             end })
             return result
         elseif table.find(Tabs_Meta.misc, string.lower(searchIndex)) then
-            local tab = GetMiscTab()
+            local tab = GetMiscTab() or section:Tab({ Title = "Misc", Icon = "wrench" })
             tab:Section({
                 Title = title,
                 TextXAlignment = "Left",
@@ -1083,7 +1135,14 @@ function WindUIAdapter.Tab:AddToggle(name, opts)
                 end
             elseif k == "AddKeyPicker" then
                 return function(_, kname, kopts)
-                    --runtime_self:AddKeyPicker(kname, kopts)
+                    if shared.VoidwareInkGame then
+                        if not kopts.Callback then
+                            kopts.Callback = function()
+                                self._wrapper:SetValue(not self._wrapper.Value)
+                            end
+                        end
+                        runtime_self:AddKeyPicker(kname, kopts)
+                    end
                 end
             elseif k == "SetVisible" then
                 return function(_, vis)
