@@ -1,5 +1,28 @@
 [
     {
+        "body": "<b><font color=\"#00FF00\">[VOIDWARE HALLOWEEN TAB UPDATE] 🎃🕸️🔥</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b>🕸️ BRAND NEW HALLOWEEN TAB 🎃</b>\n- 🎃 <b>Bring Pumpkins Button</b> – Summon spooky gourds instantly!\n- 🕯️ <b>Bring Halloween Candle Button</b> – Light up your haunt with ease!\n\n<b>🏠 TELEPORT TO HALLOWEEN HOUSE 👻</b>\n- 📍 <b>Halloween Houses Dropdown</b> – Pick your perfect haunted pad!\n- 🚀 <b>Teleport Button</b> – Warp there in a flash, no tricks needed!\n\n<b>⚡ AURA & FARM UPGRADES 💥</b>\n- 🔓 <b>Require Hand Check Toggle</b>: Disable for tool-free Aura power! 🔥\n- 🚀 <b>Auto TP to Targets</b>: Jump to foes beyond 200 studs (patched range workaround :c)\n- 🌳 <b>Small Webbed Tree Support</b>: Tree Farm now webs up those eerie trees!\n\n<b>🍁 BRING ITEMS EXPANSION 🕷️</b>\n- 🎃 <b>Pumpkin in Bring Food</b>\n- 🕯️🍬 <b>Halloween Candle & Candy in Bring Others</b>\n\n<b>💎 KEYS RESTOCKED!</b>\n- 🔑 Grab fresh keys at https://voidware.mysellauth.com – don't miss out! ⚡\n\n<b>👻 Get festive and stay ahead in the Halloween chaos!</b>",
+        "date": "10/18/2025",
+        "image": {
+          "aspectRatio": 1,
+          "assetId": "rbxassetid://140020077242180",
+          "banner": true
+        },
+        "images": [
+          "rbxassetid://140020077242180"
+        ],
+        "new": true,
+        "title": "VOIDWARE UPDATE – SPOOKY HALLOWEEN TAB & KEYS RESTOCK! 🎃🕸️🔥",
+        "updateLogId": 38,
+        "videos": [
+          {
+            "title": "NEW HALLOWEEN TAB IN ACTION!",
+            "image": "rbxassetid://140020077242180",
+            "url": "https://youtu.be/CM61XKbcIHA"
+          }
+        ],
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#00FF00\">[VOIDWARE LOADING & TELEPORT UPDATE] 🎨🏦🚀</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b>🎨 LOADING SCREEN UPGRADE ✨</b>\n- 😄 <b>Brand New Loading Screen</b> – A sleek, exciting revamp\n\n<b>📍 TELEPORT ENHANCEMENTS 💥</b>\n- 🏦 <b>Teleport to Bank Button</b> – Teleports to the brand new bank structure!\n\n<b>🔨 Other</b>\n- ⚔️ <b>Aura Range Adjustments</b>: Updated Killaura, Tree Farm, Ore Aura, and Ice Aura to max 250 range (devs patched it :c ) \n- 🔥 <b>Chop Status Visualiser</b>: Brought back the option to disable tree farm visuals!\n\n<b>⚡ Dive into smoother gameplay with these fresh tweaks and stay OP!</b>",
         "date": "10/11/2025",
         "image": {
@@ -11,7 +34,7 @@
           "rbxassetid://122528710350039",
           "rbxassetid://75521483217159"
         ],
-        "new": true,
+        "new": false,
         "title": "VOIDWARE UPDATE – NEW LOADING SCREEN & NEW TELEPORT! 🎨🏦🚀",
         "updateLogId": 37,
         "videos": [
