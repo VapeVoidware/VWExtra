@@ -1,5 +1,21 @@
 [
     {
+        "body": "<b><font color=\"#FF6600\">[VOIDWARE EXECUTOR FIX + TREE FARM RESTORATION] 🎃🕸️⚡</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b>⚙️ 🧛‍♂️ UNIVERSAL EXECUTOR FIX</b>\n- 🔮 <b>Voidware now loads perfectly</b> on <b>all major executors!</b>\n  - ⚰️ Delta\n  - 🕷️ Krnl\n  - 🦇 Xeno\n  - 🪦 Solara\n  - 💫 and beyond!\n> 💥 Stability restored! 👻\n\n<b>🌳 🕸️ TREE FARM FIX</b>\n- 🌲 <b>Fixed Tree Farm not chopping:</b>\n  - 🕷️ Webbed Trees\n  - 💀 Dead Trees\n\n<b>🗂️ 🎃 UPDATE-FOCUSED TAB</b>\n- 🐾 Taming\n- 🦴 Halloween\n- 🎣 Fishing\n> All neatly organized under the spooky new <b>“Update Focused”</b> tab! 🕯️\n\n<b>🗿 👑 TELEPORT UPDATE</b>\n- 🧭 <b>[Teleport to Landmark]</b> ➕ Added <b>‘King Statue’</b>\n\n<b>⚔️ 💀 KILL AURA ENHANCEMENTS</b>\n- 🎯 <b>[Kill Aura]</b> ➕ New <b>‘Killaura Targets’</b> dropdown 🕸️\n\n<b>👻</b>",
+        "date": "10/25/2025",
+        "image": {
+          "aspectRatio": 1,
+          "assetId": "rbxassetid://116870429612420",
+          "banner": true
+        },
+        "images": [
+          "rbxassetid://116870429612420"
+        ],
+        "new": true,
+        "title": "VOIDWARE UPDATE – EXECUTOR FIX + TREE FARM RESTORED 🎃⚙️🕸️",
+        "updateLogId": 39,
+        "visible": true
+    },      
+    {
         "body": "<b><font color=\"#00FF00\">[VOIDWARE HALLOWEEN TAB UPDATE] 🎃🕸️🔥</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b>🕸️ BRAND NEW HALLOWEEN TAB 🎃</b>\n- 🎃 <b>Bring Pumpkins Button</b> – Summon spooky gourds instantly!\n- 🕯️ <b>Bring Halloween Candle Button</b> – Light up your haunt with ease!\n\n<b>🏠 TELEPORT TO HALLOWEEN HOUSE 👻</b>\n- 📍 <b>Halloween Houses Dropdown</b> – Pick your perfect haunted pad!\n- 🚀 <b>Teleport Button</b> – Warp there in a flash, no tricks needed!\n\n<b>⚡ AURA & FARM UPGRADES 💥</b>\n- 🔓 <b>Require Hand Check Toggle</b>: Disable for tool-free Aura power! 🔥\n- 🚀 <b>Auto TP to Targets</b>: Jump to foes beyond 200 studs (patched range workaround :c)\n- 🌳 <b>Small Webbed Tree Support</b>: Tree Farm now webs up those eerie trees!\n\n<b>🍁 BRING ITEMS EXPANSION 🕷️</b>\n- 🎃 <b>Pumpkin in Bring Food</b>\n- 🕯️🍬 <b>Halloween Candle & Candy in Bring Others</b>\n\n<b>💎 KEYS RESTOCKED!</b>\n- 🔑 Grab fresh keys at https://voidware.mysellauth.com – don't miss out! ⚡\n\n<b>👻 Get festive and stay ahead in the Halloween chaos!</b>",
         "date": "10/18/2025",
         "image": {
@@ -10,7 +26,7 @@
         "images": [
           "rbxassetid://140020077242180"
         ],
-        "new": true,
+        "new": false,
         "title": "VOIDWARE UPDATE – SPOOKY HALLOWEEN TAB & KEYS RESTOCK! 🎃🕸️🔥",
         "updateLogId": 38,
         "videos": [
