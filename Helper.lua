@@ -1,4 +1,38 @@
-local WindUI = shared.WindUIDevMode and isfolder("vwdev") and isfile("vwdev/windui.lua") and loadstring(readfile("vwdev/windui.lua"))() or loadstring(game:HttpGet("https://github.com/VapeVoidware/WindUI/releases/latest/download/main.lua"))()
+local timedFunction = function(call, timeout, resFunction)
+    timeout = timeout or 3
+	local suc, err
+	task.spawn(function()
+		suc, err = pcall(function()
+			return call()
+		end)
+	end)
+	local start = tick()
+    repeat task.wait() until suc ~= nil or tick() - start >= timeout
+	if not suc then
+		warn(debug.traceback(err))
+	end
+	if resFunction ~= nil then
+		return resFunction(suc, err)
+	end
+	return suc, err
+end
+
+local WindUI
+
+local commit = shared.WIND_UI_CUSTOM_COMMIT or "2a36dfdc59285367ac8844df262d3e36240ca6d5"
+
+local approved, res = false, nil
+for i = 1, 5 do
+    timedFunction(function()
+        return shared.WindUIDevMode and isfolder("vwdev") and isfile("vwdev/windui.lua") and readfile("vwdev/windui.lua") or game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/WindUI/"..tostring(commit).."/dist/main.lua", true)
+    end, 5, function(suc, err)
+        approved = suc; res = suc and err
+    end)
+    if approved then break end
+    task.wait(1)
+end
+
+WindUI = loadstring(res)()
 
 getgenv().Toggles = getgenv().Toggles or {}
 getgenv().Options = getgenv().Options or {}
@@ -888,9 +922,9 @@ local Tabs_Meta = {
     maintab = {
         "hitbox expansion",
         "tree farm",
-        "taming",
+        --"taming",
         "entity godmode",
-        "fishing",
+        --"fishing",
         "kill aura",
         "ice aura",
         "ore aura",
@@ -947,6 +981,12 @@ local Tabs_Meta = {
     vip = {
         "vip",
         "title choice"
+    },
+    updatefocused = {
+        --"update focused",
+        "fishing",
+        "taming",
+        "halloween"
     }
 }
 
@@ -992,6 +1032,18 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
             })
             local result = setmetatable({ _tab = WindUIAdapter._maintab }, { __index = function(self, key)
                 return WindUIAdapter.Tab[key] or WindUIAdapter._maintab[key]
+            end })
+            return result
+        elseif Tabs_Meta.updatefocused ~= nil and table.find(Tabs_Meta.updatefocused, string.lower(searchIndex)) then
+            WindUIAdapter._updatefocusedtab = WindUIAdapter._updatefocusedtab or GetTab("Update Focused") or section:Tab({ Title = "Update Focused", Icon = "ghost" })
+            WindUIAdapter._updatefocusedtab:Section({
+                Title = title,
+                TextXAlignment = "Left",
+                Icon = icon,
+                TextSize = 17
+            })
+            local result = setmetatable({ _tab = WindUIAdapter._updatefocusedtab }, { __index = function(self, key)
+                return WindUIAdapter.Tab[key] or WindUIAdapter._updatefocusedtab[key]
             end })
             return result
         elseif Tabs_Meta.vip ~= nil and table.find(Tabs_Meta.vip, string.lower(searchIndex)) then
@@ -1164,20 +1216,23 @@ function WindUIAdapter.Tab:AddToggle(name, opts)
     return result
 end
 
-function WindUIAdapter.Tab:AddButton(name, callback, desc)
+function WindUIAdapter.Tab:AddButton(name, callback, desc, locked, patched)
     if type(name) == "table" then
         return self._tab:Button({
             Title = name.Text or name.Title or "Button",
             Callback = name.Callback,
             Desc = name.Desc,
             Icon = name.Icon,
-            Locked = name.Locked,
+            Locked = name.Patched or name.Locked,
+            LockText = name.Patched and "Patched"
         })
     else
         return self._tab:Button({
             Title = name,
             Callback = callback,
-            Desc = desc
+            Desc = desc,
+            Locked = patched or locked,
+            LockText = patched and "Patched"
         })
     end
 end
