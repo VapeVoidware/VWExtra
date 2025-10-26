@@ -1,5 +1,29 @@
 [
     {
+        "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#A020F0\">🎯 PROJECTILE AIMBOT FIX + PREDICTION LIBRARY UPGRADE ⚔️🔥</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#00FF00\">🎯 PROJECTILE AIMBOT FULLY FIXED!</font></b>\n- 🚀 Enhanced <b>Prediction Library</b> for extreme accuracy on <b>Aimbot</b> & <b>Projectile Aura</b> shots!\n- 💡 Now calculates smoother trajectories and latency offsets for <b>perfect hit prediction</b>.\n\n<b>🔧 MAIN MODULE FIXES</b>\n- ⚙️ <b>Added Smooth Loading System</b> – Fixes slow load times & ensures faster startup.\n- 🛡️ <b>Bed Protector</b> – Added <b>'Mode'</b> dropdown (On Key / Toggle) for better control.\n- ⚔️ <b>Killaura</b> – Added <b>'Crystal'</b> support for targeting & breaking crystals instantly.\n- 🎯 <b>Projectile Aimbot</b> – Fully reworked with <b>precise aim</b> & upgraded <b>prediction accuracy</b>.\n\n<b>🧙‍♂️ CHEAT ENGINE MODE FIXES</b>\n- ⚔️ <b>Killaura</b> – Fixed random breaking & added a <b>backup recovery system</b>.\n- 💨 <b>Zephyr Speed</b> – Fixed effect not applying properly.\n- 🛍️ <b>AutoKit</b> – Fixed kit not activating as intended.\n- 👻 <b>KitESP</b> – Fixed visual overlap & missing UI elements.\n- 🛒 <b>AutoBuy</b> – Fixed purchase lag and UI glitches.\n- ⭐ <b>Auto Consume – Stella</b> – Fixed star consumption logic.\n- 🪜 <b>Scaffold</b> – Increased placement speed for smoother bridging.\n\n<b>🏆 AUTO KIT UPDATES</b>\n- 🧱 <b>Auto Kit</b> – Added <b>Ember Kit Support</b>: Automatically triggers Ember ability when <b>Killaura</b> is active!\n\n<b>🚀 LONG JUMP FIX</b>\n- 🦘 Added <b>Tool Check System</b> to prevent freezing when no usable tool is equipped mid-jump.\n\n<b>🛒 Need Access?</b>\n- 🔑 Get <b>Voidware Private</b> → <a href=\"https://voidware.mysellauth.com\" target=\"_blank\">voidware.mysellauth.com</a>\n\n<b><font color=\"#00FF00\"></font></b>",
+        "date": "10/26/2025",
+        "image": {
+          "aspectRatio": 1,
+          "assetId": "rbxassetid://97074436305585",
+          "banner": true
+        },
+        "images": [
+            "rbxassetid://97074436305585",
+            "rbxassetid://138312066915770"
+        ],
+        "new": true,
+        "title": "PROJECTILE AIMBOT FIX + HALLOWEEN UPDATE 👻🔥",
+        "updateLogId": 39,
+        "videos": [
+          {
+            "title": "BEATING THE NEW HALLOWEEN EVENT WITH VOIDWARE 🔥",
+            "image": "rbxassetid://138312066915770",
+            "url": "https://youtu.be/j-vgVQUg99Q"
+          }
+        ],
+        "visible": true
+    },       
+    {
         "body": "<b><font color=\"#FF6600\">[VOIDWARE EXECUTOR FIX + TREE FARM RESTORATION] 🎃🕸️⚡</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b>⚙️ 🧛‍♂️ UNIVERSAL EXECUTOR FIX</b>\n- 🔮 <b>Voidware now loads perfectly</b> on <b>all major executors!</b>\n  - ⚰️ Delta\n  - 🕷️ Krnl\n  - 🦇 Xeno\n  - 🪦 Solara\n  - 💫 and beyond!\n> 💥 Stability restored! 👻\n\n<b>🌳 🕸️ TREE FARM FIX</b>\n- 🌲 <b>Fixed Tree Farm not chopping:</b>\n  - 🕷️ Webbed Trees\n  - 💀 Dead Trees\n\n<b>🗂️ 🎃 UPDATE-FOCUSED TAB</b>\n- 🐾 Taming\n- 🦴 Halloween\n- 🎣 Fishing\n> All neatly organized under the spooky new <b>“Update Focused”</b> tab! 🕯️\n\n<b>🗿 👑 TELEPORT UPDATE</b>\n- 🧭 <b>[Teleport to Landmark]</b> ➕ Added <b>‘King Statue’</b>\n\n<b>⚔️ 💀 KILL AURA ENHANCEMENTS</b>\n- 🎯 <b>[Kill Aura]</b> ➕ New <b>‘Killaura Targets’</b> dropdown 🕸️\n\n<b>👻</b>",
         "date": "10/25/2025",
         "image": {
@@ -10,7 +34,7 @@
         "images": [
           "rbxassetid://116870429612420"
         ],
-        "new": true,
+        "new": false,
         "title": "VOIDWARE UPDATE – EXECUTOR FIX + TREE FARM RESTORED 🎃⚙️🕸️",
         "updateLogId": 39,
         "visible": true
