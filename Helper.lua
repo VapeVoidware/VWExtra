@@ -816,7 +816,7 @@ local RuntimeLib = {
 
         ThemesTab:Colorpicker({
             Title = "Background Color",
-            Default = Color3.fromHex(ThemeAccent),
+            Default = ThemeAccent,
             Callback = function(color)
                 ThemeAccent = color:ToHex()
             end
@@ -824,7 +824,7 @@ local RuntimeLib = {
 
         ThemesTab:Colorpicker({
             Title = "Outline Color",
-            Default = Color3.fromHex(ThemeOutline),
+            Default = ThemeOutline,
             Callback = function(color)
                 ThemeOutline = color:ToHex()
             end
@@ -832,7 +832,7 @@ local RuntimeLib = {
 
         ThemesTab:Colorpicker({
             Title = "Text Color",
-            Default = Color3.fromHex(ThemeText),
+            Default = ThemeText,
             Callback = function(color)
                 ThemeText = color:ToHex()
             end
@@ -840,7 +840,7 @@ local RuntimeLib = {
 
         ThemesTab:Colorpicker({
             Title = "Placeholder Text Color",
-            Default = Color3.fromHex(ThemePlaceholderText),
+            Default = ThemePlaceholderText,
             Callback = function(color)
                 ThemePlaceholderText = color:ToHex()
             end
