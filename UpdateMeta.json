@@ -1,5 +1,29 @@
 [
     {
+        "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#A020F0\">🍭 CANDY FARM UPDATE + LONG AWAITED FEATURES 🌱🔥</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#00FF00\">🍬 NEW CANDY FARM MODULE!</font></b>\n- 🤑 Equip the <b>Infinite Candy Exploit</b> and <b>Server Hop</b> for nonstop farming fun!\n- 🍭 Collect candies faster than ever before with <b>auto teleport</b> and <b>optimized collection loops</b>.\n\n<b>🔧 MAIN MODULE UPDATES</b>\n- 🌾 <b>Candy Farm</b> – NEW! <b>Infinite Candy Exploit</b> + <b>Server Hop</b> system.\n- 🌱 <b>Plant / Build Stuff</b> – Added <b>\"Show Blueprint\"</b> toggle to visualize how saplings will be planted.\n- 📐 <b>Plant / Build Stuff</b> – Added <b>\"Placement Method\"</b> dropdown [<b>Circle</b>, <b>Square</b>, <b>One Place</b>] for advanced placement. (<b>Square</b> supports Build Walls feature too!)\n- 🌀 <b>Maze</b> – NEW! Added <b>TP to End</b> button for instant maze completion.\n- 🎨 <b>UI</b> – Full <b>Redesign</b> for a modern and clean look.\n\n<b>🧙‍♂️ QUALITY OF LIFE</b>\n- 💾 Optimized module memory usage for smoother performance.\n- ⚙️ Reduced lag on repeated teleport or placement actions.\n- 📊 Added <b>stats tracking</b> for Candy per Hour.\n\n<b>🏆 UPCOMING FEATURES</b>\n- 🎁 <b>Holiday Event</b> integration with Candy Farm rewards.\n- 💡 <b>Auto Upgrade</b> for saplings and machines.\n\n<b>🕸️ Need Access?</b>\n- 🔑 Get <b>Voidware Private</b> → <a href=\"https://voidware.mysellauth.com\" target=\"_blank\">voidware.mysellauth.com</a>\n\n<b>🧠 Need Support?</b>\n- 💬 Join our community → <a href=\"https://discord.gg/voidware\" target=\"_blank\">discord.gg/voidware</a>",
+        "date": "11/06/2025",
+        "image": {
+          "aspectRatio": 1,
+          "assetId": "rbxassetid://104413453755825",
+          "banner": true
+        },
+        "images": [
+          "rbxassetid://104413453755825",
+          "rbxassetid://132577372657963"
+        ],
+        "new": true,
+        "title": "🍭 CANDY FARM UPDATE + LONG AWAITED FEATURES 🌱🔥",
+        "updateLogId": 40,
+        "videos": [
+          {
+            "title": "INSANE CANDY FARM GRIND! 🍬🔥",
+            "image": "rbxassetid://104413453755825",
+            "url": "https://youtu.be/candyfarm-voidware"
+          }
+        ],
+        "visible": true
+    },      
+    {
         "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#A020F0\">🎯 PROJECTILE AIMBOT FIX + PREDICTION LIBRARY UPGRADE ⚔️🔥</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#00FF00\">🎯 PROJECTILE AIMBOT FULLY FIXED!</font></b>\n- 🚀 Enhanced <b>Prediction Library</b> for extreme accuracy on <b>Aimbot</b> & <b>Projectile Aura</b> shots!\n- 💡 Now calculates smoother trajectories and latency offsets for <b>perfect hit prediction</b>.\n\n<b>🔧 MAIN MODULE FIXES</b>\n- ⚙️ <b>Added Smooth Loading System</b> – Fixes slow load times & ensures faster startup.\n- 🛡️ <b>Bed Protector</b> – Added <b>'Mode'</b> dropdown (On Key / Toggle) for better control.\n- ⚔️ <b>Killaura</b> – Added <b>'Crystal'</b> support for targeting & breaking crystals instantly.\n- 🎯 <b>Projectile Aimbot</b> – Fully reworked with <b>precise aim</b> & upgraded <b>prediction accuracy</b>.\n\n<b>🧙‍♂️ CHEAT ENGINE MODE FIXES</b>\n- ⚔️ <b>Killaura</b> – Fixed random breaking & added a <b>backup recovery system</b>.\n- 💨 <b>Zephyr Speed</b> – Fixed effect not applying properly.\n- 🛍️ <b>AutoKit</b> – Fixed kit not activating as intended.\n- 👻 <b>KitESP</b> – Fixed visual overlap & missing UI elements.\n- 🛒 <b>AutoBuy</b> – Fixed purchase lag and UI glitches.\n- ⭐ <b>Auto Consume – Stella</b> – Fixed star consumption logic.\n- 🪜 <b>Scaffold</b> – Increased placement speed for smoother bridging.\n\n<b>🏆 AUTO KIT UPDATES</b>\n- 🧱 <b>Auto Kit</b> – Added <b>Ember Kit Support</b>: Automatically triggers Ember ability when <b>Killaura</b> is active!\n\n<b>🚀 LONG JUMP FIX</b>\n- 🦘 Added <b>Tool Check System</b> to prevent freezing when no usable tool is equipped mid-jump.\n\n<b>🛒 Need Access?</b>\n- 🔑 Get <b>Voidware Private</b> → <a href=\"https://voidware.mysellauth.com\" target=\"_blank\">voidware.mysellauth.com</a>\n\n<b><font color=\"#00FF00\"></font></b>",
         "date": "10/26/2025",
         "image": {
@@ -11,7 +35,7 @@
             "rbxassetid://97074436305585",
             "rbxassetid://138312066915770"
         ],
-        "new": true,
+        "new": false,
         "title": "PROJECTILE AIMBOT FIX + HALLOWEEN UPDATE 👻🔥",
         "updateLogId": 39,
         "videos": [
