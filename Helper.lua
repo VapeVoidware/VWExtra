@@ -384,6 +384,7 @@ local RuntimeLib = {
         if suc and Response and Response.guild then
             local DiscordInfo = tab:Paragraph({
                 Title = Response.guild.name,
+                Thumbnail = "https://cdn.discordapp.com/banners/1143463175019302942/1aeaf6910d47902a25094a0258714961.webp?size=512",
                 Desc = 
                     ' <font color="#52525b">•</font> Member Count : ' .. tostring(Response.approximate_member_count) .. 
                     '\n <font color="#16a34a">•</font> Online Count : ' .. tostring(Response.approximate_presence_count)
@@ -872,15 +873,14 @@ function WindUIAdapter:CreateWindow(opts)
         Icon = opts.Icon or "door-open",
         Background = opts.Background,
         Author = opts.Footer,
+        NewElements = true,
         Folder = opts.Folder or "WindUIAdapter",
         Size = opts.Size or UDim2.fromOffset(520, 420),
         -- opts.Size or ismobile and shared.MobileSizeTesting and UDim2.fromOffset(320, 240) or UDim2.fromOffset(580, 460),
         Theme = opts.Theme or "Dark",
         HideSearchBar = opts.HideSearchBar,
         ScrollBarEnabled = false,
-        User = {
-            Enabled = opts.UserEnabled
-        }
+        User = { Enabled = opts.UserEnabled }
     })
     RuntimeLib:Init(win)
     local obj = setmetatable({ _win = win }, { __index = WindUIAdapter.Window })
@@ -950,6 +950,7 @@ local Tabs_Meta = {
         "auto crock pot",
         "auto collect",
         "plant stuff",
+        "plant & build stuff",
         "auto open seed boxes",
         "auto complete flow game"
     },
@@ -986,8 +987,14 @@ local Tabs_Meta = {
         --"update focused",
         "fishing",
         "taming",
-        "halloween"
+        "halloween",
+        "candy farm",
+        "maze"
     }
+}
+
+local Sec_Meta = {
+    "bring settings"
 }
 
 if shared.VoidwareInkGame then
@@ -1012,38 +1019,38 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
     if shared.VoidwareCustom then
         if string.find(string.lower(searchIndex), "bring") then
             WindUIAdapter._bringitemstab = WindUIAdapter._bringitemstab or section:Tab({ Title = "Bring Stuff", Icon = "bring-to-front" })
-            WindUIAdapter._bringitemstab:Section({
+            local sec = WindUIAdapter._bringitemstab:Section({
                 Title = title,
                 TextXAlignment = "Left",
                 Icon = icon,
                 TextSize = 17
             })
-            local result = setmetatable({ _tab = WindUIAdapter._bringitemstab }, { __index = function(self, key)
-                return WindUIAdapter.Tab[key] or WindUIAdapter._bringitemstab[key]
+            local result = setmetatable({ _tab = sec }, { __index = function(self, key)
+                return WindUIAdapter.Tab[key] or sec[key]
             end })
             return result
         elseif table.find(Tabs_Meta.maintab, string.lower(searchIndex)) then
             WindUIAdapter._maintab = WindUIAdapter._maintab or section:Tab({ Title = "Main", Icon = "superscript" })
-            WindUIAdapter._maintab:Section({
+            local sec = WindUIAdapter._maintab:Section({
                 Title = title,
                 TextXAlignment = "Left",
                 Icon = icon,
                 TextSize = 17
             })
-            local result = setmetatable({ _tab = WindUIAdapter._maintab }, { __index = function(self, key)
-                return WindUIAdapter.Tab[key] or WindUIAdapter._maintab[key]
+            local result = setmetatable({ _tab = sec }, { __index = function(self, key)
+                return WindUIAdapter.Tab[key] or sec[key]
             end })
             return result
         elseif Tabs_Meta.updatefocused ~= nil and table.find(Tabs_Meta.updatefocused, string.lower(searchIndex)) then
             WindUIAdapter._updatefocusedtab = WindUIAdapter._updatefocusedtab or GetTab("Update Focused") or section:Tab({ Title = "Update Focused", Icon = "ghost" })
-            WindUIAdapter._updatefocusedtab:Section({
+            local sec = WindUIAdapter._updatefocusedtab:Section({
                 Title = title,
                 TextXAlignment = "Left",
                 Icon = icon,
                 TextSize = 17
             })
-            local result = setmetatable({ _tab = WindUIAdapter._updatefocusedtab }, { __index = function(self, key)
-                return WindUIAdapter.Tab[key] or WindUIAdapter._updatefocusedtab[key]
+            local result = setmetatable({ _tab = sec }, { __index = function(self, key)
+                return WindUIAdapter.Tab[key] or sec[key]
             end })
             return result
         elseif Tabs_Meta.vip ~= nil and table.find(Tabs_Meta.vip, string.lower(searchIndex)) then
@@ -1076,14 +1083,14 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
                 title = "Auto Chest [BETA]"
             end
             if shared.TRANSLATION_FUNCTION then title = shared.TRANSLATION_FUNCTION(title) end
-            tab:Section({
+            local sec = tab:Section({
                 Title = title,
                 TextXAlignment = "Left",
                 Icon = icon,
                 TextSize = 17
             })
-            local result = setmetatable({ _tab = tab }, { __index = function(self, key)
-                return WindUIAdapter.Tab[key] or tab[key]
+            local result = setmetatable({ _tab = sec }, { __index = function(self, key)
+                return WindUIAdapter.Tab[key] or sec[key]
             end })
             return result
         elseif table.find(Tabs_Meta.playertab, string.lower(searchIndex)) then
@@ -1276,6 +1283,7 @@ function WindUIAdapter.Tab:AddDropdown(name, opts)
         Value = opts.Default,
         Multi = opts.Multi,
         AllowNone = opts.AllowNone,
+        HideSearchBar = false,
         Callback = function(v)
             if opts.Callback then
                 pcall(opts.Callback, v)
