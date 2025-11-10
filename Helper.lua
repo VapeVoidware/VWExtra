@@ -923,6 +923,7 @@ local Tabs_Meta = {
         "hitbox expansion",
         "tree farm",
         --"taming",
+        "infintie saplings",
         "entity godmode",
         --"fishing",
         "kill aura",
