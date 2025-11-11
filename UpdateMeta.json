@@ -1,5 +1,29 @@
 [
     {
+        "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#A020F0\">🔥 DAY FARM V1 + INFINITE SAPLINGS 🌲⚡</font></b>\n\n<b>🌟 Major Additions & Improvements</b>\n\n<b><font color=\"#00FF00\">🌱 NEW DAY FARM V1! (FREE)</font></b>\n- 👶 Added <b>Auto Find Children</b> — automatically locates <b>ALL missing kids</b>, retrieves them, AND levels the <b>Campfire to Level 5</b>.\n- ⚡ Entire sequence completes in under <b>2 minutes</b> for ultra-fast early-game progression.\n- 🏗️ First step in the new <b>Day Farm System</b> arriving to Voidware (Auto Stronghold soon 👀)\n\n<b>🌳 INFINITE SAPLINGS (Private)</b> – <a href=\"https://voidware.mysellauth.com\" target=\"_blank\">Get Access</a>\n- 🌲 Improved overall stability for Infinite Saplings.\n- 💥 Fully compatible with <b>Plant Saplings</b>, enabling crazy early-game tree defenses.\n\n<b>🧙‍♂️ QUALITY OF LIFE</b>\n- ⚙️ General backend improvements for farming modules.\n- 🚀 Faster internal update cycles for Day Farm logic.\n\n<b>🏆 UPCOMING FEATURES</b>\n- 🏰 <b>Auto Stronghold</b> (Day Farm Part 2)\n- 🔥 <b>Auto Campfire Upgrades</b> expansion\n- 🌿 <b>Advanced Sapling Layouts</b> for defense builds\n\n<b>🕸️ Need Access?</b>\n- 🔑 Get <b>Voidware Private</b> → <a href=\"https://voidware.mysellauth.com\" target=\"_blank\">voidware.mysellauth.com</a>\n\n<b>🧠 Need Support?</b>\n- 💬 Join our community → <a href=\"https://discord.gg/voidware\" target=\"_blank\">discord.gg/voidware</a>",
+        "date": "11/06/2025",
+        "image": {
+          "aspectRatio": 1,
+          "assetId": "rbxassetid://97393551507347",
+          "banner": true
+        },
+        "images": [
+          "rbxassetid://97393551507347",
+          "rbxassetid://92230801503134"
+        ],
+        "new": true,
+        "title": "🔥 DAY FARM V1 + INFINITE SAPLINGS 🌲⚡",
+        "updateLogId": 41,
+        "videos": [
+          {
+            "title": "FURKY SHOWCASE ⚡🔥",
+            "image": "rbxassetid://92230801503134",
+            "url": "https://youtu.be/sIr_kR_I0Vc"
+          }
+        ],
+        "visible": true
+    },    
+    {
         "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#A020F0\">🍭 CANDY FARM UPDATE + LONG AWAITED FEATURES 🌱🔥</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#00FF00\">🍬 NEW CANDY FARM MODULE!</font></b>\n- 🤑 Equip the <b>Infinite Candy Exploit</b> and <b>Server Hop</b> for nonstop farming fun!\n- 🍭 Collect candies faster than ever before with <b>auto teleport</b> and <b>optimized collection loops</b>.\n\n<b>🔧 MAIN MODULE UPDATES</b>\n- 🌾 <b>Candy Farm</b> – NEW! <b>Infinite Candy Exploit</b> + <b>Server Hop</b> system.\n- 🌱 <b>Plant / Build Stuff</b> – Added <b>\"Show Blueprint\"</b> toggle to visualize how saplings will be planted.\n- 📐 <b>Plant / Build Stuff</b> – Added <b>\"Placement Method\"</b> dropdown [<b>Circle</b>, <b>Square</b>, <b>One Place</b>] for advanced placement. (<b>Square</b> supports Build Walls feature too!)\n- 🌀 <b>Maze</b> – NEW! Added <b>TP to End</b> button for instant maze completion.\n- 🎨 <b>UI</b> – Full <b>Redesign</b> for a modern and clean look.\n\n<b>🧙‍♂️ QUALITY OF LIFE</b>\n- 💾 Optimized module memory usage for smoother performance.\n- ⚙️ Reduced lag on repeated teleport or placement actions.\n- 📊 Added <b>stats tracking</b> for Candy per Hour.\n\n<b>🏆 UPCOMING FEATURES</b>\n- 🎁 <b>Holiday Event</b> integration with Candy Farm rewards.\n- 💡 <b>Auto Upgrade</b> for saplings and machines.\n\n<b>🕸️ Need Access?</b>\n- 🔑 Get <b>Voidware Private</b> → <a href=\"https://voidware.mysellauth.com\" target=\"_blank\">voidware.mysellauth.com</a>\n\n<b>🧠 Need Support?</b>\n- 💬 Join our community → <a href=\"https://discord.gg/voidware\" target=\"_blank\">discord.gg/voidware</a>",
         "date": "11/06/2025",
         "image": {
@@ -11,7 +35,7 @@
           "rbxassetid://104413453755825",
           "rbxassetid://132577372657963"
         ],
-        "new": true,
+        "new": false,
         "title": "🍭 CANDY FARM UPDATE + LONG AWAITED FEATURES 🌱🔥",
         "updateLogId": 40,
         "videos": [
