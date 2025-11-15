@@ -1,5 +1,21 @@
 [
     {
+        "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#A020F0\">🦌 INJURED DEER MODULE REWORK 🌲⚡</font></b>\n\n<b>🌟 Major Additions & Improvements</b>\n\n<b><font color=\"#00FF00\">🔧 CORE MODULE FIXES</font></b>\n- 🔄 <b>Bring System fully fixed</b> — all bring options now work smoothly and reliably.\n- 🦌 Focused improvements for the <b>Injured Deer</b> update.\n\n<b><font color=\"#00CCFF\">🌲 NEW FEATURES</font></b>\n- 🍖 Added <b>Teleport All Food</b> — instantly gathers every food item for faster item management.\n- 🐑 Added <b>Bring Fur Tuft</b> — completes the resource-fetching lineup and boosts efficiency.\n\n<b><font color=\"#FF0000\">⚠️ TEMPORARY ADJUSTMENTS</font></b>\n- 👶 <b>Auto Find Children</b> has been <b>temporarily removed</b> while undergoing rework and optimization.\n\n<b>🧙‍♂️ QUALITY OF LIFE</b>\n- ⚙️ Backend refinements for smoother performance.\n- 🚀 Increased responsiveness across forest-related modules.\n\n<b>🕸️ Want VW Private?</b>\n- 🔑 Get <b>Voidware Private</b> → <a href=\"https://voidware.mysellauth.com\" target=\"_blank\">voidware.mysellauth.com</a>\n\n<b>🧠 Need Support?</b>\n- 💬 Join our community → <a href=\"https://discord.gg/voidware\" target=\"_blank\">discord.gg/voidware</a>",
+        "date": "11/06/2025",
+        "image": {
+          "aspectRatio": 1,
+          "assetId": "rbxassetid://106484625283366",
+          "banner": true
+        },
+        "images": [
+          "rbxassetid://106484625283366"
+        ],
+        "new": true,
+        "title": "🦌 INJURED DEER MODULE REWORK 🌲⚡",
+        "updateLogId": 42,
+        "visible": true
+    },      
+    {
         "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#A020F0\">🔥 DAY FARM V1 + INFINITE SAPLINGS 🌲⚡</font></b>\n\n<b>🌟 Major Additions & Improvements</b>\n\n<b><font color=\"#00FF00\">🌱 NEW DAY FARM V1! (FREE)</font></b>\n- 👶 Added <b>Auto Find Children</b> — automatically locates <b>ALL missing kids</b>, retrieves them, AND levels the <b>Campfire to Level 5</b>.\n- ⚡ Entire sequence completes in under <b>2 minutes</b> for ultra-fast early-game progression.\n- 🏗️ First step in the new <b>Day Farm System</b> arriving to Voidware (Auto Stronghold soon 👀)\n\n<b>🌳 INFINITE SAPLINGS (Private)</b> – <a href=\"https://voidware.mysellauth.com\" target=\"_blank\">Get Access</a>\n- 🌲 Improved overall stability for Infinite Saplings.\n- 💥 Fully compatible with <b>Plant Saplings</b>, enabling crazy early-game tree defenses.\n\n<b>🧙‍♂️ QUALITY OF LIFE</b>\n- ⚙️ General backend improvements for farming modules.\n- 🚀 Faster internal update cycles for Day Farm logic.\n\n<b>🏆 UPCOMING FEATURES</b>\n- 🏰 <b>Auto Stronghold</b> (Day Farm Part 2)\n- 🔥 <b>Auto Campfire Upgrades</b> expansion\n- 🌿 <b>Advanced Sapling Layouts</b> for defense builds\n\n<b>🕸️ Need Access?</b>\n- 🔑 Get <b>Voidware Private</b> → <a href=\"https://voidware.mysellauth.com\" target=\"_blank\">voidware.mysellauth.com</a>\n\n<b>🧠 Need Support?</b>\n- 💬 Join our community → <a href=\"https://discord.gg/voidware\" target=\"_blank\">discord.gg/voidware</a>",
         "date": "11/06/2025",
         "image": {
@@ -11,7 +27,7 @@
           "rbxassetid://97393551507347",
           "rbxassetid://92230801503134"
         ],
-        "new": true,
+        "new": false,
         "title": "🔥 DAY FARM V1 + INFINITE SAPLINGS 🌲⚡",
         "updateLogId": 41,
         "videos": [
