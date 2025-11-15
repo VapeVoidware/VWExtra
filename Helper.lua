@@ -37,7 +37,7 @@ WindUI = loadstring(res)()
 getgenv().Toggles = getgenv().Toggles or {}
 getgenv().Options = getgenv().Options or {}
 
-if shared.NightsInTheForest or shared.VoidwareForsaken or shared.VoidwareDoors or shared.VoidwareHypershot or shared.VoidwareInkGame then shared.VoidwareCustom = true end
+if shared.NightsInTheForest or shared.VoidwareForsaken or shared.VoidwareDoors or shared.VoidwareHypershot or shared.VoidwareInkGame or shared.PlantsVSBrainrots then shared.VoidwareCustom = true end
 
 local WindUIAdapter = {}
 
@@ -935,9 +935,11 @@ local Tabs_Meta = {
         "other",
         "auto eat",
         "infinitefly",
+        "security",
         "auto vote",
         "interaction",
         "killaura",
+        "webhook message",
         "anti death",
         "infinite stamina",
         "full bright",
@@ -946,13 +948,16 @@ local Tabs_Meta = {
         "anti hit"
     },
     automation = {
+        "auto fuse",
         "auto chest",
-        "auto campfire",
+        "auto favorite",
         "auto crock pot",
+        "auto campfire",
         "auto collect",
         "plant stuff",
         "plant & build stuff",
         "auto open seed boxes",
+        "auto brainrot invasion",
         "auto complete flow game"
     },
     playertab = {
@@ -986,6 +991,7 @@ local Tabs_Meta = {
     },
     updatefocused = {
         --"update focused",
+        "injured deer",
         "fishing",
         "taming",
         "halloween",
@@ -1427,12 +1433,19 @@ function WindUIAdapter:Unload()
     shared.Voidware_NightsInTheForest_Library = nil
 end
 
-function WindUIAdapter:Notify(msg, dur)
+function WindUIAdapter:Notify(title, msg, dur, check)
     if setthreadidentity and type(setthreadidentity) == "function" then
         pcall(setthreadidentity, 8)
     end
+    if not check then
+        dur = msg
+        msg = title
+        title = "Voidware"
+    else
+        title = "Voidware | "..tostring(title)
+    end
     return WindUI:Notify({
-        Title = "Voidware",
+        Title = title,
         Content = msg,
         Icon = 'bell',
         Duration = dur or 5
