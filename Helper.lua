@@ -289,10 +289,17 @@ local RuntimeLib = {
                 })
             end
             if shared.VoidDev then
-                _win:Tag({
-                    Title = "🔥 Dev Mode",
-                    Color = Color3.fromHex("#9370DB")
-                })
+                if shared.ExternalDev then
+                    _win:Tag({
+                        Title = "🔥 Gay Mode",
+                        Color = Color3.fromHex("#5500ffff")
+                    })
+                else
+                    _win:Tag({
+                        Title = "🔥 Dev Mode",
+                        Color = Color3.fromHex("#9370DB")
+                    })
+                end
             end
             if shared.TestingMode or shared.StagingMode then
                 _win:Tag({
@@ -867,6 +874,11 @@ WindUIAdapter.RuntimeLib = RuntimeLib
 local UserInputService = game:GetService("UserInputService")
 local ismobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled and not UserInputService.MouseEnabled
 
+local isDelta = timedFunction(function()
+    return string.find(string.lower(tostring(identifyexecutor())), "delta")
+end, 5, function(suc, err)
+    return suc and err
+end)
 function WindUIAdapter:CreateWindow(opts)
     local win = WindUI:CreateWindow({
         Title = opts.Title or "Window",
@@ -875,7 +887,7 @@ function WindUIAdapter:CreateWindow(opts)
         Author = opts.Footer,
         NewElements = true,
         Folder = opts.Folder or "WindUIAdapter",
-        Size = opts.Size or UDim2.fromOffset(520, 420),
+        Size = opts.Size or (isDelta and UDim2.fromOffset(720, 620) or UDim2.fromOffset(520, 420)),
         -- opts.Size or ismobile and shared.MobileSizeTesting and UDim2.fromOffset(320, 240) or UDim2.fromOffset(580, 460),
         Theme = opts.Theme or "Dark",
         HideSearchBar = opts.HideSearchBar,
@@ -948,6 +960,7 @@ local Tabs_Meta = {
         "anti hit"
     },
     automation = {
+        "auto buy",
         "auto fuse",
         "auto chest",
         "auto favorite",
@@ -991,6 +1004,7 @@ local Tabs_Meta = {
     },
     updatefocused = {
         --"update focused",
+        "thanksgiving",
         "injured deer",
         "fishing",
         "taming",
