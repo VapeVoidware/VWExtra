@@ -426,16 +426,21 @@ local RuntimeLib = {
                 Color = "Red",
             })--]]
         end
+        local keybind = shared.VoidwareInkGame and "M" or "RightShift"
         tab:Keybind({
             Title = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION("Voidware Keybind") or "Voidware Keybind",
             Desc = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION("Keybind to open ui") or "Keybind to open ui",
-            Value = shared.VoidwareInkGame and "M" or "RightShift",
+            Value = keybind,
             Callback = function(v)
+                keybind = tostring(v)
                 WindUI._win:SetToggleKey(Enum.KeyCode[v])
             end
         })
         pcall(function()
-            WindUI._win:SetToggleKey(Enum.KeyCode[shared.VoidwareInkGame and "M" or "RightShift"])
+            WindUI._win:SetToggleKey(Enum.KeyCode[keybind])
+        end)
+        WindUI._win:OnClose(function()
+            WindUIAdapter:Notify("Window Closed", `Press {tostring(keybind)} to open Voidware again`, 1.5, true)
         end)
     end,
     LoadSaving = function(self)
@@ -1063,7 +1068,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
             end })
             return result
         elseif Tabs_Meta.updatefocused ~= nil and table.find(Tabs_Meta.updatefocused, string.lower(searchIndex)) then
-            WindUIAdapter._updatefocusedtab = WindUIAdapter._updatefocusedtab or GetTab("Update Focused") or section:Tab({ Title = "Update Focused", Icon = "ghost" })
+            WindUIAdapter._updatefocusedtab = WindUIAdapter._updatefocusedtab or GetTab("Update Focused") or section:Tab({ Title = "Update Focused", Icon = "drumstick" })
             local sec = WindUIAdapter._updatefocusedtab:Section({
                 Title = title,
                 TextXAlignment = "Left",
