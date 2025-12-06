@@ -1009,6 +1009,7 @@ local Tabs_Meta = {
     },
     updatefocused = {
         --"update focused",
+        "classes",
         "thanksgiving",
         "injured deer",
         "fishing",
@@ -1068,7 +1069,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
             end })
             return result
         elseif Tabs_Meta.updatefocused ~= nil and table.find(Tabs_Meta.updatefocused, string.lower(searchIndex)) then
-            WindUIAdapter._updatefocusedtab = WindUIAdapter._updatefocusedtab or GetTab("Update Focused") or section:Tab({ Title = "Update Focused", Icon = "drumstick" })
+            WindUIAdapter._updatefocusedtab = WindUIAdapter._updatefocusedtab or GetTab("Update Focused") or section:Tab({ Title = "Update Focused", Icon = "lasso" })
             local sec = WindUIAdapter._updatefocusedtab:Section({
                 Title = title,
                 TextXAlignment = "Left",
