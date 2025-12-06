@@ -1,5 +1,28 @@
 [
     {
+        "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#A020F0\">🧩 NEW CLASSES TAB + BUG FIXES ⚡</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#00FF00\">🛠️ IMPORTANT BUG FIXES</font></b>\n• Fixed multiple annoying issues including <b>Bring Items</b> sometimes not working.\n• Improved overall stability and consistency.\n\n<b><font color=\"#00CCFF\">🧭 NEW CLASSES TAB</font></b>\n• Added a brand new <b>Classes</b> tab inside <b>Update Focused</b>.\n• This tab will be used to give players free classes through buttons.\n\n<b><font color=\"#00CCFF\">🔧 MAIN UPDATE CHANGES</font></b>\n• 🐛 <b>Bring Items Fix</b> — resolved random failures.\n\n<b><font color=\"#00FFAA\">🧙 Classes Update</font></b>\n• 🆕 Added <b>Update Focused</b> tab.\n• 🧭 Added <b>Explorer Class</b> — designed for players who love discovering the map.\n\n<b>🕸️ Want VW Private?</b>\n• 🔑 Get <b>Voidware Private</b> → store.vapevoidware.xyz\n\n<b>🧠 Need Support?</b>\n• 💬 Join our community → discord.gg/voidware",
+        "date": "12/06/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://115022073258842",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://115022073258842"
+        ],
+        "new": true,
+        "title": "🧩 NEW CLASSES TAB + BUG FIXES ⚡",
+        "updateLogId": 44,
+        "videos": [
+            {
+                "title": "Explorer Class",
+                "image": "rbxassetid://115022073258842",
+                "url": "https://youtu.be/3HAr1_xfanM"
+            }
+        ],
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#A020F0\">🦃 THANKSGIVING MEGA UPDATE + NEW OP MODULES 🍂⚡</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#00FF00\">🦃 NEW THANKSGIVING CONTENT</font></b>\n• Special Delta improvements, new foods, new teleports & TWO insane automation modules!\n• ⚡ Perfect for farming, exploring & dominating the event.\n• 🎨 <b>Brand new Loading Screen</b> — fresh visuals for the season!\n\n<b><font color=\"#00CCFF\">🔧 MAIN MODULE UPDATES</font></b>\n• ✅ <b>Close Notification</b> — shows which keybind reopens Voidware.\n• 📏 Added <b>Special Resizing</b> for <b>Delta</b>.\n• 🗺️ Added <b>Map Saver</b> — mobile execs like Delta can now bring items even when not loaded.\n• 🦃 Added <b>Turkey Killaura</b> support.\n• 📍 Added <b>Thanksgiving Plot Teleport</b>.\n\n<b><font color=\"#00FFAA\">🌱 Plant Saplings</font></b>\n• 🔁 Fixed <b>Angle Increment</b>.\n• ⚡ Boosted planting speed when <b>Infinite Saplings</b> is enabled.\n\n<b><font color=\"#FFA500\">🍽️ Bring Food</font></b>\n• Sweet Potato\n• Stuffing\n• Turkey Leg\n\n<b><font color=\"#00CCFF\">🦃 Thanksgiving Update</font></b>\n• 🚀 Added <b>Teleport to Thanksgiving Plot</b>.\n\n<b><font color=\"#FFD700\">🌞 DAY FARM — OP! NEW!</font></b>\n• 📊 Added <b>Day Statistics Label</b>.\n• <b>Day Farm Steps:</b>\n  1️⃣ Map Exploration\n  2️⃣ Rescue Kids\n  3️⃣ Check Rescued Kids\n  4️⃣ Place 3 Beds\n  5️⃣ Place 3 Lightning Rods\n  6️⃣ Place Crock Pot & fill it\n  7️⃣ Clean up the map\n  8️⃣ Final checks ✅\n\n<b><font color=\"#FF4444\">🏰 AUTO STRONGHOLD — OP! NEW!</font></b>\n• 📊 Added <b>Stronghold Statistics Label</b>.\n• <b>Auto Stronghold Steps:</b>\n  1️⃣ Map Exploration / Structure Check\n  2️⃣ Init all hooks & checks\n  3️⃣ Final checks ✅\n\n• <b>When Stronghold Opens:</b>\n  1️⃣ TP to Stronghold\n  2️⃣ Enable Killaura\n  3️⃣ Kill all Cultists\n  4️⃣ Open Diamond Chest & claim Diamonds\n  5️⃣ TP to Fire\n  6️⃣ Wait for next wave 🌊\n\n<b>🕸️ Want VW Private?</b>\n• 🔑 Get <b>Voidware Private</b> → store.vapevoidware.xyz\n\n<b>🧠 Need Support?</b>\n• 💬 Join our community → discord.gg/voidware",
         "date": "11/29/2025",
         "image": {
@@ -12,7 +35,7 @@
             "rbxassetid://92427926654881",
             "rbxassetid://82701370962276"
         ],
-        "new": true,
+        "new": false,
         "title": "🦃 THANKSGIVING MEGA UPDATE + OP NEW MODULES 🍂⚡",
         "updateLogId": 43,
         "videos": [
