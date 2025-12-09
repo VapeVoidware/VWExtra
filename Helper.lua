@@ -19,7 +19,7 @@ end
 
 local WindUI
 
-local commit = shared.WIND_UI_CUSTOM_COMMIT or "04355def9d451f1912ed092da55dbad1a7c5a7e7"
+local commit = shared.WIND_UI_CUSTOM_COMMIT or "3da22021b3d7714258c3470c8e4536bb6674582a"
 
 local approved, res = false, nil
 for i = 1, 5 do
