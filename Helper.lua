@@ -19,7 +19,7 @@ end
 
 local WindUI
 
-local commit = shared.WIND_UI_CUSTOM_COMMIT or "3da22021b3d7714258c3470c8e4536bb6674582a"
+local commit = shared.WIND_UI_CUSTOM_COMMIT or "2b420a0b912cc10d05da639c8bde60eaa2c9f017"
 
 local approved, res = false, nil
 for i = 1, 5 do
@@ -787,7 +787,7 @@ local RuntimeLib = {
             end)
         else
             pcall(function()
-                WindUI:SetTheme("Halloween")
+                WindUI:SetTheme("Christmas")
             end)
         end
         themeDropdown:Select(WindUI:GetCurrentTheme())
