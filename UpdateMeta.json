@@ -1,5 +1,23 @@
 [
     {
+        "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#C2A86D\">🎄 CHRISTMAS UPDATE & FIXES ❄️</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#00FF00\">🛠️ IMPORTANT FIXES & NEW SUPPORT</font></b>\n• Fixed multiple issues including <b>Hip Height Changer</b> sometimes breaking.\n• Expanded support across several systems for better stability.\n\n<b><font color=\"#00CCFF\">🎅 CHRISTMAS THEME</font></b>\n• Added a new festive Christmas theme.\n• Designed to be cozy and easy on the eyes.\n\n<b><font color=\"#00CCFF\">🔧 MAIN UPDATE CHANGES</font></b>\n• 🐛 <b>Hip Height Changer Fix</b> — resolved random breaking.\n• 🌲 <b>Tree Farm</b> — added <b>Northern Pine</b> support.\n• 🧭 <b>Teleport Others</b> — added support for <b>Scythe</b> and <b>Obsidiron Hammer</b>.\n\n<b><font color=\"#00FFAA\">🎄 Christmas Update</font></b>\n• 🎅 <b>Santa’s Sack TP</b>\n• 🎁 <b>Present TP</b>\n• 📍 <b>Location TP</b>\n• 🪙 <b>Collect All Gold Stacks</b>\n\n<b><font color=\"#00FFAA\">🧰 Quality of Life</font></b>\n• ❌ Removed <b>Sapling</b> as a fuel option.\n\n<b><font color=\"#00FFAA\">🎣 Fishing Update</font></b>\n• 🎯 Added <b>100% Fishing Rate</b> cheat engine support.\n• 🙏 Special thanks to <b>atank4#0</b>.\n\n<b><font color=\"#00FFAA\">🐾 Taming Update</font></b>\n• 🐺 Added <b>100% Taming Rate</b> cheat engine support.\n• 🙏 Special thanks to <b>atank4#0</b>.\n\n<b>🕸️ Want VW Private?</b>\n• 🔑 Get <b>Voidware Private</b> → store.vapevoidware.xyz\n\n<b>🧠 Need Support?</b>\n• 💬 Join our community → discord.gg/voidware",
+        "date": "12/06/2025",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://84481017223927",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://84481017223927",
+            "rbxassetid://116024404381225"
+        ],
+        "new": true,
+        "title": "🎄 CHRISTMAS UPDATE & FIXES ❄️",
+        "updateLogId": 45,
+        "videos": [],
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#A020F0\">🧩 NEW CLASSES TAB + BUG FIXES ⚡</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#00FF00\">🛠️ IMPORTANT BUG FIXES</font></b>\n• Fixed multiple annoying issues including <b>Bring Items</b> sometimes not working.\n• Improved overall stability and consistency.\n\n<b><font color=\"#00CCFF\">🧭 NEW CLASSES TAB</font></b>\n• Added a brand new <b>Classes</b> tab inside <b>Update Focused</b>.\n• This tab will be used to give players free classes through buttons.\n\n<b><font color=\"#00CCFF\">🔧 MAIN UPDATE CHANGES</font></b>\n• 🐛 <b>Bring Items Fix</b> — resolved random failures.\n\n<b><font color=\"#00FFAA\">🧙 Classes Update</font></b>\n• 🆕 Added <b>Update Focused</b> tab.\n• 🧭 Added <b>Explorer Class</b> — designed for players who love discovering the map.\n\n<b>🕸️ Want VW Private?</b>\n• 🔑 Get <b>Voidware Private</b> → store.vapevoidware.xyz\n\n<b>🧠 Need Support?</b>\n• 💬 Join our community → discord.gg/voidware",
         "date": "12/06/2025",
         "image": {
@@ -10,7 +28,7 @@
         "images": [
             "rbxassetid://115022073258842"
         ],
-        "new": true,
+        "new": false,
         "title": "🧩 NEW CLASSES TAB + BUG FIXES ⚡",
         "updateLogId": 44,
         "videos": [
