@@ -37,7 +37,7 @@ WindUI = loadstring(res)()
 getgenv().Toggles = getgenv().Toggles or {}
 getgenv().Options = getgenv().Options or {}
 
-if shared.NightsInTheForest or shared.VoidwareForsaken or shared.VoidwareDoors or shared.VoidwareHypershot or shared.VoidwareInkGame or shared.PlantsVSBrainrots then shared.VoidwareCustom = true end
+if shared.NightsInTheForest or shared.VoidwareForsaken or shared.VoidwareDoors or shared.VoidwareHypershot or shared.VoidwareInkGame or shared.PlantsVSBrainrots or shared.TheForge then shared.VoidwareCustom = true end
 
 local WindUIAdapter = {}
 
@@ -944,6 +944,7 @@ local Tabs_Meta = {
         "entity godmode",
         --"fishing",
         "kill aura",
+        "mine aura",
         "ice aura",
         "ore aura",
         "aura",
@@ -965,6 +966,7 @@ local Tabs_Meta = {
         "anti hit"
     },
     automation = {
+        "auto sell",
         "auto buy",
         "auto fuse",
         "auto chest",
@@ -1009,6 +1011,7 @@ local Tabs_Meta = {
     },
     updatefocused = {
         --"update focused",
+        "christmas",
         "classes",
         "thanksgiving",
         "injured deer",
@@ -1069,7 +1072,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
             end })
             return result
         elseif Tabs_Meta.updatefocused ~= nil and table.find(Tabs_Meta.updatefocused, string.lower(searchIndex)) then
-            WindUIAdapter._updatefocusedtab = WindUIAdapter._updatefocusedtab or GetTab("Update Focused") or section:Tab({ Title = "Update Focused", Icon = "lasso" })
+            WindUIAdapter._updatefocusedtab = WindUIAdapter._updatefocusedtab or GetTab("Update Focused") or section:Tab({ Title = "Update Focused", Icon = "snowflake" })
             local sec = WindUIAdapter._updatefocusedtab:Section({
                 Title = title,
                 TextXAlignment = "Left",
