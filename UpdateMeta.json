@@ -1,5 +1,22 @@
 [
     {
+        "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#C2A86D\">🧚 FAIRY UPDATE & MAJOR OPTIMISATIONS ✨</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#FF4444\">⚔️ KILLAURA REWORKED</font></b>\n• Massive performance optimisation.\n• Added smart internal weapon sorting for maximum damage output.\n\n<b><font color=\"#00FFAA\">🌲 TREE FARM EXPANSION</font></b>\n• Added support for new Fairy Trees.\n• Improved farming consistency and efficiency.\n\n<b><font color=\"#C2A86D\">🧚 FAIRY UPDATE FEATURES</font></b>\n• New Acorn-based bring options.\n• Added teleport utilities for faster Fairy progression.\n\n<b><font color=\"#FF6666\">⚔️ Killaura Update</font></b>\n• 🚀 <b>Heavily Optimised</b> for smoother combat automation.\n• 🗡️ Introduced <b>Internal Weapon Sorting</b> — always picks the highest-damage tool.\n\n<b><font color=\"#00FFAA\">🌲 Tree Farm Update</font></b>\n• ✨ Added support for <b>Small Fairy Tree</b>.\n• 🌟 Added support for <b>Fairy Big Tree</b>.\n\n<b><font color=\"#C2A86D\">🧚 Fairy Update</font></b>\n• 🍂 Added <b>Bring Options [Acorn]</b>.\n• 🌲 Added <b>Teleport to Fairy Tree</b>.\n\n<b>🕸️ Want VW Private?</b>\n• 🔑 Get <b>Voidware Private</b> → store.vapevoidware.xyz\n\n<b>🧠 Need Support?</b>\n• 💬 Join our community → discord.gg/voidware",
+        "date": "02/12/2026",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://111802344518375",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://111802344518375"
+        ],
+        "new": true,
+        "title": "🧚 FAIRY UPDATE & MAJOR OPTIMISATIONS ✨",
+        "updateLogId": 47,
+        "videos": [],
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#C2A86D\">🎄 CHRISTMAS UPDATE V2 ❄️</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#00FF00\">🎅 CHRISTMAS UPDATE V2</font></b>\n• Expanded festive features with new teleports, farms, and automation.\n• Added multiple Christmas-exclusive utilities for faster progression.\n\n<b><font color=\"#FF4444\">⚔️ KILLAURA EXPANSION</font></b>\n• New enemy support added for enhanced combat automation.\n• Improved detection for seasonal enemies.\n\n<b><font color=\"#00CCFF\">🛠️ QUALITY OF LIFE & FIXES</font></b>\n• Improved usability across UI elements.\n• Fixed critical gameplay-breaking issues.\n\n<b><font color=\"#00FFAA\">🎄 Christmas Update V2</font></b>\n• 🎁 <b>Presents Farm</b>\n• 💡 <b>Bring All Christmas Lights</b>\n• 🌲 <b>Teleport to Random Tree with Lights</b>\n• ✨ <b>Light Random Christmas Pine</b>\n• 🧝 <b>Elf Teleport</b>\n• 🪓 <b>Spam Use Shovel</b>\n• 🎅 <b>Teleport to Santa’s Workshop</b>\n\n<b><font color=\"#FF6666\">⚔️ KillAura Update</font></b>\n• 🏰 Added <b>Turret</b> support\n• 🎭 Added <b>Imposter Santa</b> support\n\n<b><font color=\"#00FFAA\">🐛 Fixes</font></b>\n• 🔧 Fixed <b>Hip Height Changer</b> GodMode not working properly.\n\n<b><font color=\"#00FFAA\">🧰 Quality of Life</font></b>\n• 🔍 Added <b>Search Bars</b> to every dropdown with more than <b>5 options</b>.\n\n<b>🕸️ Want VW Private?</b>\n• 🔑 Get <b>Voidware Private</b> → store.vapevoidware.xyz\n\n<b>🧠 Need Support?</b>\n• 💬 Join our community → discord.gg/voidware",
         "date": "12/28/2025",
         "image": {
@@ -10,7 +27,7 @@
         "images": [
             "rbxassetid://126236621787514"
         ],
-        "new": true,
+        "new": false,
         "title": "🎄 CHRISTMAS UPDATE V2 ❄️",
         "updateLogId": 46,
         "videos": [],
