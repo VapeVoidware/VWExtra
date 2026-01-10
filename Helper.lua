@@ -172,7 +172,7 @@ local Section_Meta = {
 		"information",
 		"misc",
 		"theme",
-		"config"
+		"config",
 	},
 }
 
@@ -264,7 +264,7 @@ local LanguageFlags = {
 	["ig"] = "🇳🇬", -- Igbo
 	["ha"] = "🇳🇬", -- Hausa
 	["so"] = "🇸🇴", -- Somali,
-	["no"] = "🇳🇴"  -- Norwegian
+	["no"] = "🇳🇴", -- Norwegian
 }
 
 local RuntimeLib = {
@@ -273,7 +273,7 @@ local RuntimeLib = {
 			self.Sections = setmetatable({}, {
 				__index = function(self, key)
 					return _win
-				end
+				end,
 			})
 			--[[section:register(_win)
             self.Sections.Main = section("Main")
@@ -1126,6 +1126,7 @@ local Tabs_Meta = {
 	},
 	updatefocused = {
 		--"update focused",
+		"fairy update",
 		"christmas",
 		"classes",
 		"thanksgiving",
@@ -1206,7 +1207,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
 		elseif Tabs_Meta.updatefocused ~= nil and table.find(Tabs_Meta.updatefocused, string.lower(searchIndex)) then
 			WindUIAdapter._updatefocusedtab = WindUIAdapter._updatefocusedtab
 				or GetTab("Update Focused")
-				or section:Tab({ Title = "Update Focused", Icon = "tree-pine" })
+				or section:Tab({ Title = "Update Focused", Icon = "nut" })
 			local sec = WindUIAdapter._updatefocusedtab:Section({
 				Title = title,
 				TextXAlignment = "Left",
