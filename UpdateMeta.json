@@ -1,5 +1,21 @@
 [
     {
+        "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#A020F0\">🌑 HARD MODE UPDATE - RIFT EXPLORATION 🔮</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#9D00FF\">🎯 HARD MODE PROGRESS TRACKING</font></b>\n• New <b>Hard Mode Status Label</b> to track your progress in real-time.\n• Complete teleportation system for rifts, outposts, and camps.\n• Quality of life improvements for night exploration.\n\n<b><font color=\"#FF0066\">⚔️ KILLAURA EXPANSION</font></b>\n• Support for <b>Brutal Cultist, Kiwi, Shadow Cultist, Darkstring Cultist</b>.\n• <b>All Corrupted Animals</b> now supported with easy toggle control.\n\n<b><font color=\"#00FF00\">🌲 CORRUPTED TREE FARMING</font></b>\n• Auto-farm <b>Corrupted Small & Big Trees</b>.\n• Smart detection for Corrupted Big Trees.\n\n<b><font color=\"#9D00FF\">🌑 UPDATE FOCUSED - HARD MODE UPDATE</font></b>\n\n<b>Progress Tracking:</b>\n• 📊 <b>Hard Mode Status Label</b> — Track your Hard Mode progress live!\n\n<b>Teleportation System:</b>\n• 🏕️ <b>Teleport to Research Outpost</b> — Instant travel.\n• 🌀 <b>Rift Teleport Dropdown</b> — Choose your rift destination.\n• 🔮 <b>Teleport To Chosen Rift</b> — One-click rift access.\n• ⛺ <b>Teleport to Camp</b> — Quick camp return.\n\n<b>Quality of Life:</b>\n• 📦 <b>Open All Chests via Auto Chest</b> — Loot everything instantly.\n• 💡 <b>Fullbright Button</b> — See clearly during night exploration.\n\n<b><font color=\"#FF0066\">⚔️ KILLAURA UPDATE</font></b>\n\n<b>New Enemy Support:</b>\n• 👹 <b>Brutal Cultist</b> — Full combat support added.\n• 🥝 <b>Kiwi</b> — Auto-targeting enabled.\n• 🌑 <b>Shadow Cultist</b> — Detection & elimination ready.\n• 🕸️ <b>Darkstring Cultist</b> — Combat support active.\n\n<b>Corrupted Animals:</b>\n• 🐺 <b>All Corrupted Animals</b> now supported in KillAura!\n• 🎛️ <b>Easy Control</b> — Disable corrupted variants by toggling base animals.\n• Example: Disable \"Wolf\" to exclude \"Corrupted Wolf\" from targeting.\n\n<b><font color=\"#00FF00\">🌲 TREE FARM UPDATE</font></b>\n\n<b>Corrupted Tree Support:</b>\n• 🌳 <b>Corrupted Small Tree</b> — Auto-farming enabled.\n• 🌲 <b>Corrupted Big Tree</b> — Auto-farming enabled.\n• 🎯 <b>Smart Detection</b> — Automatically attacks Corrupted Big Trees even without 'Big Tree' toggle!\n\n<b>🕸️ Want VW Private?</b>\n• 🔑 Get <b>Voidware Private</b> → store.vapevoidware.xyz\n\n<b>🧠 Need Support?</b>\n• 💬 Join our community → discord.gg/voidware",
+        "date": "01/27/2026",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://72664146355926",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://72664146355926"
+        ],
+        "new": true,
+        "title": "🌑 HARD MODE UPDATE - RIFT EXPLORATION 🔮",
+        "updateLogId": 46,
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FF6600\">[VOIDWARE UPDATE]</font> <font color=\"#C2A86D\">🧚 FAIRY UPDATE & MAJOR OPTIMISATIONS ✨</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#FF4444\">⚔️ KILLAURA REWORKED</font></b>\n• Massive performance optimisation.\n• Added smart internal weapon sorting for maximum damage output.\n\n<b><font color=\"#00FFAA\">🌲 TREE FARM EXPANSION</font></b>\n• Added support for new Fairy Trees.\n• Improved farming consistency and efficiency.\n\n<b><font color=\"#C2A86D\">🧚 FAIRY UPDATE FEATURES</font></b>\n• New Acorn-based bring options.\n• Added teleport utilities for faster Fairy progression.\n\n<b><font color=\"#FF6666\">⚔️ Killaura Update</font></b>\n• 🚀 <b>Heavily Optimised</b> for smoother combat automation.\n• 🗡️ Introduced <b>Internal Weapon Sorting</b> — always picks the highest-damage tool.\n\n<b><font color=\"#00FFAA\">🌲 Tree Farm Update</font></b>\n• ✨ Added support for <b>Small Fairy Tree</b>.\n• 🌟 Added support for <b>Fairy Big Tree</b>.\n\n<b><font color=\"#C2A86D\">🧚 Fairy Update</font></b>\n• 🍂 Added <b>Bring Options [Acorn]</b>.\n• 🌲 Added <b>Teleport to Fairy Tree</b>.\n\n<b>🕸️ Want VW Private?</b>\n• 🔑 Get <b>Voidware Private</b> → store.vapevoidware.xyz\n\n<b>🧠 Need Support?</b>\n• 💬 Join our community → discord.gg/voidware",
         "date": "02/12/2026",
         "image": {
@@ -10,7 +26,7 @@
         "images": [
             "rbxassetid://111802344518375"
         ],
-        "new": true,
+        "new": false,
         "title": "🧚 FAIRY UPDATE & MAJOR OPTIMISATIONS ✨",
         "updateLogId": 47,
         "videos": [],
