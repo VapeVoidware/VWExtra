@@ -14,7 +14,7 @@
         ],
         "new": true,
         "title": "🔥 BIGGEST BEDWARS UPDATE! + 100+ MODULE UPDATES 🚀",
-        "updateLogId": 49,
+        "updateLogId": 50,
         "videos": [
             {
                 "title": "BIGGEST BEDWARS UPDATE",
@@ -37,7 +37,7 @@
         ],
         "new": false,
         "title": "🌑 HARD MODE UPDATE - RIFT EXPLORATION 🔮",
-        "updateLogId": 48,
+        "updateLogId": 49,
         "visible": true
     },
     {
@@ -53,7 +53,7 @@
         ],
         "new": false,
         "title": "🧚 FAIRY UPDATE & MAJOR OPTIMISATIONS ✨",
-        "updateLogId": 47,
+        "updateLogId": 48,
         "videos": [],
         "visible": true
     },
@@ -70,7 +70,7 @@
         ],
         "new": false,
         "title": "🎄 CHRISTMAS UPDATE V2 ❄️",
-        "updateLogId": 46,
+        "updateLogId": 47,
         "videos": [],
         "visible": true
     },
@@ -88,7 +88,7 @@
         ],
         "new": false,
         "title": "🎄 CHRISTMAS UPDATE & FIXES ❄️",
-        "updateLogId": 45,
+        "updateLogId": 46,
         "videos": [],
         "visible": true
     },
@@ -105,7 +105,7 @@
         ],
         "new": false,
         "title": "🧩 NEW CLASSES TAB + BUG FIXES ⚡",
-        "updateLogId": 44,
+        "updateLogId": 45,
         "videos": [
             {
                 "title": "Explorer Class",
@@ -130,7 +130,7 @@
         ],
         "new": false,
         "title": "🦃 THANKSGIVING MEGA UPDATE + OP NEW MODULES 🍂⚡",
-        "updateLogId": 43,
+        "updateLogId": 44,
         "videos": [
             {
                 "title": "DAY FARM & AUTO STRONGHOLD 🔥",
@@ -153,7 +153,7 @@
         ],
         "new": false,
         "title": "🦌 INJURED DEER MODULE REWORK 🌲⚡",
-        "updateLogId": 42,
+        "updateLogId": 43,
         "visible": true
     },      
     {
@@ -170,7 +170,7 @@
         ],
         "new": false,
         "title": "🔥 DAY FARM V1 + INFINITE SAPLINGS 🌲⚡",
-        "updateLogId": 41,
+        "updateLogId": 42,
         "videos": [
           {
             "title": "FURKY SHOWCASE ⚡🔥",
@@ -194,7 +194,7 @@
         ],
         "new": false,
         "title": "🍭 CANDY FARM UPDATE + LONG AWAITED FEATURES 🌱🔥",
-        "updateLogId": 40,
+        "updateLogId": 41,
         "videos": [
           {
             "title": "AFK CANDY FARM! 🍬🔥",
@@ -218,7 +218,7 @@
         ],
         "new": false,
         "title": "PROJECTILE AIMBOT FIX + HALLOWEEN UPDATE 👻🔥",
-        "updateLogId": 39,
+        "updateLogId": 40,
         "videos": [
           {
             "title": "BEATING THE NEW HALLOWEEN EVENT WITH VOIDWARE 🔥",
@@ -827,7 +827,7 @@
         ],
         "new": false,
         "title": "Mobile Legacy Layout & GUI Optimizations! 🚀",
-        "updateLogId": 12.1,
+        "updateLogId": 12,
         "video": {
             "image": "rbxassetid://72016135124042",
             "url": "https://youtu.be/zF6Gjwfhq9Q"
