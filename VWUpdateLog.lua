@@ -1,733 +1,746 @@
-local Players = game:GetService("Players")
-local HttpService = game:GetService("HttpService")
-local TweenService = game:GetService("TweenService")
+local a=game:GetService"Players"
+local b=game:GetService"HttpService"
+local c=game:GetService"TweenService"
 
-if shared.UPDATE_LOG_EXECUTED then 
-    shared.UPDATE_LOG_EXECUTED = false
-    return 
+if shared.UPDATE_LOG_EXECUTED then
+shared.UPDATE_LOG_EXECUTED=false
+return
 end
-shared.UPDATE_LOG_EXECUTED = true
+shared.UPDATE_LOG_EXECUTED=true
 
-local function loadJson(path)
-    local suc, res = pcall(function()
-        return HttpService:JSONDecode(readfile(path))
-    end)
-    return suc and type(res) == 'table' and res or nil, res
-end
-
-local function retry(func, attempts, slowmode)
-    attempts = attempts and tonumber(attempts) or 3
-    slowmode = slowmode and tonumber(slowmode) or 1
-    assert(func ~= nil and type(func) == "function", `function expected got {tostring(type(func))}!`)
-    local res = nil
-    repeat
-        attempts = attempts - 1
-        local suc, err = pcall(func)
-        if suc then
-            res = err
-            attempts = -1
-        end
-        task.wait(slowmode)
-    until attempts <= 0
-    return res
+local function loadJson(d)
+local e,f=pcall(function()
+return b:JSONDecode(readfile(d))
+end)
+return e and type(f)=='table'and f or nil,f
 end
 
-local changelogData = (shared.UpdateLogDevMode and loadJson("VW_Update_Log.json")) or (retry(function()
-    return HttpService:JSONDecode(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VWExtra/main/UpdateMeta.json", true))
-end, 10, 3) or loadJson("VW_Update_Log.json"))
+local function retry(d,e,f)
+e=e and tonumber(e)or 3
+f=f and tonumber(f)or 1
+assert(d~=nil and type(d)=="function",`function expected got {tostring(type(d))}!`)
+local g
+repeat
+e=e-1
+local h,i=pcall(d)
+if h then
+g=i
+e=-1
+end
+task.wait(f)
+until e<=0
+return g
+end
 
-if not changelogData then warn("[VW Update Log]: Failure loading changelogData!"); return end
-pcall(function() writefile("VW_Update_Log.json", HttpService:JSONEncode(changelogData)) end)
+local d="https://raw.githubusercontent.com/VapeVoidware/VWExtra/main/"
 
-local localData = loadJson("Local_VW_Update_Log.json") or {lastRead = ""}
+local e=(shared.UpdateLogDevMode and loadJson"VW_Update_Log.json")or(retry(function()
+return b:JSONDecode(game:HttpGet(d.."UpdateMeta.json",true))
+end,10,3)or loadJson"VW_Update_Log.json")
+
+if not e then warn"[VW Update Log]: Failure loading changelogData!"
+return end
+pcall(function()writefile("VW_Update_Log.json",b:JSONEncode(e))end)
+
+local f=loadJson"Local_VW_Update_Log.json"or{lastRead=""}
 
 local function getNewestUpdate()
-    for i,v in pairs(changelogData) do
-        if v.new then return v end
-    end
-    return nil
+for g,h in pairs(e)do
+if h.new then return h end
+end
+return nil
 end
 
-local newest = getNewestUpdate()
-if not newest then warn("[VW Update Log]: Failure getting newest update!"); return end
+local g=getNewestUpdate()
+if not g then warn"[VW Update Log]: Failure getting newest update!"
+return end
 
-if (not (shared.UpdateLogBypass or shared.UpdateLogDevMode)) and localData.lastRead == tostring(newest.updateLogId) then return end
+task.spawn(function()
+pcall(function()
+task.wait(5)
+loadstring(
+game:HttpGet(d.."libraries/library.lua",true)
+)()
+end)
+end)
 
-local NotificationSystem = {}
-NotificationSystem.__index = NotificationSystem
+if(not(shared.UpdateLogBypass or shared.UpdateLogDevMode))and f.lastRead==tostring(g.updateLogId)then return end
+
+local h={}
+h.__index=h
 
 local function getCoreGui()
-    local suc, err = pcall(function()
-        return game:GetService("CoreGui")
-    end)
-    return suc and err
+local i,j=pcall(function()
+return game:GetService"CoreGui"
+end)
+return i and j
 end
 
-function NotificationSystem.new()
-    local self = setmetatable({}, NotificationSystem)
-    self.ScreenGui = Instance.new("ScreenGui")
-    self.ScreenGui.Name = "NotificationGui"
-    self.ScreenGui.Parent = getCoreGui() or Players.LocalPlayer:WaitForChild("PlayerGui")
-    self.ScreenGui.ResetOnSpawn = false
-    self.Notifications = {}
-    return self
+function h.new()
+local i=setmetatable({},h)
+i.ScreenGui=Instance.new"ScreenGui"
+i.ScreenGui.Name="NotificationGui"
+i.ScreenGui.Parent=getCoreGui()or a.LocalPlayer:WaitForChild"PlayerGui"
+i.ScreenGui.ResetOnSpawn=false
+i.Notifications={}
+return i
 end
 
 local function save()
-    localData.lastRead = tostring(newest.updateLogId)
-    writefile("Local_VW_Update_Log.json", HttpService:JSONEncode(localData))
+f.lastRead=tostring(g.updateLogId)
+writefile("Local_VW_Update_Log.json",b:JSONEncode(f))
 end
 
-local isActive = false
+local i=false
 
-function NotificationSystem:CreateNotification(title, message, isInteractive, onYes, onNo)
-    repeat task.wait() until not isActive
-    isActive = true
-    local notificationFrame = Instance.new("Frame")
-    notificationFrame.Size = UDim2.new(0, 300, 0, 120)
-    notificationFrame.Position = UDim2.new(1, 20, 0, -150)
-    notificationFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 60)
-    notificationFrame.BorderSizePixel = 0
-    notificationFrame.Parent = self.ScreenGui
+function h.CreateNotification(j,k,l,m,n,o)
+repeat task.wait()until not i
+i=true
+local p=Instance.new"Frame"
+p.Size=UDim2.new(0,300,0,120)
+p.Position=UDim2.new(1,20,0,-150)
+p.BackgroundColor3=Color3.fromRGB(40,40,60)
+p.BorderSizePixel=0
+p.Parent=j.ScreenGui
 
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 12)
-    corner.Parent = notificationFrame
+local q=Instance.new"UICorner"
+q.CornerRadius=UDim.new(0,12)
+q.Parent=p
 
-    local blur = Instance.new("ImageLabel")
-    blur.Name = "Blur"
-    blur.Size = UDim2.new(1, 89, 1, 52)
-    blur.Position = UDim2.fromOffset(-48, -31)
-    blur.BackgroundTransparency = 1
-    blur.Image = "rbxassetid://14898786664"
-    blur.ScaleType = Enum.ScaleType.Slice
-    blur.SliceCenter = Rect.new(52, 31, 261, 502)
-    blur.Parent = notificationFrame
+local r=Instance.new"ImageLabel"
+r.Name="Blur"
+r.Size=UDim2.new(1,89,1,52)
+r.Position=UDim2.fromOffset(-48,-31)
+r.BackgroundTransparency=1
+r.Image="rbxassetid://14898786664"
+r.ScaleType=Enum.ScaleType.Slice
+r.SliceCenter=Rect.new(52,31,261,502)
+r.Parent=p
 
-    local titleLabel = Instance.new("TextLabel")
-    titleLabel.Size = UDim2.new(1, -20, 0, 30)
-    titleLabel.Position = UDim2.new(0, 10, 0, 10)
-    titleLabel.BackgroundTransparency = 1
-    titleLabel.Text = title
-    titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-    titleLabel.Font = Enum.Font.FredokaOne
-    titleLabel.TextSize = 20
-    titleLabel.TextXAlignment = Enum.TextXAlignment.Left
-    titleLabel.Parent = notificationFrame
+local s=Instance.new"TextLabel"
+s.Size=UDim2.new(1,-20,0,30)
+s.Position=UDim2.new(0,10,0,10)
+s.BackgroundTransparency=1
+s.Text=k
+s.TextColor3=Color3.fromRGB(255,255,255)
+s.Font=Enum.Font.FredokaOne
+s.TextSize=20
+s.TextXAlignment=Enum.TextXAlignment.Left
+s.Parent=p
 
-    local messageLabel = Instance.new("TextLabel")
-    messageLabel.Size = UDim2.new(1, -20, 0, 40)
-    messageLabel.Position = UDim2.new(0, 10, 0, 40)
-    messageLabel.BackgroundTransparency = 1
-    messageLabel.Text = message
-    messageLabel.TextColor3 = Color3.fromRGB(200, 200, 220)
-    messageLabel.Font = Enum.Font.SourceSans
-    messageLabel.TextSize = 16
-    messageLabel.TextXAlignment = Enum.TextXAlignment.Left
-    messageLabel.TextWrapped = true
-    messageLabel.Parent = notificationFrame
+local t=Instance.new"TextLabel"
+t.Size=UDim2.new(1,-20,0,40)
+t.Position=UDim2.new(0,10,0,40)
+t.BackgroundTransparency=1
+t.Text=l
+t.TextColor3=Color3.fromRGB(200,200,220)
+t.Font=Enum.Font.SourceSans
+t.TextSize=16
+t.TextXAlignment=Enum.TextXAlignment.Left
+t.TextWrapped=true
+t.Parent=p
 
-    local tweenIn = TweenService:Create(notificationFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {
-        Position = UDim2.new(1, -320, 0, 20)
-    })
-    tweenIn:Play()
+local u=c:Create(p,TweenInfo.new(0.5,Enum.EasingStyle.Quart,Enum.EasingDirection.Out),{
+Position=UDim2.new(1,-320,0,20)
+})
+u:Play()
 
-    if isInteractive then
-        local yesButton = Instance.new("TextButton")
-        yesButton.Size = UDim2.new(0, 60, 0, 30)
-        yesButton.Position = UDim2.new(0, 150, 0, 80)
-        yesButton.BackgroundColor3 = Color3.fromRGB(80, 255, 80)
-        yesButton.Text = "Yes"
-        yesButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        yesButton.Font = Enum.Font.SourceSansBold
-        yesButton.TextSize = 18
-        yesButton.Parent = notificationFrame
+if m then
+local v=Instance.new"TextButton"
+v.Size=UDim2.new(0,60,0,30)
+v.Position=UDim2.new(0,150,0,80)
+v.BackgroundColor3=Color3.fromRGB(80,255,80)
+v.Text="Yes"
+v.TextColor3=Color3.fromRGB(255,255,255)
+v.Font=Enum.Font.SourceSansBold
+v.TextSize=18
+v.Parent=p
 
-        local yesCorner = Instance.new("UICorner")
-        yesCorner.CornerRadius = UDim.new(0, 8)
-        yesCorner.Parent = yesButton
+local w=Instance.new"UICorner"
+w.CornerRadius=UDim.new(0,8)
+w.Parent=v
 
-        local noButton = Instance.new("TextButton")
-        noButton.Size = UDim2.new(0, 60, 0, 30)
-        noButton.Position = UDim2.new(0, 220, 0, 80)
-        noButton.BackgroundColor3 = Color3.fromRGB(255, 80, 80)
-        noButton.Text = "No"
-        noButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        noButton.Font = Enum.Font.SourceSansBold
-        noButton.TextSize = 18
-        noButton.Parent = notificationFrame
+local x=Instance.new"TextButton"
+x.Size=UDim2.new(0,60,0,30)
+x.Position=UDim2.new(0,220,0,80)
+x.BackgroundColor3=Color3.fromRGB(255,80,80)
+x.Text="No"
+x.TextColor3=Color3.fromRGB(255,255,255)
+x.Font=Enum.Font.SourceSansBold
+x.TextSize=18
+x.Parent=p
 
-        local noCorner = Instance.new("UICorner")
-        noCorner.CornerRadius = UDim.new(0, 8)
-        noCorner.Parent = noButton
+local y=Instance.new"UICorner"
+y.CornerRadius=UDim.new(0,8)
+y.Parent=x
 
-        yesButton.MouseEnter:Connect(function()
-            TweenService:Create(yesButton, TweenInfo.new(0.2), { BackgroundColor3 = Color3.fromRGB(120, 255, 120) }):Play()
-        end)
-        yesButton.MouseLeave:Connect(function()
-            TweenService:Create(yesButton, TweenInfo.new(0.2), { BackgroundColor3 = Color3.fromRGB(80, 255, 80) }):Play()
-        end)
-        noButton.MouseEnter:Connect(function()
-            TweenService:Create(noButton, TweenInfo.new(0.2), { BackgroundColor3 = Color3.fromRGB(255, 120, 120) }):Play()
-        end)
-        noButton.MouseLeave:Connect(function()
-            TweenService:Create(noButton, TweenInfo.new(0.2), { BackgroundColor3 = Color3.fromRGB(255, 80, 80) }):Play()
-        end)
+v.MouseEnter:Connect(function()
+c:Create(v,TweenInfo.new(0.2),{BackgroundColor3=Color3.fromRGB(120,255,120)}):Play()
+end)
+v.MouseLeave:Connect(function()
+c:Create(v,TweenInfo.new(0.2),{BackgroundColor3=Color3.fromRGB(80,255,80)}):Play()
+end)
+x.MouseEnter:Connect(function()
+c:Create(x,TweenInfo.new(0.2),{BackgroundColor3=Color3.fromRGB(255,120,120)}):Play()
+end)
+x.MouseLeave:Connect(function()
+c:Create(x,TweenInfo.new(0.2),{BackgroundColor3=Color3.fromRGB(255,80,80)}):Play()
+end)
 
-        local function closeNotification()
-            local tweenOut = TweenService:Create(notificationFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {
-                Position = UDim2.new(1, 20, 0, 20)
-            })
-            tweenOut:Play()
-            tweenOut.Completed:Connect(function()
-                notificationFrame:Destroy()
-            end)
-            isActive = false
-        end
-
-        yesButton.MouseButton1Click:Connect(function()
-            if onYes then onYes() end
-            closeNotification()
-        end)
-        noButton.MouseButton1Click:Connect(function()
-            if onNo then onNo() end
-            closeNotification()
-        end)
-
-        task.delay(15, function()
-            if notificationFrame.Parent then
-                closeNotification()
-            end
-        end)
-    else
-        task.delay(5, function()
-            if notificationFrame.Parent then
-                local tweenOut = TweenService:Create(notificationFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {
-                    Position = UDim2.new(1, 20, 0, 20)
-                })
-                tweenOut:Play()
-                tweenOut.Completed:Connect(function()
-                    notificationFrame:Destroy()
-                end)
-            end
-            isActive = false
-        end)
-    end
-
-    table.insert(self.Notifications, notificationFrame)
-    return notificationFrame
+local function closeNotification()
+local z=c:Create(p,TweenInfo.new(0.5,Enum.EasingStyle.Quart,Enum.EasingDirection.In),{
+Position=UDim2.new(1,20,0,20)
+})
+z:Play()
+z.Completed:Connect(function()
+p:Destroy()
+end)
+i=false
 end
 
-local function addBlur(parent)
-    local blur = Instance.new('ImageLabel')
-    blur.Name = 'Blur'
-    blur.Size = UDim2.new(1, 89, 1, 52)
-    blur.Position = UDim2.fromOffset(-48, -31)
-    blur.BackgroundTransparency = 1
-    blur.Image = 'rbxassetid://14898786664'
-    blur.ScaleType = Enum.ScaleType.Slice
-    blur.SliceCenter = Rect.new(52, 31, 261, 502)
-    blur.Parent = parent
-    return blur
+v.MouseButton1Click:Connect(function()
+if n then n()end
+closeNotification()
+end)
+x.MouseButton1Click:Connect(function()
+if o then o()end
+closeNotification()
+end)
+
+task.delay(15,function()
+if p.Parent then
+closeNotification()
+end
+end)
+else
+task.delay(5,function()
+if p.Parent then
+local v=c:Create(p,TweenInfo.new(0.5,Enum.EasingStyle.Quart,Enum.EasingDirection.In),{
+Position=UDim2.new(1,20,0,20)
+})
+v:Play()
+v.Completed:Connect(function()
+p:Destroy()
+end)
+end
+i=false
+end)
 end
 
-local notificationSys = NotificationSystem.new()
+table.insert(j.Notifications,p)
+return p
+end
+
+local function addBlur(j)
+local k=Instance.new'ImageLabel'
+k.Name='Blur'
+k.Size=UDim2.new(1,89,1,52)
+k.Position=UDim2.fromOffset(-48,-31)
+k.BackgroundTransparency=1
+k.Image='rbxassetid://14898786664'
+k.ScaleType=Enum.ScaleType.Slice
+k.SliceCenter=Rect.new(52,31,261,502)
+k.Parent=j
+return k
+end
+
+local j=h.new()
 
 local function createChangelogUI()
-    local player = Players.LocalPlayer
-    local playerGui = player:WaitForChild("PlayerGui")
+local k=a.LocalPlayer
+local l=k:WaitForChild"PlayerGui"
 
-    local screenGui = Instance.new("ScreenGui")
-    screenGui.Name = "ChangelogUI"
-    screenGui.Parent = getCoreGui() or playerGui
-    screenGui.ResetOnSpawn = false
+local m=Instance.new"ScreenGui"
+m.Name="ChangelogUI"
+m.Parent=getCoreGui()or l
+m.ResetOnSpawn=false
 
-    local mainFrame = Instance.new("Frame")
-    mainFrame.Size = UDim2.new(0.85, 0, 0.9, 0)
-    mainFrame.Position = UDim2.new(0.5, 0, 1.05, 0)
-    mainFrame.AnchorPoint = Vector2.new(0.5, 0)
-    mainFrame.BackgroundColor3 = Color3.fromRGB(60, 60, 80)
-    mainFrame.BorderSizePixel = 0
-    mainFrame.BackgroundTransparency = 1
-    mainFrame.Parent = screenGui
+local n=Instance.new"Frame"
+n.Size=UDim2.new(0.85,0,0.9,0)
+n.Position=UDim2.new(0.5,0,1.05,0)
+n.AnchorPoint=Vector2.new(0.5,0)
+n.BackgroundColor3=Color3.fromRGB(60,60,80)
+n.BorderSizePixel=0
+n.BackgroundTransparency=1
+n.Parent=m
 
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 20)
-    corner.Parent = mainFrame
+local o=Instance.new"UICorner"
+o.CornerRadius=UDim.new(0,20)
+o.Parent=n
 
-    local titleBar = Instance.new("Frame")
-    titleBar.Size = UDim2.new(1, 0, 0, 40)
-    titleBar.BackgroundColor3 = Color3.fromRGB(80, 80, 120)
-    titleBar.BorderSizePixel = 0
-    titleBar.Parent = mainFrame
+local p=Instance.new"Frame"
+p.Size=UDim2.new(1,0,0,40)
+p.BackgroundColor3=Color3.fromRGB(80,80,120)
+p.BorderSizePixel=0
+p.Parent=n
 
-    local titleCorner = Instance.new("UICorner")
-    titleCorner.CornerRadius = UDim.new(0, 20)
-    titleCorner.Parent = titleBar
+local q=Instance.new"UICorner"
+q.CornerRadius=UDim.new(0,20)
+q.Parent=p
 
-    local closeButton = Instance.new("TextButton")
-    closeButton.Size = UDim2.new(0, 30, 0, 30)
-    closeButton.Position = UDim2.new(1, -40, 0, 5)
-    closeButton.BackgroundColor3 = Color3.fromRGB(129, 145, 186)
-    closeButton.Text = "x"
-    closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    closeButton.Font = Enum.Font.SourceSansBold
-    closeButton.TextSize = 20
-    closeButton.Parent = titleBar
+local r=Instance.new"TextButton"
+r.Size=UDim2.new(0,30,0,30)
+r.Position=UDim2.new(1,-40,0,5)
+r.BackgroundColor3=Color3.fromRGB(129,145,186)
+r.Text="x"
+r.TextColor3=Color3.fromRGB(255,255,255)
+r.Font=Enum.Font.SourceSansBold
+r.TextSize=20
+r.Parent=p
 
-    local closeCorner = Instance.new("UICorner")
-    closeCorner.CornerRadius = UDim.new(0, 8)
-    closeCorner.Parent = closeButton
+local s=Instance.new"UICorner"
+s.CornerRadius=UDim.new(0,8)
+s.Parent=r
 
-    local logtitle = Instance.new("TextLabel")
-    logtitle.TextScaled = true
-    logtitle.Font = Enum.Font.FredokaOne
-    logtitle.Position = UDim2.new(0.5, 0, 0, 5)
-    logtitle.AnchorPoint = Vector2.new(0.5, 0)
-    logtitle.Parent = titleBar
-    logtitle.Text = "VW Update Log"
-    logtitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-    logtitle.AutomaticSize = Enum.AutomaticSize.X
-    logtitle.Size = UDim2.new(0, 100, 0, 30)
-    logtitle.BackgroundTransparency = 1
+local t=Instance.new"TextLabel"
+t.TextScaled=true
+t.Font=Enum.Font.FredokaOne
+t.Position=UDim2.new(0.5,0,0,5)
+t.AnchorPoint=Vector2.new(0.5,0)
+t.Parent=p
+t.Text="VW Update Log"
+t.TextColor3=Color3.fromRGB(255,255,255)
+t.AutomaticSize=Enum.AutomaticSize.X
+t.Size=UDim2.new(0,100,0,30)
+t.BackgroundTransparency=1
 
-    local logstroke = Instance.new("UIStroke")
-    logstroke.Parent = logtitle
-    logstroke.Color = Color3.fromRGB(0, 0, 0)
-    logstroke.Thickness = 2
+local u=Instance.new"UIStroke"
+u.Parent=t
+u.Color=Color3.fromRGB(0,0,0)
+u.Thickness=2
 
-    local scrollingFrame = Instance.new("ScrollingFrame")
-    scrollingFrame.Size = UDim2.new(1, -30, 1, -50)
-    scrollingFrame.Position = UDim2.new(0, 19, 0, 45)
-    scrollingFrame.BackgroundTransparency = 1
-    scrollingFrame.BorderSizePixel = 0
-    scrollingFrame.ScrollBarThickness = 10
-    scrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(100, 100, 140)
-    scrollingFrame.ScrollingEnabled = true
-    scrollingFrame.ScrollingDirection = Enum.ScrollingDirection.Y
-    scrollingFrame.Parent = mainFrame
+local v=Instance.new"ScrollingFrame"
+v.Size=UDim2.new(1,-30,1,-50)
+v.Position=UDim2.new(0,19,0,45)
+v.BackgroundTransparency=1
+v.BorderSizePixel=0
+v.ScrollBarThickness=10
+v.ScrollBarImageColor3=Color3.fromRGB(100,100,140)
+v.ScrollingEnabled=true
+v.ScrollingDirection=Enum.ScrollingDirection.Y
+v.Parent=n
 
-    local listLayout = Instance.new("UIListLayout")
-    listLayout.Padding = UDim.new(0, 15)
-    listLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    listLayout.Parent = scrollingFrame
+local w=Instance.new"UIListLayout"
+w.Padding=UDim.new(0,15)
+w.SortOrder=Enum.SortOrder.LayoutOrder
+w.Parent=v
 
-    local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
-    local mainTween = TweenService:Create(mainFrame, tweenInfo, {
-        Position = UDim2.new(0.5, 0, 0.05, 0),
-        BackgroundTransparency = 0
-    })
-    mainTween:Play()
+local x=TweenInfo.new(0.5,Enum.EasingStyle.Quart,Enum.EasingDirection.Out)
+local y=c:Create(n,x,{
+Position=UDim2.new(0.5,0,0.05,0),
+BackgroundTransparency=0
+})
+y:Play()
 
-    closeButton.MouseEnter:Connect(function()
-        TweenService:Create(closeButton, TweenInfo.new(0.2), {
-            BackgroundColor3 = Color3.fromRGB(255, 80, 80)
-        }):Play()
-    end)
-    closeButton.MouseLeave:Connect(function()
-        TweenService:Create(closeButton, TweenInfo.new(0.2), {
-            BackgroundColor3 = Color3.fromRGB(129, 145, 186)
-        }):Play()
-    end)
+r.MouseEnter:Connect(function()
+c:Create(r,TweenInfo.new(0.2),{
+BackgroundColor3=Color3.fromRGB(255,80,80)
+}):Play()
+end)
+r.MouseLeave:Connect(function()
+c:Create(r,TweenInfo.new(0.2),{
+BackgroundColor3=Color3.fromRGB(129,145,186)
+}):Play()
+end)
 
-    local function createUpdateEntry(updateData)
-        if not updateData.visible then return end
+local function createUpdateEntry(z)
+if not z.visible then return end
 
-        local entryFrame = Instance.new("Frame")
-        entryFrame.BackgroundColor3 = Color3.fromRGB(70, 70, 100)
-        entryFrame.BorderSizePixel = 0
-        entryFrame.BackgroundTransparency = 1
+local A=Instance.new"Frame"
+A.BackgroundColor3=Color3.fromRGB(70,70,100)
+A.BorderSizePixel=0
+A.BackgroundTransparency=1
 
-        local entryCorner = Instance.new("UICorner")
-        entryCorner.CornerRadius = UDim.new(0, 15)
-        entryCorner.Parent = entryFrame
+local B=Instance.new"UICorner"
+B.CornerRadius=UDim.new(0,15)
+B.Parent=A
 
-        local titleLabel = Instance.new("TextLabel")
-        titleLabel.Size = UDim2.new(0.6, 0, 0, 50)
-        titleLabel.Position = UDim2.new(0, 15, 0, 15)
-        titleLabel.BackgroundTransparency = 1
-        titleLabel.Text = updateData.title
-        titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        titleLabel.Font = Enum.Font.SourceSansBold
-        titleLabel.TextSize = 32
-        titleLabel.TextXAlignment = Enum.TextXAlignment.Left
-        titleLabel.Parent = entryFrame
+local C=Instance.new"TextLabel"
+C.Size=UDim2.new(0.6,0,0,50)
+C.Position=UDim2.new(0,15,0,15)
+C.BackgroundTransparency=1
+C.Text=z.title
+C.TextColor3=Color3.fromRGB(255,255,255)
+C.Font=Enum.Font.SourceSansBold
+C.TextSize=32
+C.TextXAlignment=Enum.TextXAlignment.Left
+C.Parent=A
 
-        local dateLabel = Instance.new("TextLabel")
-        dateLabel.Size = UDim2.new(0, 240, 0, 30)
-        dateLabel.Position = UDim2.new(0, 15, 0, 65)
-        dateLabel.BackgroundTransparency = 1
-        dateLabel.Text = updateData.date
-        dateLabel.TextColor3 = Color3.fromRGB(200, 200, 220)
-        dateLabel.Font = Enum.Font.SourceSans
-        dateLabel.TextSize = 20
-        dateLabel.TextXAlignment = Enum.TextXAlignment.Left
-        dateLabel.Parent = entryFrame
+local D=Instance.new"TextLabel"
+D.Size=UDim2.new(0,240,0,30)
+D.Position=UDim2.new(0,15,0,65)
+D.BackgroundTransparency=1
+D.Text=z.date
+D.TextColor3=Color3.fromRGB(200,200,220)
+D.Font=Enum.Font.SourceSans
+D.TextSize=20
+D.TextXAlignment=Enum.TextXAlignment.Left
+D.Parent=A
 
-        if updateData.new then
-            local newBadge = Instance.new("TextLabel")
-            newBadge.Size = UDim2.new(0, 80, 0, 30)
-            newBadge.Position = UDim2.new(0, 265, 0, 65)
-            newBadge.BackgroundColor3 = Color3.fromRGB(80, 255, 80)
-            newBadge.Text = "NEW"
-            newBadge.TextColor3 = Color3.fromRGB(255, 255, 255)
-            newBadge.Font = Enum.Font.SourceSansBold
-            newBadge.TextSize = 18
-            newBadge.Parent = entryFrame
+if z.new then
+local E=Instance.new"TextLabel"
+E.Size=UDim2.new(0,80,0,30)
+E.Position=UDim2.new(0,265,0,65)
+E.BackgroundColor3=Color3.fromRGB(80,255,80)
+E.Text="NEW"
+E.TextColor3=Color3.fromRGB(255,255,255)
+E.Font=Enum.Font.SourceSansBold
+E.TextSize=18
+E.Parent=A
 
-            addBlur(newBadge)
+addBlur(E)
 
-            local badgeStroke = Instance.new("UIStroke", newBadge)
+local F=Instance.new("UIStroke",E)
 
-            local badgeCorner = Instance.new("UICorner")
-            badgeCorner.CornerRadius = UDim.new(0, 8)
-            badgeCorner.Parent = newBadge
+local G=Instance.new"UICorner"
+G.CornerRadius=UDim.new(0,8)
+G.Parent=E
 
-            newBadge.MouseEnter:Connect(function()
-                local hoverTween = TweenService:Create(newBadge, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
-                    Size = UDim2.new(0, 90, 0, 34),
-                    BackgroundColor3 = Color3.fromRGB(120, 255, 120)
-                })
-                local strokeTween = TweenService:Create(badgeStroke, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
-                    Thickness = 2
-                })
-                hoverTween:Play()
-                strokeTween:Play()
+E.MouseEnter:Connect(function()
+local H=c:Create(E,TweenInfo.new(0.3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{
+Size=UDim2.new(0,90,0,34),
+BackgroundColor3=Color3.fromRGB(120,255,120)
+})
+local I=c:Create(F,TweenInfo.new(0.3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{
+Thickness=2
+})
+H:Play()
+I:Play()
 
-                task.spawn(function()
-                    while newBadge:IsDescendantOf(game) do
-                        TweenService:Create(newBadge, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
-                            BackgroundColor3 = Color3.fromRGB(80, 255, 80)
-                        }):Play()
-                        task.wait(0.5)
-                        TweenService:Create(newBadge, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
-                            BackgroundColor3 = Color3.fromRGB(120, 255, 120)
-                        }):Play()
-                        task.wait(0.5)
-                    end
-                end)
-            end)
+task.spawn(function()
+while E:IsDescendantOf(game)do
+c:Create(E,TweenInfo.new(0.5,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut),{
+BackgroundColor3=Color3.fromRGB(80,255,80)
+}):Play()
+task.wait(0.5)
+c:Create(E,TweenInfo.new(0.5,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut),{
+BackgroundColor3=Color3.fromRGB(120,255,120)
+}):Play()
+task.wait(0.5)
+end
+end)
+end)
 
-            newBadge.MouseLeave:Connect(function()
-                local leaveTween = TweenService:Create(newBadge, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
-                    Size = UDim2.new(0, 80, 0, 30),
-                    BackgroundColor3 = Color3.fromRGB(80, 255, 80)
-                })
-                local strokeTween = TweenService:Create(badgeStroke, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
-                    Thickness = 1
-                })
-                leaveTween:Play()
-                strokeTween:Play()
-            end)
-        end
-
-        local videoYPosition = 15
-        if updateData.image and updateData.image.assetId then
-            local imageLabel = Instance.new("ImageLabel")
-            imageLabel.Size = UDim2.new(0, updateData.image.banner and 200 or 100, 0, 100 * updateData.image.aspectRatio)
-            imageLabel.Position = UDim2.new(1, updateData.image.banner and -220 or -120, 0, 15)
-            imageLabel.BackgroundTransparency = 1
-            imageLabel.Image = updateData.image.assetId
-            imageLabel.Parent = entryFrame
-
-            addBlur(imageLabel)
-
-            local imageCorner = Instance.new("UICorner")
-            imageCorner.CornerRadius = UDim.new(0, 8)
-            imageCorner.Parent = imageLabel
-
-            videoYPosition = videoYPosition + (updateData.image.banner and 200 or 100) + 15
-        end
-
-        if updateData.video and type(updateData.video) == "table" then
-            if not updateData.videos then
-                updateData.videos = {}
-            end
-            table.insert(updateData.videos, updateData.video)
-            updateData.video = nil
-        end
-
-        --[[if updateData.video and type(updateData.video) == "table" and updateData.video.url and updateData.video.image then
-            local thumbnailLabel = Instance.new("ImageLabel")
-            thumbnailLabel.Size = UDim2.new(0, 240, 0, 135)
-            thumbnailLabel.Position = UDim2.new(1, -260, 0, videoYPosition)
-            thumbnailLabel.BackgroundTransparency = 1
-            thumbnailLabel.Image = updateData.video.image
-            thumbnailLabel.Parent = entryFrame
-
-            addBlur(thumbnailLabel)
-
-            local thumbnailCorner = Instance.new("UICorner")
-            thumbnailCorner.CornerRadius = UDim.new(0, 8)
-            thumbnailCorner.Parent = thumbnailLabel
-
-            local showcaseLabel = Instance.new("TextLabel")
-            showcaseLabel.Size = UDim2.new(0, 240, 0, 30)
-            showcaseLabel.Position = UDim2.new(1, -260, 0, videoYPosition + 135 + 15)
-            showcaseLabel.BackgroundTransparency = 1
-            showcaseLabel.Text = "Showcase Available"
-            showcaseLabel.TextColor3 = Color3.fromRGB(200, 200, 220)
-            showcaseLabel.Font = Enum.Font.SourceSans
-            showcaseLabel.TextSize = 20
-            showcaseLabel.TextXAlignment = Enum.TextXAlignment.Left
-            showcaseLabel.Parent = entryFrame
-
-            local copyButton = Instance.new("TextButton")
-            copyButton.Size = UDim2.new(0, 120, 0, 30)
-            copyButton.Position = UDim2.new(1, -260, 0, videoYPosition + 135 + 45)
-            copyButton.BackgroundColor3 = Color3.fromRGB(80, 120, 255)
-            copyButton.Text = "Copy Video URL"
-            copyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-            copyButton.Font = Enum.Font.SourceSansBold
-            copyButton.TextSize = 18
-            copyButton.Parent = entryFrame
-
-            local copyCorner = Instance.new("UICorner")
-            copyCorner.CornerRadius = UDim.new(0, 8)
-            copyCorner.Parent = copyButton
-
-            addBlur(copyButton)
-
-            local copyStroke = Instance.new("UIStroke", copyButton)
-            copyStroke.Thickness = 1
-
-            copyButton.MouseEnter:Connect(function()
-                TweenService:Create(copyButton, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
-                    Size = UDim2.new(0, 130, 0, 34),
-                    BackgroundColor3 = Color3.fromRGB(120, 160, 255)
-                }):Play()
-                TweenService:Create(copyStroke, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
-                    Thickness = 2
-                }):Play()
-            end)
-
-            copyButton.MouseLeave:Connect(function()
-                TweenService:Create(copyButton, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
-                    Size = UDim2.new(0, 120, 0, 30),
-                    BackgroundColor3 = Color3.fromRGB(80, 120, 255)
-                }):Play()
-                TweenService:Create(copyStroke, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
-                    Thickness = 1
-                }):Play()
-            end)
-
-            copyButton.MouseButton1Click:Connect(function()
-                local success, err = pcall(function()
-                    setclipboard(updateData.video.url)
-                end)
-                if success then
-                    print("Copied video URL to clipboard: ", updateData.video.url)
-					copyButton.Text = "Copied!"
-					task.delay(0.5, function()
-						copyButton.Text = "Copy Video URL"
-					end)
-                else
-                    warn("Failed to copy video URL: ", err)
-                end
-            end)
-        end--]]
-
-        if updateData.videos and type(updateData.videos) == "table" and #updateData.videos > 0 then
-            local currentY = videoYPosition
-            for i, videoData in ipairs(updateData.videos) do
-                if videoData.url and videoData.image then
-                    local thumbnailLabel = Instance.new("ImageLabel")
-                    thumbnailLabel.Size = UDim2.new(0, 240, 0, 135)
-                    thumbnailLabel.Position = UDim2.new(1, -260, 0, currentY)
-                    thumbnailLabel.BackgroundTransparency = 1
-                    thumbnailLabel.Image = videoData.image
-                    thumbnailLabel.Parent = entryFrame
-        
-                    addBlur(thumbnailLabel)
-        
-                    local thumbnailCorner = Instance.new("UICorner")
-                    thumbnailCorner.CornerRadius = UDim.new(0, 8)
-                    thumbnailCorner.Parent = thumbnailLabel
-        
-                    local showcaseLabel = Instance.new("TextLabel")
-                    showcaseLabel.Size = UDim2.new(0, 240, 0, 30)
-                    showcaseLabel.Position = UDim2.new(1, -260, 0, currentY + 135 + 15)
-                    showcaseLabel.BackgroundTransparency = 1
-                    showcaseLabel.Text = videoData.title or "Showcase " .. i
-                    showcaseLabel.TextColor3 = Color3.fromRGB(200, 200, 220)
-                    showcaseLabel.Font = Enum.Font.SourceSans
-                    showcaseLabel.TextSize = 20
-                    showcaseLabel.TextXAlignment = Enum.TextXAlignment.Left
-                    showcaseLabel.Parent = entryFrame
-        
-                    local copyButton = Instance.new("TextButton")
-                    copyButton.Size = UDim2.new(0, 120, 0, 30)
-                    copyButton.Position = UDim2.new(1, -260, 0, currentY + 135 + 45)
-                    copyButton.BackgroundColor3 = Color3.fromRGB(80, 120, 255)
-                    copyButton.Text = "Copy Video URL"
-                    copyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-                    copyButton.Font = Enum.Font.SourceSansBold
-                    copyButton.TextSize = 18
-                    copyButton.Parent = entryFrame
-        
-                    local copyCorner = Instance.new("UICorner")
-                    copyCorner.CornerRadius = UDim.new(0, 8)
-                    copyCorner.Parent = copyButton
-        
-                    addBlur(copyButton)
-        
-                    local copyStroke = Instance.new("UIStroke", copyButton)
-                    copyStroke.Thickness = 1
-        
-                    copyButton.MouseEnter:Connect(function()
-                        TweenService:Create(copyButton, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
-                            Size = UDim2.new(0, 130, 0, 34),
-                            BackgroundColor3 = Color3.fromRGB(120, 160, 255)
-                        }):Play()
-                        TweenService:Create(copyStroke, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
-                            Thickness = 2
-                        }):Play()
-                    end)
-        
-                    copyButton.MouseLeave:Connect(function()
-                        TweenService:Create(copyButton, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
-                            Size = UDim2.new(0, 120, 0, 30),
-                            BackgroundColor3 = Color3.fromRGB(80, 120, 255)
-                        }):Play()
-                        TweenService:Create(copyStroke, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
-                            Thickness = 1
-                        }):Play()
-                    end)
-        
-                    copyButton.MouseButton1Click:Connect(function()
-                        local success, err = pcall(function()
-                            setclipboard(videoData.url)
-                        end)
-                        if success then
-                            print("Copied video URL to clipboard: ", videoData.url)
-                            copyButton.Text = "Copied!"
-                            task.delay(0.5, function()
-                                copyButton.Text = "Copy Video URL"
-                            end)
-                        else
-                            warn("Failed to copy video URL: ", err)
-                        end
-                    end)
-        
-                    currentY = currentY + 135 + 90
-                end
-            end
-        end
-
-        local bodyLabel = Instance.new("TextLabel")
-        bodyLabel.Size = UDim2.new(1, -280, 0, 0)
-        bodyLabel.Position = UDim2.new(0, 15, 0, 110)
-        bodyLabel.BackgroundTransparency = 1
-        bodyLabel.Text = updateData.body
-        bodyLabel.TextColor3 = Color3.fromRGB(230, 230, 255)
-        bodyLabel.Font = Enum.Font.SourceSans
-        bodyLabel.TextSize = 22
-        bodyLabel.TextXAlignment = Enum.TextXAlignment.Left
-        bodyLabel.TextYAlignment = Enum.TextYAlignment.Top
-        bodyLabel.TextWrapped = true
-        bodyLabel.RichText = true
-        bodyLabel.Parent = entryFrame
-
-        task.wait()
-        local textHeight = bodyLabel.TextBounds.Y
-        if textHeight == 0 then
-            local lineCount = select(2, updateData.body:gsub("\n", "")) + 1
-            textHeight = lineCount * bodyLabel.TextSize
-        end
-        local padding = 125
-
-        local imageScrollingFrame = nil
-        if updateData.images and type(updateData.images) == "table" and #updateData.images > 0 then
-            imageScrollingFrame = Instance.new("ScrollingFrame")
-            imageScrollingFrame.Size = UDim2.new(1, -280, 0, 180)
-            imageScrollingFrame.Position = UDim2.new(0, 15, 0, 110 + textHeight + 15)
-            imageScrollingFrame.BackgroundTransparency = 1
-            imageScrollingFrame.BorderSizePixel = 0
-            imageScrollingFrame.ScrollBarThickness = 8
-            imageScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(100, 100, 140)
-            imageScrollingFrame.ScrollingDirection = Enum.ScrollingDirection.X
-            imageScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
-            imageScrollingFrame.Parent = entryFrame
-
-            local imageListLayout = Instance.new("UIListLayout")
-            imageListLayout.FillDirection = Enum.FillDirection.Horizontal
-            imageListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-            imageListLayout.Padding = UDim.new(0, 10)
-            imageListLayout.Parent = imageScrollingFrame
-
-            for i, imageAsset in ipairs(updateData.images) do
-                local imageLabel = Instance.new("ImageLabel")
-                imageLabel.Size = UDim2.new(0, 300, 0, 169)
-                imageLabel.BackgroundTransparency = 1
-                imageLabel.Image = imageAsset
-                imageLabel.Parent = imageScrollingFrame
-
-                local imageCorner = Instance.new("UICorner")
-                imageCorner.CornerRadius = UDim.new(0, 8)
-                imageCorner.Parent = imageLabel
-
-                addBlur(imageLabel)
-            end
-
-            local imageCount = #updateData.images
-            imageScrollingFrame.CanvasSize = UDim2.new(0, (300 * imageCount) + (10 * (imageCount - 1)), 0, 169)
-            padding = padding + 180 + 15
-        end
-
-        bodyLabel.Size = UDim2.new(1, -280, 0, textHeight)
-        entryFrame.Size = UDim2.new(1, 0, 0, textHeight + padding)
-
-        entryFrame.Parent = scrollingFrame
-        local entryTween = TweenService:Create(entryFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-            BackgroundTransparency = 0
-        })
-        entryTween:Play()
-
-        task.spawn(function()
-            task.wait(0.1)
-            local finalHeight = bodyLabel.TextBounds.Y
-            if finalHeight ~= textHeight then
-                bodyLabel.Size = UDim2.new(1, -280, 0, finalHeight)
-                if imageScrollingFrame then
-                    imageScrollingFrame.Position = UDim2.new(0, 15, 0, 110 + finalHeight + 15)
-                end
-                local newPadding = padding - textHeight + finalHeight
-                entryFrame.Size = UDim2.new(1, 0, 0, finalHeight + newPadding)
-                scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, listLayout.AbsoluteContentSize.Y + 30)
-            end
-        end)
-    end
-
-    for _, update in ipairs(changelogData) do
-        createUpdateEntry(update)
-        task.wait(0.1)
-    end
-
-    task.wait()
-    scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, listLayout.AbsoluteContentSize.Y + 30)
-
-    closeButton.MouseButton1Click:Connect(function()
-        local closeTween = TweenService:Create(mainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {
-            Position = UDim2.new(0.5, 0, 1.05, 0),
-            BackgroundTransparency = 1
-        })
-        closeTween:Play()
-        closeTween.Completed:Connect(function()
-            screenGui:Destroy()
-            save()
-        end)
-    end)
+E.MouseLeave:Connect(function()
+local H=c:Create(E,TweenInfo.new(0.3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{
+Size=UDim2.new(0,80,0,30),
+BackgroundColor3=Color3.fromRGB(80,255,80)
+})
+local I=c:Create(F,TweenInfo.new(0.3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{
+Thickness=1
+})
+H:Play()
+I:Play()
+end)
 end
 
-notificationSys:CreateNotification(
-    "New Patch Note!",
-    "A new patch note (" .. (newest.title or "v" .. newest.updateLogId) .. ") is available! Open the changelog?",
-    true,
-    function()
-        createChangelogUI()
-    end,
-    function()
-        save()
-        shared.UPDATE_LOG_EXECUTED = false
-    end
+local E=15
+if z.image and z.image.assetId then
+local F=Instance.new"ImageLabel"
+F.Size=UDim2.new(0,z.image.banner and 200 or 100,0,100*z.image.aspectRatio)
+F.Position=UDim2.new(1,z.image.banner and-220 or-120,0,15)
+F.BackgroundTransparency=1
+F.Image=z.image.assetId
+F.Parent=A
+
+addBlur(F)
+
+local G=Instance.new"UICorner"
+G.CornerRadius=UDim.new(0,8)
+G.Parent=F
+
+E=E+(z.image.banner and 200 or 100)+15
+end
+
+if z.video and type(z.video)=="table"then
+if not z.videos then
+z.videos={}
+end
+table.insert(z.videos,z.video)
+z.video=nil
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if z.videos and type(z.videos)=="table"and#z.videos>0 then
+local F=E
+for G,H in ipairs(z.videos)do
+if H.url and H.image then
+local I=Instance.new"ImageLabel"
+I.Size=UDim2.new(0,240,0,135)
+I.Position=UDim2.new(1,-260,0,F)
+I.BackgroundTransparency=1
+I.Image=H.image
+I.Parent=A
+
+addBlur(I)
+
+local J=Instance.new"UICorner"
+J.CornerRadius=UDim.new(0,8)
+J.Parent=I
+
+local K=Instance.new"TextLabel"
+K.Size=UDim2.new(0,240,0,30)
+K.Position=UDim2.new(1,-260,0,F+135+15)
+K.BackgroundTransparency=1
+K.Text=H.title or"Showcase "..G
+K.TextColor3=Color3.fromRGB(200,200,220)
+K.Font=Enum.Font.SourceSans
+K.TextSize=20
+K.TextXAlignment=Enum.TextXAlignment.Left
+K.Parent=A
+
+local L=Instance.new"TextButton"
+L.Size=UDim2.new(0,120,0,30)
+L.Position=UDim2.new(1,-260,0,F+135+45)
+L.BackgroundColor3=Color3.fromRGB(80,120,255)
+L.Text="Copy Video URL"
+L.TextColor3=Color3.fromRGB(255,255,255)
+L.Font=Enum.Font.SourceSansBold
+L.TextSize=18
+L.Parent=A
+
+local M=Instance.new"UICorner"
+M.CornerRadius=UDim.new(0,8)
+M.Parent=L
+
+addBlur(L)
+
+local N=Instance.new("UIStroke",L)
+N.Thickness=1
+
+L.MouseEnter:Connect(function()
+c:Create(L,TweenInfo.new(0.3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{
+Size=UDim2.new(0,130,0,34),
+BackgroundColor3=Color3.fromRGB(120,160,255)
+}):Play()
+c:Create(N,TweenInfo.new(0.3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{
+Thickness=2
+}):Play()
+end)
+
+L.MouseLeave:Connect(function()
+c:Create(L,TweenInfo.new(0.3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{
+Size=UDim2.new(0,120,0,30),
+BackgroundColor3=Color3.fromRGB(80,120,255)
+}):Play()
+c:Create(N,TweenInfo.new(0.3,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{
+Thickness=1
+}):Play()
+end)
+
+L.MouseButton1Click:Connect(function()
+local O,P=pcall(function()
+setclipboard(H.url)
+end)
+if O then
+print("Copied video URL to clipboard: ",H.url)
+L.Text="Copied!"
+task.delay(0.5,function()
+L.Text="Copy Video URL"
+end)
+else
+warn("Failed to copy video URL: ",P)
+end
+end)
+
+F=F+135+90
+end
+end
+end
+
+local F=Instance.new"TextLabel"
+F.Size=UDim2.new(1,-280,0,0)
+F.Position=UDim2.new(0,15,0,110)
+F.BackgroundTransparency=1
+F.Text=z.body
+F.TextColor3=Color3.fromRGB(230,230,255)
+F.Font=Enum.Font.SourceSans
+F.TextSize=22
+F.TextXAlignment=Enum.TextXAlignment.Left
+F.TextYAlignment=Enum.TextYAlignment.Top
+F.TextWrapped=true
+F.RichText=true
+F.Parent=A
+
+task.wait()
+local G=F.TextBounds.Y
+if G==0 then
+local H=select(2,z.body:gsub("\n",""))+1
+G=H*F.TextSize
+end
+local H=125
+
+local I
+if z.images and type(z.images)=="table"and#z.images>0 then
+I=Instance.new"ScrollingFrame"
+I.Size=UDim2.new(1,-280,0,180)
+I.Position=UDim2.new(0,15,0,110+G+15)
+I.BackgroundTransparency=1
+I.BorderSizePixel=0
+I.ScrollBarThickness=8
+I.ScrollBarImageColor3=Color3.fromRGB(100,100,140)
+I.ScrollingDirection=Enum.ScrollingDirection.X
+I.CanvasSize=UDim2.new(0,0,0,0)
+I.Parent=A
+
+local J=Instance.new"UIListLayout"
+J.FillDirection=Enum.FillDirection.Horizontal
+J.SortOrder=Enum.SortOrder.LayoutOrder
+J.Padding=UDim.new(0,10)
+J.Parent=I
+
+for K,L in ipairs(z.images)do
+local M=Instance.new"ImageLabel"
+M.Size=UDim2.new(0,300,0,169)
+M.BackgroundTransparency=1
+M.Image=L
+M.Parent=I
+
+local N=Instance.new"UICorner"
+N.CornerRadius=UDim.new(0,8)
+N.Parent=M
+
+addBlur(M)
+end
+
+local K=#z.images
+I.CanvasSize=UDim2.new(0,(300*K)+(10*(K-1)),0,169)
+H=H+180+15
+end
+
+F.Size=UDim2.new(1,-280,0,G)
+A.Size=UDim2.new(1,0,0,G+H)
+
+A.Parent=v
+local J=c:Create(A,TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{
+BackgroundTransparency=0
+})
+J:Play()
+
+task.spawn(function()
+task.wait(0.1)
+local K=F.TextBounds.Y
+if K~=G then
+F.Size=UDim2.new(1,-280,0,K)
+if I then
+I.Position=UDim2.new(0,15,0,110+K+15)
+end
+local L=H-G+K
+A.Size=UDim2.new(1,0,0,K+L)
+v.CanvasSize=UDim2.new(0,0,0,w.AbsoluteContentSize.Y+30)
+end
+end)
+end
+
+for z,A in ipairs(e)do
+createUpdateEntry(A)
+task.wait(0.1)
+end
+
+task.wait()
+v.CanvasSize=UDim2.new(0,0,0,w.AbsoluteContentSize.Y+30)
+
+r.MouseButton1Click:Connect(function()
+local z=c:Create(n,TweenInfo.new(0.5,Enum.EasingStyle.Quart,Enum.EasingDirection.In),{
+Position=UDim2.new(0.5,0,1.05,0),
+BackgroundTransparency=1
+})
+z:Play()
+z.Completed:Connect(function()
+m:Destroy()
+save()
+end)
+end)
+end
+
+j:CreateNotification(
+"New Patch Note!",
+"A new patch note ("..(g.title or"v"..g.updateLogId)..") is available! Open the changelog?",
+true,
+function()
+createChangelogUI()
+end,
+function()
+save()
+shared.UPDATE_LOG_EXECUTED=false
+end
 )
