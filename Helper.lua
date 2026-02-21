@@ -21,7 +21,7 @@ end
 
 local WindUI
 
-local commit = shared.WIND_UI_CUSTOM_COMMIT or "2b420a0b912cc10d05da639c8bde60eaa2c9f017"
+local commit = shared.WIND_UI_CUSTOM_COMMIT or "138673fab634b53d3cd525b5c71c24ee26a65d6d"
 
 local approved, res = false, nil
 for i = 1, 5 do
@@ -31,7 +31,10 @@ for i = 1, 5 do
 					and isfolder("vwdev")
 					and isfile("vwdev/windui.lua")
 					and readfile("vwdev/windui.lua")
-				or game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/WindUI/"..tostring(commit).."/dist/main.lua", true)
+				or game:HttpGet(
+					"https://raw.githubusercontent.com/VapeVoidware/WindUI/" .. tostring(commit) .. "/dist/main.lua",
+					true
+				)
 		end,
 		5,
 		function(suc, err)
@@ -50,16 +53,22 @@ WindUI = loadstring(res)()
 getgenv().Toggles = getgenv().Toggles or {}
 getgenv().Options = getgenv().Options or {}
 
-if
-	shared.NightsInTheForest
-	or shared.VoidwareForsaken
-	or shared.VoidwareDoors
-	or shared.VoidwareHypershot
-	or shared.VoidwareInkGame
-	or shared.PlantsVSBrainrots
-	or shared.TheForge
-then
-	shared.VoidwareCustom = true
+for _, v in
+	{
+		"NightsInTheForest",
+		"VoidwareForsaken",
+		"VoidwareDoors",
+		"VoidwareHypershot",
+		"VoidwareInkGame",
+		"PlantsVSBrainrots",
+		"TheForge",
+		"LavaBrainrots",
+	}
+do
+	if shared[v] then
+		shared.VoidwareCustom = true
+		break
+	end
 end
 
 local WindUIAdapter = {}
@@ -883,7 +892,7 @@ local RuntimeLib = {
 			end)
 		else
 			pcall(function()
-				WindUI:SetTheme("Christmas")
+				WindUI:SetTheme("Sweetheart")
 			end)
 		end
 		themeDropdown:Select(WindUI:GetCurrentTheme())
@@ -1069,6 +1078,7 @@ local Tabs_Meta = {
 		"auto eat",
 		"infinitefly",
 		"security",
+		"anti afk",
 		"auto vote",
 		"interaction",
 		"killaura",
@@ -1087,6 +1097,7 @@ local Tabs_Meta = {
 		"auto chest",
 		"auto favorite",
 		"auto crock pot",
+		"auto stun",
 		"auto campfire",
 		"auto collect",
 		"plant stuff",
@@ -1126,6 +1137,7 @@ local Tabs_Meta = {
 	},
 	updatefocused = {
 		--"update focused",
+		"valentines update",
 		"hard mode update",
 		"fairy update",
 		"christmas",
@@ -1208,7 +1220,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
 		elseif Tabs_Meta.updatefocused ~= nil and table.find(Tabs_Meta.updatefocused, string.lower(searchIndex)) then
 			WindUIAdapter._updatefocusedtab = WindUIAdapter._updatefocusedtab
 				or GetTab("Update Focused")
-				or section:Tab({ Title = "Update Focused", Icon = "sword" })
+				or section:Tab({ Title = "Update Focused", Icon = "heart" })
 			local sec = WindUIAdapter._updatefocusedtab:Section({
 				Title = title,
 				TextXAlignment = "Left",
@@ -1642,6 +1654,7 @@ function WindUIAdapter:Unload()
 	end
 	self.Unloaded = true
 	getgenv().voidware_loaded = false
+	shared.Voidware_LavaBrainrots_Library = nil
 	shared.Voidware_InkGame_Library = nil
 	shared.Voidware_Forsaken_Library = nil
 	shared.Voidware_Hypershot_Library = nil
