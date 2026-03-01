@@ -1,5 +1,22 @@
 [
     {
+        "body": "<b><font color=\"#228B22\">[JUNGLE UPDATE]</font> <font color=\"#00AA00\">🌴 TRAP DISABLING + CULTIST SYNC ⚔️</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#FF8C00\">🏛️ NEW JUNGLE CONTENT EXPANDED</font></b>\n• Master the jungle with full trap disabling & teleportation tools.\n• Complete dungeon automation for seamless farming.\n\n<b><font color=\"#FFD700\">🎯 GUI IMPROVEMENTS</font></b>\n• Tags support added to sections for better organization.\n• Enhanced interface with categorization features.\n\n<b><font color=\"#FF6B9D\">👹 KILLAURA ENHANCED</font></b>\n• New cultist & boar support for expanded combat.\n• Extended enemy compatibility & precision targeting.\n\n<b><font color=\"#228B22\">🏛️ JUNGLE UPDATE – FOCUSED</font></b>\n• ⚡ <b>Disable Traps</b> — Arrow Traps, Dropping Tiles, Spike Traps <i>(Voidware Private)</i>.\n• 💨 <b>Disable Quicksand Slowmode</b> — Move freely through hazards.\n• 🌴 <b>Teleport Options</b> — Jungle Temple & Jungle MiniTemple fast travel.\n• 🔓 <b>Instant Open Chests</b> — Skip the wait, grab your loot instantly.\n• 🗝️ <b>Bring Skull Keys</b> — Automatically collect keys to your position.\n\n<b><font color=\"#FF8C00\">🎨 GUI UPDATE</font></b>\n• 🏷️ <b>Tags Support Added</b> — Section tags for better feature organization & categorization.\n\n<b><font color=\"#8B00FF\">⚔️ KILLAURA ENHANCEMENTS</font></b>\n• 👹 <b>New Monster Support</b> — Jungle Cultist & Boar added to target list.\n• 🎯 <b>Extended Compatibility</b> — Fight new jungle enemies with precision.\n\n<b><font color=\"#00AA00\">👥 BRING CULTISTS UPDATE</font></b>\n• 🔄 <b>Synced to Latest Cultists</b> — All cultist variants now fully supported.\n\n<b><font color=\"#FF0000\">🔒 VOIDWARE PRIVATE EXCLUSIVE</font></b>\n• 🎟️ <b>Some features require Voidware Private access</b>\n• Full trap disabling system locked to Premium users.\n• 🏆 Unlock the complete jungle experience today.\n• 🔑 Store → https://store.vapevoidware.xyz\n\n<b>🧠 Need Support?</b>\n• 💬 Visit our support channel on Discord.\n\n<b>🎯 Get Voidware Private Now!</b>\n• Available in our store & reseller channels.",
+        "date": "02/21/2026",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://85256785110222",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://85256785110222"
+        ],
+        "new": true,
+        "title": "🌴 JUNGLE UPDATE + TRAP DISABLING ⚔️",
+        "updateLogId": 52,
+        "videos": [],
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#FF4DA6\">[VALENTINE’S UPDATE]</font> <font color=\"#FF1493\">💘 SWEETHEART THEME + EVENT FEATURES 🌹</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#FF69B4\">💖 NEW “Sweetheart” Theme (Default)</font></b>\n• Clean Valentine-inspired interface now set as the <b>default theme</b>.\n• Soft visuals, polished colors & smoother experience.\n\n<b><font color=\"#FF3366\">🌹 Valentine Features Expanded</font></b>\n• Event-focused update with automation & teleport features.\n• Faster farming and smoother flower collection.\n\n<b><font color=\"#FF9900\">⚙️ Quality Improvements</font></b>\n• Better stability and automation control.\n• Important pickup & interaction fixes.\n\n<b><font color=\"#FF4DA6\">💌 VALENTINES UPDATE – FOCUSED</font></b>\n• 💐 <b>Bouquet Creator GUI</b> — Craft bouquets with a clean new interface.\n• 🌸 <b>Flower Bring</b> — Instantly collect flowers to your position.\n• ⚡ <b>Instant Take Flower</b> — Grab flowers with no delay.\n• 💘 <b>Teleport to Valentine NPCs</b> — Quickly access all event NPCs.\n\n<b><font color=\"#A020F0\">⚙️ AUTO STUN – Improvements</font></b>\n• 📏 <b>Range Slider</b> — Full control over stun distance.\n• 👾 <b>Monsters Choice Dropdown</b> — Select which monsters to target.\n\n<b><font color=\"#FFD700\">🌞 DAY FARM UPDATE</font></b>\n• 📅 <b>Real Day Counter</b> — Track true in-game day progression.\n\n<b><font color=\"#00CC66\">🛠️ FIXES & POLISH</font></b>\n• 🧲 Fixed <b>RangeCircle pickup issue</b> — No more ground item problems.\n• 🎨 Sweetheart Theme automatically applied for all users.\n\n<b><font color=\"#FF0000\">💝 LIMITED VALENTINE DISCOUNT</font></b>\n• 🎟️ <b>10% OFF Voidware Private (1 Week & Lifetime)</b>\n• Use code: <b>VALENTINES</b>\n• 🗓️ Valid until <b>February 28th</b> only.\n• 🔑 Store → https://store.vapevoidware.xyz\n\n<b>🧠 Need Support?</b>\n• 💬 Visit our support channel on Discord.\n\n<b>🎯 Get Voidware Private Now!</b>\n• Available in our store & reseller channels.",
         "date": "02/21/2026",
         "image": {
@@ -10,7 +27,7 @@
         "images": [
             "rbxassetid://82535110804728"
         ],
-        "new": true,
+        "new": false,
         "title": "💘 VALENTINE’S UPDATE + SWEETHEART THEME 🌹",
         "updateLogId": 51,
         "videos": [
