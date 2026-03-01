@@ -21,7 +21,7 @@ end
 
 local WindUI
 
-local commit = shared.WIND_UI_CUSTOM_COMMIT or "138673fab634b53d3cd525b5c71c24ee26a65d6d"
+local commit = shared.WIND_UI_CUSTOM_COMMIT or "0d2440828bfb05ea4986287aeb499a619bcd3102"
 
 local approved, res = false, nil
 for i = 1, 5 do
@@ -63,6 +63,7 @@ for _, v in
 		"PlantsVSBrainrots",
 		"TheForge",
 		"LavaBrainrots",
+		"GardenHorizons",
 	}
 do
 	if shared[v] then
@@ -1079,6 +1080,7 @@ local Tabs_Meta = {
 		"infinitefly",
 		"security",
 		"anti afk",
+		"plant value",
 		"auto vote",
 		"interaction",
 		"killaura",
@@ -1093,7 +1095,10 @@ local Tabs_Meta = {
 	automation = {
 		"auto sell",
 		"auto buy",
+		"auto plant",
+		"auto pickup",
 		"auto fuse",
+		"auto buy seed",
 		"auto chest",
 		"auto favorite",
 		"auto crock pot",
@@ -1137,6 +1142,7 @@ local Tabs_Meta = {
 	},
 	updatefocused = {
 		--"update focused",
+		"jungle update",
 		"valentines update",
 		"hard mode update",
 		"fairy update",
@@ -1220,7 +1226,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
 		elseif Tabs_Meta.updatefocused ~= nil and table.find(Tabs_Meta.updatefocused, string.lower(searchIndex)) then
 			WindUIAdapter._updatefocusedtab = WindUIAdapter._updatefocusedtab
 				or GetTab("Update Focused")
-				or section:Tab({ Title = "Update Focused", Icon = "heart" })
+				or section:Tab({ Title = "Update Focused", Icon = "trees" })
 			local sec = WindUIAdapter._updatefocusedtab:Section({
 				Title = title,
 				TextXAlignment = "Left",
@@ -1658,6 +1664,7 @@ function WindUIAdapter:Unload()
 	shared.Voidware_InkGame_Library = nil
 	shared.Voidware_Forsaken_Library = nil
 	shared.Voidware_Hypershot_Library = nil
+	shared.Voidware_GardenHorizons_Library = nil
 	shared.Voidware_NightsInTheForest_Library = nil
 end
 
