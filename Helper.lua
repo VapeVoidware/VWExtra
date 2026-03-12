@@ -21,7 +21,7 @@ end
 
 local WindUI
 
-local commit = shared.WIND_UI_CUSTOM_COMMIT or "0d2440828bfb05ea4986287aeb499a619bcd3102"
+local commit = shared.WIND_UI_CUSTOM_COMMIT or "31744558e378b0bd1c16f2fd727531372969b033"
 
 local approved, res = false, nil
 for i = 1, 5 do
@@ -398,6 +398,7 @@ local RuntimeLib = {
 		if title ~= "Information" then
 			return
 		end
+
 		if WindUI._win then
 			for i, v in pairs(WindUI._win.TabModule.Tabs) do
 				if v.Title == "Information" then
@@ -406,6 +407,7 @@ local RuntimeLib = {
 				end
 			end
 		end
+
 		pcall(function()
 			if shared.VW_AUTOFARM_SCRIPT then
 				tab:Section({
@@ -415,87 +417,122 @@ local RuntimeLib = {
 				})
 			end
 		end)
-		shared.WindUI = WindUI
-		local InviteCode = "voidware"
-		local DiscordAPI = "https://discord.com/api/v10/invites/"
-			.. InviteCode
-			.. "?with_counts=true&with_expiration=true"
 
-		local suc, Response
-		task.spawn(function()
-			local ok, result = pcall(function()
-				return WindUI.Creator.Request({
-					Url = DiscordAPI,
-					Method = "GET",
-					Headers = {
-						["User-Agent"] = "RobloxBot/1.0",
-						["Accept"] = "application/json",
-					},
-				})
+		shared.WindUI = WindUI
+
+		if not shared.VoidwareCSInit then
+			local InviteCode = "voidware"
+			local DiscordAPI = "https://discord.com/api/v10/invites/"
+				.. InviteCode
+				.. "?with_counts=true&with_expiration=true"
+
+			local suc, Response
+			task.spawn(function()
+				local ok, result = pcall(function()
+					return WindUI.Creator.Request({
+						Url = DiscordAPI,
+						Method = "GET",
+						Headers = {
+							["User-Agent"] = "RobloxBot/1.0",
+							["Accept"] = "application/json",
+						},
+					})
+				end)
+				if ok and result and result.Body then
+					local decoded = HttpService:JSONDecode(result.Body)
+					suc, Response = true, decoded
+				else
+					suc, Response = false, result
+				end
 			end)
 
-			if ok and result and result.Body then
-				local decoded = HttpService:JSONDecode(result.Body)
-				suc, Response = true, decoded
-			else
-				suc, Response = false, result
+			local start = tick()
+			repeat
+				task.wait()
+			until suc ~= nil or tick() - start >= 5
+
+			if suc and Response and Response.guild then
+				local DiscordInfo = tab:Paragraph({
+					Title = Response.guild.name,
+					Thumbnail = "https://cdn.discordapp.com/banners/1143463175019302942/1aeaf6910d47902a25094a0258714961.webp?size=512",
+					Desc = ' <font color="#52525b">•</font> Member Count : '
+						.. tostring(Response.approximate_member_count)
+						.. '\n <font color="#16a34a">•</font> Online Count : '
+						.. tostring(Response.approximate_presence_count),
+					Image = "https://cdn.discordapp.com/icons/"
+						.. Response.guild.id
+						.. "/"
+						.. Response.guild.icon
+						.. ".png?size=1024",
+					ImageSize = 42,
+				})
+
+				tab:Button({
+					Title = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION("Update Discord Info")
+						or "Update Discord Info",
+					Image = "refresh-ccw",
+					Callback = function()
+						local UpdatedResponse = HttpService:JSONDecode(WindUI.Creator.Request({
+							Url = DiscordAPI,
+							Method = "GET",
+						}).Body)
+						if UpdatedResponse and UpdatedResponse.guild then
+							DiscordInfo:SetDesc(
+								' <font color="#52525b">•</font> Member Count : '
+									.. tostring(UpdatedResponse.approximate_member_count)
+									.. '\n <font color="#16a34a">•</font> Online Count : '
+									.. tostring(UpdatedResponse.approximate_presence_count)
+							)
+						end
+					end,
+				})
 			end
-		end)
+		else
+			local ChannelID = "UCxzH512TVLFHTSme89LXyiA"
+			local ChannelName = "PedrinTravasOFC"
+			local ChannelPFP =
+				"https://yt3.googleusercontent.com/L5q8RzOVaiD8VVpyZpbuiqoekSLic8Zg43tjH9tjiah0u91-DJIQR2HmAG6sCg6nVSwILMRi=s160-c-k-c0x00ffffff-no-rj"
+			local ChannelBanner =
+				"https://yt3.googleusercontent.com/mNqqWUAlCf1iZ75dunc6NRbidAbyL_n1P8YvOegyUjdHUe-uKZYvEDxxRtEoY9xW3mvOAfaH=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
 
-		local start = tick()
-		repeat
-			task.wait()
-		until suc ~= nil or tick() - start >= 5
+			task.spawn(function()
+				local ok, result = pcall(function()
+					return WindUI.Creator.Request({
+						Url = "https://www.youtube.com/feeds/videos.xml?channel_id=" .. ChannelID,
+						Method = "GET",
+					})
+				end)
+				if ok and result and result.Body then
+					local name = result.Body:match("<title>(.-)</title>")
+					if name and name ~= "" then
+						ChannelName = name
+					end
+				end
+			end)
 
-		if suc and Response and Response.guild then
-			local DiscordInfo = tab:Paragraph({
-				Title = Response.guild.name,
-				Thumbnail = "https://cdn.discordapp.com/banners/1143463175019302942/1aeaf6910d47902a25094a0258714961.webp?size=512",
-				Desc = ' <font color="#52525b">•</font> Member Count : '
-					.. tostring(Response.approximate_member_count)
-					.. '\n <font color="#16a34a">•</font> Online Count : '
-					.. tostring(Response.approximate_presence_count),
-				Image = "https://cdn.discordapp.com/icons/"
-					.. Response.guild.id
-					.. "/"
-					.. Response.guild.icon
-					.. ".png?size=1024",
+			tab:Paragraph({
+				Title = ChannelName,
+				Thumbnail = ChannelBanner,
+				Desc = ' <font color="#ff0000">•</font> YouTube Channel'
+					.. '\n <font color="#52525b">•</font> Click below to subscribe! 🔔',
+				Image = ChannelPFP,
 				ImageSize = 42,
 			})
 
 			tab:Button({
-				Title = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION("Update Discord Info")
-					or "Update Discord Info",
-				Image = "refresh-ccw",
+				Title = "🔔 Subscribe",
+				Image = "youtube",
 				Callback = function()
-					local UpdatedResponse = game:GetService("HttpService"):JSONDecode(WindUI.Creator.Request({
-						Url = DiscordAPI,
-						Method = "GET",
-					}).Body)
-
-					if UpdatedResponse and UpdatedResponse and UpdatedResponse.guild then
-						DiscordInfo:SetDesc(
-							' <font color="#52525b">•</font> Member Count : '
-								.. tostring(UpdatedResponse.approximate_member_count)
-								.. '\n <font color="#16a34a">•</font> Online Count : '
-								.. tostring(UpdatedResponse.approximate_presence_count)
-						)
-					end
+					setclipboard("https://www.youtube.com/channel/" .. ChannelID .. "?sub_confirmation=1")
+					WindUIAdapter:Notify("YouTube", "Subscribe link copied! Open your browser 🔔", 3, true)
 				end,
 			})
-		else
-			--[[Tabs.Tests:Paragraph({
-                Title = "Error when receiving information about the Discord server",
-                Desc = game:GetService("HttpService"):JSONEncode(Response),
-                Image = "triangle-alert",
-                ImageSize = 26,
-                Color = "Red",
-            })--]]
 		end
+
 		local keybind = shared.VoidwareInkGame and "M" or "RightShift"
+		local kbtext = shared.VoidwareCSInit and "Pedrin Hub Keybind" or "Voidware Keybind"
 		tab:Keybind({
-			Title = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION("Voidware Keybind")
-				or "Voidware Keybind",
+			Title = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION(kbtext) or kbtext,
 			Desc = shared.TRANSLATION_FUNCTION and shared.TRANSLATION_FUNCTION("Keybind to open ui")
 				or "Keybind to open ui",
 			Value = keybind,
@@ -504,9 +541,11 @@ local RuntimeLib = {
 				WindUI._win:SetToggleKey(Enum.KeyCode[v])
 			end,
 		})
+
 		pcall(function()
 			WindUI._win:SetToggleKey(Enum.KeyCode[keybind])
 		end)
+
 		WindUI._win:OnClose(function()
 			WindUIAdapter:Notify("Window Closed", `Press {tostring(keybind)} to open Voidware again`, 1.5, true)
 		end)
@@ -891,6 +930,10 @@ local RuntimeLib = {
 			pcall(function()
 				WindUI:SetTheme("Red")
 			end)
+		elseif shared.VoidwareCSInit then
+			pcall(function()
+				WindUI:SetTheme("PhantomStorm")
+			end)
 		else
 			pcall(function()
 				WindUI:SetTheme("Sweetheart")
@@ -1065,6 +1108,7 @@ local Tabs_Meta = {
 		"tree farm",
 		--"taming",
 		"infintie saplings",
+		"infinite acorns",
 		"entity godmode",
 		--"fishing",
 		"kill aura",
@@ -1227,6 +1271,12 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
 			WindUIAdapter._updatefocusedtab = WindUIAdapter._updatefocusedtab
 				or GetTab("Update Focused")
 				or section:Tab({ Title = "Update Focused", Icon = "trees" })
+
+			if shared.VoidwareCSInit then
+				pcall(function()
+					WindUIAdapter._updatefocusedtab:SetTabTitle("Game Updates")
+				end)
+			end
 			local sec = WindUIAdapter._updatefocusedtab:Section({
 				Title = title,
 				TextXAlignment = "Left",
@@ -1672,12 +1722,13 @@ function WindUIAdapter:Notify(title, msg, dur, check)
 	if setthreadidentity and type(setthreadidentity) == "function" then
 		pcall(setthreadidentity, 8)
 	end
+	local stitle = shared.VoidwareCSInit and "Pedrin Hub" or "Voidware"
 	if not check then
 		dur = msg
 		msg = title
-		title = "Voidware"
+		title = stitle
 	else
-		title = "Voidware | " .. tostring(title)
+		title = stitle .. " | " .. tostring(title)
 	end
 	return WindUI:Notify({
 		Title = title,
