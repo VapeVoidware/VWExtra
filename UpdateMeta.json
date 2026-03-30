@@ -1,5 +1,22 @@
 [
     {
+        "body": "<b><font color=\"#c9a0dc\">[EASTER UPDATE]</font> <font color=\"#f06fbb\">🐰 EGG HUNTING + BASKET AUTOMATION 🥚</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#f06fbb\">🐣 NEW EASTER CONTENT</font></b>\n• Full Easter egg hunting automation with basket management.\n• Seamless egg collection, filling & depositing in one click.\n\n<b><font color=\"#FFD700\">🎯 EGG BASKET SYSTEM</font></b>\n• Auto-retrieve your Egg Basket from the Easter Bunny House.\n• Fill & deposit your basket with zero manual effort.\n\n<b><font color=\"#c9a0dc\">🗺️ TELEPORTATION TOOLS</font></b>\n• Instantly travel to Easter Eggs across the map.\n• Fast travel directly to the Easter Bunny House.\n\n<b><font color=\"#f06fbb\">🐰 EASTER UPDATE – FOCUSED</font></b>\n• 🥚 <b>Bring Easter Eggs</b> — Teleport chosen eggs directly to you.\n• 🐣 <b>Enable Egg Hunter Class</b> — Instantly equip the Egg Hunter class.\n• 🧺 <b>Fill Up Egg Basket</b> — Auto-collect eggs from the map into your basket.\n• 📦 <b>Deposit All Easter Eggs</b> — Auto-retrieve basket & deposit all eggs at once.\n• 🏠 <b>Teleport To Easter Bunny House</b> — Instant fast travel.\n• 📍 <b>Teleport To Chosen Easter Egg</b> — Searchable dropdown with live egg tracking.\n\n<b><font color=\"#c9a0dc\">🧺 BASKET AUTOMATION</font></b>\n• 🔄 <b>Smart Basket Retrieval</b> — Auto-fetches basket if not in inventory.\n• 🚫 <b>Egg Blacklist System</b> — Filters out unwanted eggs (e.g. Basketball Egg).\n• ⚡ <b>Full Loop</b> — Fill → Deposit → Return, fully automated.\n\n• 🔑 Store → https://store.vapevoidware.xyz\n\n<b>🧠 Need Support?</b>\n• 💬 Visit our support channel on Discord.\n\n<b>🎯 Get Voidware Private Now!</b>\n• Available in our store & reseller channels.",
+        "date": "03/30/2026",
+        "image": {
+            "aspectRatio": 1,
+            "assetId": "rbxassetid://108918463194264",
+            "banner": true
+        },
+        "images": [
+            "rbxassetid://108918463194264"
+        ],
+        "new": true,
+        "title": "🐰 EASTER UPDATE + EGG BASKET AUTOMATION 🥚",
+        "updateLogId": 53,
+        "videos": [],
+        "visible": true
+    },
+    {
         "body": "<b><font color=\"#228B22\">[JUNGLE UPDATE]</font> <font color=\"#00AA00\">🌴 TRAP DISABLING + CULTIST SYNC ⚔️</font></b>\n\n<b>🌟 Major Highlights</b>\n\n<b><font color=\"#FF8C00\">🏛️ NEW JUNGLE CONTENT EXPANDED</font></b>\n• Master the jungle with full trap disabling & teleportation tools.\n• Complete dungeon automation for seamless farming.\n\n<b><font color=\"#FFD700\">🎯 GUI IMPROVEMENTS</font></b>\n• Tags support added to sections for better organization.\n• Enhanced interface with categorization features.\n\n<b><font color=\"#FF6B9D\">👹 KILLAURA ENHANCED</font></b>\n• New cultist & boar support for expanded combat.\n• Extended enemy compatibility & precision targeting.\n\n<b><font color=\"#228B22\">🏛️ JUNGLE UPDATE – FOCUSED</font></b>\n• ⚡ <b>Disable Traps</b> — Arrow Traps, Dropping Tiles, Spike Traps <i>(Voidware Private)</i>.\n• 💨 <b>Disable Quicksand Slowmode</b> — Move freely through hazards.\n• 🌴 <b>Teleport Options</b> — Jungle Temple & Jungle MiniTemple fast travel.\n• 🔓 <b>Instant Open Chests</b> — Skip the wait, grab your loot instantly.\n• 🗝️ <b>Bring Skull Keys</b> — Automatically collect keys to your position.\n\n<b><font color=\"#FF8C00\">🎨 GUI UPDATE</font></b>\n• 🏷️ <b>Tags Support Added</b> — Section tags for better feature organization & categorization.\n\n<b><font color=\"#8B00FF\">⚔️ KILLAURA ENHANCEMENTS</font></b>\n• 👹 <b>New Monster Support</b> — Jungle Cultist & Boar added to target list.\n• 🎯 <b>Extended Compatibility</b> — Fight new jungle enemies with precision.\n\n<b><font color=\"#00AA00\">👥 BRING CULTISTS UPDATE</font></b>\n• 🔄 <b>Synced to Latest Cultists</b> — All cultist variants now fully supported.\n\n<b><font color=\"#FF0000\">🔒 VOIDWARE PRIVATE EXCLUSIVE</font></b>\n• 🎟️ <b>Some features require Voidware Private access</b>\n• Full trap disabling system locked to Premium users.\n• 🏆 Unlock the complete jungle experience today.\n• 🔑 Store → https://store.vapevoidware.xyz\n\n<b>🧠 Need Support?</b>\n• 💬 Visit our support channel on Discord.\n\n<b>🎯 Get Voidware Private Now!</b>\n• Available in our store & reseller channels.",
         "date": "02/21/2026",
         "image": {
@@ -10,7 +27,7 @@
         "images": [
             "rbxassetid://85256785110222"
         ],
-        "new": true,
+        "new": false,
         "title": "🌴 JUNGLE UPDATE + TRAP DISABLING ⚔️",
         "updateLogId": 52,
         "videos": [],

@@ -21,7 +21,7 @@ end
 
 local WindUI
 
-local commit = shared.WIND_UI_CUSTOM_COMMIT or "31744558e378b0bd1c16f2fd727531372969b033"
+local commit = shared.WIND_UI_CUSTOM_COMMIT or "99445a5dd2bcb48c06dbe53b251522739a7ea2ff"
 
 local approved, res = false, nil
 for i = 1, 5 do
@@ -936,7 +936,7 @@ local RuntimeLib = {
 			end)
 		else
 			pcall(function()
-				WindUI:SetTheme("Sweetheart")
+				WindUI:SetTheme("Easter")
 			end)
 		end
 		themeDropdown:Select(WindUI:GetCurrentTheme())
@@ -1186,6 +1186,7 @@ local Tabs_Meta = {
 	},
 	updatefocused = {
 		--"update focused",
+		"easter update",
 		"jungle update",
 		"valentines update",
 		"hard mode update",
@@ -1270,7 +1271,7 @@ function WindUIAdapter.TempTab:handleGroupBox(title, icon)
 		elseif Tabs_Meta.updatefocused ~= nil and table.find(Tabs_Meta.updatefocused, string.lower(searchIndex)) then
 			WindUIAdapter._updatefocusedtab = WindUIAdapter._updatefocusedtab
 				or GetTab("Update Focused")
-				or section:Tab({ Title = "Update Focused", Icon = "trees" })
+				or section:Tab({ Title = "Update Focused", Icon = "egg" })
 
 			if shared.VoidwareCSInit then
 				pcall(function()
